@@ -538,8 +538,7 @@
       let current = state.data;
       for (const part of parts.slice(0, -1)) current = current[part];
       current[parts.at(-1)] = value;
-      state.dirty = true;
-      updateStatus("Co thay doi chua luu");
+      markDirty();
     };
 
     const openLogin = (message = "") => {
@@ -552,6 +551,11 @@
     const updateStatus = (message, type = "") => {
       statusBox.textContent = message;
       statusBox.className = `status ${type}`.trim();
+    };
+
+    const markDirty = () => {
+      state.dirty = true;
+      updateStatus("Co thay doi chua luu", "error");
     };
 
     const field = (label, path, type = "input") => {
@@ -744,8 +748,7 @@
       });
       $("#applyJson").addEventListener("click", () => {
         state.data = JSON.parse($("#jsonEditor").value);
-        state.dirty = true;
-        updateStatus("Da ap dung JSON, chua luu");
+        markDirty();
       });
     };
 
@@ -796,8 +799,7 @@
         input.addEventListener("input", (event) => {
           const items = pathGet(event.target.dataset.arrayPath);
           items[Number(event.target.dataset.arrayIndex)] = event.target.value;
-          state.dirty = true;
-          updateStatus("Co thay doi chua luu");
+          markDirty();
         });
       });
 
@@ -812,9 +814,8 @@
         button.addEventListener("click", () => {
           const path = button.dataset.add;
           pathGet(path).push(emptyForPath(path));
-          state.dirty = true;
           render();
-          updateStatus("Da them muc moi, chua luu");
+          markDirty();
         });
       });
 
@@ -822,9 +823,8 @@
         button.addEventListener("click", () => {
           const [path, index] = button.dataset.remove.split(":");
           pathGet(path).splice(Number(index), 1);
-          state.dirty = true;
           render();
-          updateStatus("Da xoa muc, chua luu");
+          markDirty();
         });
       });
 
@@ -837,9 +837,8 @@
           const target = index + direction;
           if (target < 0 || target >= items.length) return;
           [items[index], items[target]] = [items[target], items[index]];
-          state.dirty = true;
           render();
-          updateStatus("Da sap xep lai, chua luu");
+          markDirty();
         });
       });
     };
@@ -852,7 +851,7 @@
       state.data = payload.data;
       state.updatedAt = payload.updated_at;
       state.dirty = false;
-      updateStatus("Da tai tu Supabase", "ok");
+      updateStatus("Da tai tu Supabase - chua co thay doi", "ok");
       render();
     };
 
@@ -880,7 +879,7 @@
       state.data = payload.data;
       state.updatedAt = payload.updated_at;
       state.dirty = false;
-      updateStatus(`Da luu ${payload.updated_at}`, "ok");
+      updateStatus(`Da luu vao Supabase ${payload.updated_at}`, "ok");
       render();
     };
 
