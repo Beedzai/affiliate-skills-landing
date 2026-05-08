@@ -31,3 +31,8 @@ https://<username>.github.io/<repository-name>/
 - `.nojekyll`: tranh GitHub Pages xu ly bang Jekyll.
 - `404.html`: trang loi cho GitHub Pages.
 - `robots.txt`: cho phep crawl trang.
+
+## Dong bo Vercel
+
+Repo da co GitHub webhook `push` tro toi Vercel endpoint `/api/github-sync`.
+Moi lan co commit moi tren branch `main`, endpoint nay se tao Vercel production deployment moi tu noi dung GitHub hien tai.
