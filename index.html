@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Affiliate Skills - Bo ky nang AI cho affiliate marketing</title>
+  <meta name="description" content="Affiliate Skills giup bien AI thanh doi ngu affiliate marketing: nghien cuu san pham, viet noi dung, tao landing page, trien khai va toi uu chuyen doi.">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-strong: #eef2ff;
+      --text: #111827;
+      --muted: #4b5563;
+      --line: #dbe2ea;
+      --primary: #0f766e;
+      --primary-dark: #0b5f59;
+      --accent: #f59e0b;
+      --danger: #be123c;
+      --shadow: 0 18px 42px rgba(15, 23, 42, .12);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .notice {
+      background: #fff7ed;
+      border-bottom: 1px solid #fed7aa;
+      color: #7c2d12;
+      font-size: .92rem;
+      padding: .8rem 1rem;
+      text-align: center;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      align-items: center;
+      padding: 48px 0 32px;
+      background:
+        linear-gradient(135deg, rgba(15, 118, 110, .12), transparent 38%),
+        linear-gradient(315deg, rgba(245, 158, 11, .16), transparent 34%),
+        #f8fafc;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.03fr) minmax(340px, .97fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      border: 1px solid #99f6e4;
+      background: #ccfbf1;
+      color: #134e4a;
+      font-weight: 700;
+      font-size: .82rem;
+      padding: 7px 10px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.08;
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.45rem, 6vw, 5.2rem);
+      max-width: 11ch;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      max-width: 760px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      max-width: 640px;
+      margin: 22px 0 0;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      padding: 0 18px;
+      font-weight: 800;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, .13);
+    }
+
+    .primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .secondary {
+      background: white;
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .micro {
+      color: var(--muted);
+      font-size: .94rem;
+      margin-top: 12px;
+    }
+
+    .visual {
+      background: #0f172a;
+      color: #e5e7eb;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .14);
+    }
+
+    .visual-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      background: #111827;
+      border-bottom: 1px solid rgba(255, 255, 255, .09);
+    }
+
+    .dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: block;
+      background: #ef4444;
+    }
+
+    .dots span:nth-child(2) {
+      background: #f59e0b;
+    }
+
+    .dots span:nth-child(3) {
+      background: #22c55e;
+    }
+
+    .visual-body {
+      padding: 20px;
+    }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .stage {
+      border: 1px solid rgba(148, 163, 184, .28);
+      background: rgba(15, 23, 42, .78);
+      border-radius: var(--radius);
+      padding: 14px;
+      min-height: 96px;
+    }
+
+    .stage b {
+      display: block;
+      color: #99f6e4;
+      font-size: .84rem;
+      margin-bottom: 8px;
+    }
+
+    .stage span {
+      color: #cbd5e1;
+      font-size: .94rem;
+    }
+
+    .terminal {
+      border-radius: var(--radius);
+      background: #020617;
+      padding: 16px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: .9rem;
+      color: #a7f3d0;
+      overflow: hidden;
+    }
+
+    .terminal p {
+      margin: 0 0 8px;
+      white-space: nowrap;
+    }
+
+    .terminal p:last-child {
+      margin-bottom: 0;
+      color: #fef3c7;
+    }
+
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border-block: 1px solid var(--line);
+    }
+
+    .trust div {
+      background: white;
+      padding: 22px;
+      text-align: center;
+    }
+
+    .trust strong {
+      display: block;
+      font-size: 1.7rem;
+    }
+
+    .trust span {
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 460px;
+      margin: 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, .05);
+    }
+
+    .card .tag {
+      display: inline-block;
+      background: var(--surface-strong);
+      color: #3730a3;
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: .78rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .card p,
+    .split p,
+    .faq p {
+      color: var(--muted);
+      margin: 10px 0 0;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .offer {
+      background: #111827;
+      color: white;
+    }
+
+    .offer p {
+      color: #cbd5e1;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .check {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .check i {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #ccfbf1;
+      color: #134e4a;
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .price-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .price {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1;
+      margin: 10px 0;
+      font-weight: 900;
+    }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .steps li {
+      counter-increment: step;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 18px 18px 58px;
+      position: relative;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--primary);
+      color: white;
+      font-weight: 900;
+      font-size: .85rem;
+    }
+
+    .faq {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .final {
+      text-align: center;
+      background: #ecfeff;
+      border-top: 1px solid #a5f3fc;
+      border-bottom: 1px solid #a5f3fc;
+    }
+
+    .final h2,
+    .final p {
+      margin-inline: auto;
+    }
+
+    footer {
+      padding: 26px 0;
+      background: #020617;
+      color: #cbd5e1;
+      text-align: center;
+      font-size: .92rem;
+    }
+
+    footer a {
+      color: #99f6e4;
+      font-weight: 800;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        min-height: auto;
+        padding-top: 36px;
+      }
+
+      .hero-grid,
+      .split,
+      .pricing {
+        grid-template-columns: 1fr;
+      }
+
+      .visual {
+        max-width: 620px;
+      }
+
+      .trust,
+      .grid-3,
+      .faq {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 14px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .trust,
+      .grid-3,
+      .faq,
+      .pipeline {
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .terminal {
+        font-size: .78rem;
+      }
+
+      section {
+        padding: 52px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="notice">
+    Cong khai minh bach: trang nay gioi thieu Affiliate Skills va co lien ket den GitHub/Affitor. Neu ban them link affiliate rieng, hay giu disclosure nay truoc moi CTA.
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">52 skills AI cho affiliate marketing</div>
+          <h1>Bien AI thanh doi ngu affiliate ban hang</h1>
+          <p class="lead">Affiliate Skills la bo quy trinh giup ban tim chuong trinh affiliate, bat trend noi dung, viet bai co du lieu, tao landing page, trien khai va toi uu chuyen doi trong mot flywheel khep kin.</p>
+          <div class="cta-row">
+            <a class="button primary" href="https://github.com/Affitor/affiliate-skills" target="_blank" rel="noopener">Lay bo skills mien phi</a>
+            <a class="button secondary" href="#workflow">Xem cach van hanh</a>
+          </div>
+          <p class="micro">Hoat dong voi Claude Code, ChatGPT, Gemini, Cursor, Windsurf va bat ky AI nao doc duoc text.</p>
+        </div>
+
+        <div class="visual" aria-label="Mo phong dashboard Affiliate Skills">
+          <div class="visual-top">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <strong>affiliate-skills / flywheel</strong>
+          </div>
+          <div class="visual-body">
+            <div class="pipeline">
+              <div class="stage"><b>S1 Research</b><span>Tim program, scout trend, xep hang angle bang du lieu.</span></div>
+              <div class="stage"><b>S2 Content</b><span>Viet post, script, infographic tu research brief.</span></div>
+              <div class="stage"><b>S4 Landing</b><span>Tao sales page HTML tu chua can build step.</span></div>
+              <div class="stage"><b>S6 Optimize</b><span>Theo doi click, A/B test, dua insight ve research.</span></div>
+            </div>
+            <div class="terminal">
+              <p>&gt; scout trending content about AI video tools</p>
+              <p>Top format: comparison | Best hook: proof-first demo</p>
+              <p>&gt; build a landing page for the winning offer</p>
+              <p>Done: disclosure, 3 CTAs, mobile-ready HTML</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust">
+      <div><strong>52</strong><span>AI-powered skills</span></div>
+      <div><strong>8</strong><span>giai doan flywheel</span></div>
+      <div><strong>0</strong><span>dependency cho landing page</span></div>
+      <div><strong>MIT</strong><span>ma nguon mo</span></div>
+    </div>
+
+    <section id="workflow">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Khong chi la prompt pack. Day la he dieu hanh nho cho affiliate.</h2>
+          <p>Moi skill co workflow, input/output schema va goi y buoc tiep theo, nen ban co the di tu nghien cuu den landing page roi quay lai toi uu bang du lieu.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <span class="tag">Research</span>
+            <h3>Chon offer bang du lieu</h3>
+            <p>Tim chuong trinh affiliate, so sanh commission, cookie, traffic va diem suc khoe website truoc khi ban dau tu noi dung.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Content</span>
+            <h3>Viet thu co co so</h3>
+            <p>Thu thap source, tim angle, viet LinkedIn post, thread, blog, script TikTok va infographic thay vi viet theo cam tinh.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Landing</span>
+            <h3>Ban hang tren trang rieng</h3>
+            <p>Tao landing page AIDA, squeeze page, comparison page, bonus stack va CTA ro rang de day traffic ve mot muc tieu duy nhat.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="offer">
+      <div class="wrap split">
+        <div>
+          <h2>Tu y tuong den click affiliate trong mot quy trinh co the lap lai</h2>
+          <p>Thay vi mo nhieu tab, viet noi dung roi cau may, Affiliate Skills ep moi buoc phai co dau vao va dau ra ro rang: trend nao dang thang, offer nao dang dang quang cao, angle nao nen test, page nao nen deploy.</p>
+          <div class="cta-row">
+            <a class="button primary" href="https://github.com/Affitor/affiliate-skills" target="_blank" rel="noopener">Mo repo tren GitHub</a>
+          </div>
+        </div>
+        <div class="checklist">
+          <div class="check"><i>✓</i><div><strong>Phu hop nguoi moi</strong><br><span>Bat dau bang funnel-planner de co roadmap tung tuan.</span></div></div>
+          <div class="check"><i>✓</i><div><strong>Phu hop creator</strong><br><span>Bien mot research brief thanh post, short video, infographic va bio link.</span></div></div>
+          <div class="check"><i>✓</i><div><strong>Phu hop marketer</strong><br><span>Danh gia offer, xay trang chuyen doi, tracking va lap bao cao hieu suat.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap pricing">
+        <div class="price-card">
+          <span class="tag">Open source</span>
+          <h2>Bat dau voi chi phi 0 dong</h2>
+          <div class="price">Free</div>
+          <p>Repo MIT license. Ban co the dung truc tiep voi AI hien tai, hoac clone vao moi truong lam viec cua minh.</p>
+          <div class="cta-row">
+            <a class="button primary" href="https://github.com/Affitor/affiliate-skills" target="_blank" rel="noopener">Cai dat ngay</a>
+          </div>
+        </div>
+        <div>
+          <h2>Cach dung nhanh</h2>
+          <ol class="steps">
+            <li><strong>Mo repo hoac copy bootstrap prompt.</strong><br>Nap Affiliate Skills vao AI ban dang dung.</li>
+            <li><strong>Chon niche hoac san pham.</strong><br>Yeu cau AI scout trend, tim offer va xep hang content angle.</li>
+            <li><strong>Tao landing page ban hang.</strong><br>Chay skill landing-page-creator de co HTML tu chua, CTA va disclosure.</li>
+            <li><strong>Do luong roi lap lai.</strong><br>Theo doi click, conversion, noi dung thang, roi dua insight ve buoc research.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Cau hoi truoc khi dung</h2>
+          <p>Nhung diem quan trong khi bien bo skills nay thanh may ban hang affiliate thuc te.</p>
+        </div>
+        <div class="faq">
+          <article class="card">
+            <h3>Affiliate Skills co phai SaaS khong?</h3>
+            <p>Khong. Day la bo skill dang Markdown va workflow de AI cua ban thuc thi. Ban so huu quy trinh va co the tuy bien.</p>
+          </article>
+          <article class="card">
+            <h3>Co can biet code khong?</h3>
+            <p>Khong bat buoc. Nhieu skill tao output text hoac HTML tu chua. Neu muon deploy GitHub Pages hay Vercel, biet command co ban se co loi.</p>
+          </article>
+          <article class="card">
+            <h3>Landing page tao ra co dung de chay ads khong?</h3>
+            <p>Co the dung lam diem den, nhung ban can kiem tra policy nen tang, disclosure, claim va tracking truoc khi chay ngan sach.</p>
+          </article>
+          <article class="card">
+            <h3>Co thay the nghien cuu thi truong khong?</h3>
+            <p>Khong. No giup ban nghien cuu nhanh va co cau truc hon. Nhung offer, claim, gia va chinh sach affiliate van can duoc kiem tra truoc khi publish.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="wrap">
+        <h2>Lay Affiliate Skills va tao landing page dau tien trong hom nay</h2>
+        <p class="lead">Dung bo skill nay de tim offer dang gia, viet noi dung co ly do de click, va dua traffic ve mot trang ban hang gon, nhanh, do duoc.</p>
+        <div class="cta-row" style="justify-content:center">
+          <a class="button primary" href="https://github.com/Affitor/affiliate-skills" target="_blank" rel="noopener">Lay bo skills mien phi</a>
+          <a class="button secondary" href="https://list.affitor.com/skills" target="_blank" rel="noopener">Xem danh muc skills</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Built with <a href="https://github.com/Affitor/affiliate-skills" target="_blank" rel="noopener">Affiliate Skills</a> by Affitor.
+  </footer>
+</body>
+</html>
