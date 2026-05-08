@@ -843,6 +843,21 @@
       });
     };
 
+    const syncVisibleFormToState = () => {
+      if (!state.data || state.active === "json") return;
+
+      content.querySelectorAll("[data-path]").forEach((input) => {
+        pathSet(input.dataset.path, input.value);
+      });
+
+      content.querySelectorAll("[data-array-path]").forEach((input) => {
+        const items = pathGet(input.dataset.arrayPath);
+        if (Array.isArray(items)) {
+          items[Number(input.dataset.arrayIndex)] = input.value;
+        }
+      });
+    };
+
     const loadContent = async () => {
       updateStatus("Dang tai...");
       const response = await fetch("/api/content");
@@ -857,6 +872,12 @@
 
     const saveContent = async () => {
       if (!state.secret) throw new Error("Chua co admin secret");
+      if (state.active === "json") {
+        const editor = $("#jsonEditor");
+        if (editor) state.data = JSON.parse(editor.value);
+      } else {
+        syncVisibleFormToState();
+      }
       updateStatus("Dang luu...");
       const response = await fetch("/api/content", {
         method: "PUT",
