@@ -458,7 +458,7 @@
       </div>
       <nav id="nav"></nav>
       <div class="sidebar-foot">
-        <a class="button secondary" href="/" target="_blank" rel="noopener">Xem site</a>
+        <a class="button secondary" href="/" target="_blank" rel="noopener" id="viewSiteBtn">Xem site</a>
         <button class="secondary" id="reloadBtn">Tai lai</button>
       </div>
     </aside>
@@ -855,21 +855,31 @@
         syncVisibleFormToState();
       }
       updateStatus("Dang luu...");
+      const dataToSave = JSON.parse(JSON.stringify(state.data));
       const response = await fetch("/api/content", {
         method: "PUT",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify({ data: state.data }),
+        body: JSON.stringify({ data: dataToSave }),
       });
       const payload = await response.json();
       if (!response.ok) {
         throw new Error(payload.error || "Khong luu duoc");
       }
-      state.data = payload.data;
-      state.updatedAt = payload.updated_at;
+
+      const verifyResponse = await fetch(`/api/content?verify=${Date.now()}`, {
+        cache: "no-store",
+      });
+      const verified = await verifyResponse.json();
+      if (!verifyResponse.ok) {
+        throw new Error(verified.error || "Da luu nhung khong doc lai duoc");
+      }
+
+      state.data = verified.data;
+      state.updatedAt = verified.updated_at;
       state.dirty = false;
-      updateStatus(`Da luu vao Supabase ${payload.updated_at}`, "ok");
+      updateStatus(`Da luu va doc lai tu Supabase ${verified.updated_at}`, "ok");
       render();
     };
 
@@ -891,6 +901,11 @@
     $("#jsonBtn").addEventListener("click", () => {
       state.active = "json";
       render();
+    });
+
+    $("#viewSiteBtn").addEventListener("click", (event) => {
+      event.preventDefault();
+      window.open(`/?cms=${Date.now()}`, "_blank", "noopener");
     });
 
     loadContent().catch((error) => updateStatus(error.message, "error"));
