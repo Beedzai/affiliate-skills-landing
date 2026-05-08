@@ -450,7 +450,7 @@
   <div id="login" class="login">
     <form class="login-card" id="loginForm">
       <h2>Dang nhap admin</h2>
-      <p>Nhap admin secret de chinh sua noi dung luu trong Supabase.</p>
+      <p>Nhap admin secret de chinh sua noi dung luu trong Supabase. Neu vua doi secret tren Vercel, hay nhap lai o day.</p>
       <div class="field">
         <label for="secretInput">Admin secret</label>
         <input id="secretInput" type="password" autocomplete="current-password" required>
@@ -474,6 +474,7 @@
       <div class="sidebar-foot">
         <a class="button secondary" href="/" target="_blank" rel="noopener">Xem site</a>
         <button class="secondary" id="reloadBtn">Tai lai</button>
+        <button class="secondary" id="changeSecretBtn">Doi secret</button>
       </div>
     </aside>
 
@@ -539,6 +540,13 @@
       current[parts.at(-1)] = value;
       state.dirty = true;
       updateStatus("Co thay doi chua luu");
+    };
+
+    const openLogin = (message = "") => {
+      $("#login").classList.remove("hidden");
+      $("#secretInput").value = "";
+      $("#secretInput").focus();
+      $("#loginError").textContent = message;
     };
 
     const updateStatus = (message, type = "") => {
@@ -860,7 +868,15 @@
         body: JSON.stringify({ data: state.data }),
       });
       const payload = await response.json();
-      if (!response.ok) throw new Error(payload.error || "Khong luu duoc");
+      if (!response.ok) {
+        if (response.status === 401) {
+          localStorage.removeItem("affiliate_admin_secret");
+          state.secret = "";
+          openLogin("Secret khong dung hoac da het hieu luc. Hay nhap admin secret moi.");
+          throw new Error("Secret khong dung. Hay nhap lai admin secret.");
+        }
+        throw new Error(payload.error || "Khong luu duoc");
+      }
       state.data = payload.data;
       state.updatedAt = payload.updated_at;
       state.dirty = false;
@@ -877,6 +893,12 @@
 
     $("#reloadBtn").addEventListener("click", () => {
       loadContent().catch((error) => updateStatus(error.message, "error"));
+    });
+
+    $("#changeSecretBtn").addEventListener("click", () => {
+      localStorage.removeItem("affiliate_admin_secret");
+      state.secret = "";
+      openLogin("Nhap admin secret moi.");
     });
 
     $("#saveBtn").addEventListener("click", () => {
