@@ -769,7 +769,7 @@
       }
     };
 
-    fetch("/api/content")
+    fetch(`/api/content?ts=${Date.now()}`, { cache: "no-store" })
       .then((response) => response.ok ? response.json() : Promise.reject(response))
       .then((payload) => renderSite(payload.data))
       .catch(() => {});
