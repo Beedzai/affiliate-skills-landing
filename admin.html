@@ -447,6 +447,25 @@
   </style>
 </head>
 <body>
+  <div id="login" class="login">
+    <form class="login-card" id="loginForm">
+      <h2>Dang nhap admin</h2>
+      <p>Nhap tai khoan quan tri de vao dashboard chinh sua noi dung.</p>
+      <div class="field">
+        <label for="usernameInput">Tai khoan</label>
+        <input id="usernameInput" type="text" autocomplete="username" required>
+      </div>
+      <div style="height:12px"></div>
+      <div class="field">
+        <label for="passwordInput">Mat khau</label>
+        <input id="passwordInput" type="password" autocomplete="current-password" required>
+      </div>
+      <div style="height:14px"></div>
+      <button type="submit" style="width:100%">Dang nhap</button>
+      <p class="status error" id="loginError"></p>
+    </form>
+  </div>
+
   <div class="shell">
     <aside>
       <div class="brand">
@@ -460,6 +479,7 @@
       <div class="sidebar-foot">
         <a class="button secondary" href="/" target="_blank" rel="noopener" id="viewSiteBtn">Xem site</a>
         <button class="secondary" id="reloadBtn">Tai lai</button>
+        <button class="secondary" id="logoutBtn">Dang xuat</button>
       </div>
     </aside>
 
@@ -487,6 +507,7 @@
       active: "overview",
       dirty: false,
       updatedAt: null,
+      loggedIn: sessionStorage.getItem("affiliate_admin_logged_in") === "true",
     };
 
     const sections = [
@@ -903,12 +924,44 @@
       render();
     });
 
+    $("#logoutBtn").addEventListener("click", () => {
+      sessionStorage.removeItem("affiliate_admin_logged_in");
+      state.loggedIn = false;
+      $("#login").classList.remove("hidden");
+      $("#passwordInput").value = "";
+      $("#usernameInput").focus();
+      updateStatus("Da dang xuat");
+    });
+
     $("#viewSiteBtn").addEventListener("click", (event) => {
       event.preventDefault();
       window.open(`/?cms=${Date.now()}`, "_blank", "noopener");
     });
 
-    loadContent().catch((error) => updateStatus(error.message, "error"));
+    $("#loginForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const username = $("#usernameInput").value.trim();
+      const password = $("#passwordInput").value;
+
+      if (username !== "beedzai" || password !== "aqswde123") {
+        $("#loginError").textContent = "Tai khoan hoac mat khau khong dung.";
+        return;
+      }
+
+      sessionStorage.setItem("affiliate_admin_logged_in", "true");
+      state.loggedIn = true;
+      $("#login").classList.add("hidden");
+      $("#loginError").textContent = "";
+      loadContent().catch((error) => updateStatus(error.message, "error"));
+    });
+
+    if (state.loggedIn) {
+      $("#login").classList.add("hidden");
+      loadContent().catch((error) => updateStatus(error.message, "error"));
+    } else {
+      $("#usernameInput").focus();
+      updateStatus("Can dang nhap de quan tri");
+    }
   </script>
 </body>
 </html>
