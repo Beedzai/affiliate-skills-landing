@@ -37,6 +37,26 @@
       line-height: 1.55;
     }
 
+    body:not(.cms-ready) main,
+    body:not(.cms-ready) footer {
+      visibility: hidden;
+    }
+
+    .cms-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: grid;
+      place-items: center;
+      background: var(--bg);
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    body.cms-ready .cms-loader {
+      display: none;
+    }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -514,6 +534,7 @@
   </style>
 </head>
 <body>
+  <div class="cms-loader">Dang tai noi dung...</div>
   <div class="notice">
     Cong khai minh bach: trang nay gioi thieu Affiliate Skills va co lien ket den GitHub/Affitor. Neu ban them link affiliate rieng, hay giu disclosure nay truoc moi CTA.
   </div>
@@ -772,7 +793,10 @@
     fetch(`/api/content?ts=${Date.now()}`, { cache: "no-store" })
       .then((response) => response.ok ? response.json() : Promise.reject(response))
       .then((payload) => renderSite(payload.data))
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => {
+        document.body.classList.add("cms-ready");
+      });
   </script>
 </body>
 </html>
