@@ -6,13 +6,19 @@
   <title>Admin - Affiliate Skills Landing Page</title>
   <style>
     :root {
-      --bg: #f8fafc;
+      --bg: #f6f8fb;
       --surface: #ffffff;
+      --surface-soft: #f1f5f9;
       --text: #111827;
-      --muted: #4b5563;
-      --line: #dbe2ea;
+      --muted: #5b6472;
+      --line: #d9e1ea;
       --primary: #0f766e;
+      --primary-dark: #0b5f59;
+      --accent: #f59e0b;
       --danger: #be123c;
+      --ok: #15803d;
+      --radius: 8px;
+      --shadow: 0 14px 34px rgba(15, 23, 42, .08);
     }
 
     * {
@@ -27,67 +33,10 @@
       line-height: 1.45;
     }
 
-    header {
-      border-bottom: 1px solid var(--line);
-      background: white;
-      padding: 18px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 5;
-    }
-
-    .bar {
-      width: min(1180px, 100%);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: center;
-    }
-
-    h1 {
-      font-size: 1.35rem;
-      margin: 0;
-    }
-
-    main {
-      width: min(1180px, calc(100% - 28px));
-      margin: 24px auto 48px;
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 18px;
-    }
-
-    .panel {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 18px;
-    }
-
-    label {
-      display: block;
-      font-weight: 800;
-      margin: 0 0 7px;
-    }
-
+    button,
     input,
     textarea {
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 11px 12px;
       font: inherit;
-      background: white;
-      color: var(--text);
-    }
-
-    textarea {
-      min-height: 68vh;
-      resize: vertical;
-      font-family: Consolas, "Liberation Mono", monospace;
-      font-size: .92rem;
-      line-height: 1.5;
     }
 
     button,
@@ -95,146 +44,867 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 42px;
-      border: 0;
-      border-radius: 8px;
+      gap: 8px;
+      min-height: 40px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
       padding: 0 14px;
       background: var(--primary);
       color: white;
-      font-weight: 900;
+      font-weight: 850;
       cursor: pointer;
       text-decoration: none;
     }
 
-    button.secondary,
-    a.secondary {
-      background: #111827;
+    button:hover,
+    a.button:hover {
+      background: var(--primary-dark);
     }
 
-    .stack {
+    button.secondary,
+    a.secondary {
+      background: white;
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    button.secondary:hover,
+    a.secondary:hover {
+      background: var(--surface-soft);
+    }
+
+    button.danger {
+      background: #fff1f2;
+      border-color: #fecdd3;
+      color: var(--danger);
+    }
+
+    button.danger:hover {
+      background: #ffe4e6;
+    }
+
+    .shell {
+      min-height: 100vh;
       display: grid;
-      gap: 12px;
+      grid-template-columns: 280px minmax(0, 1fr);
+    }
+
+    aside {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 22px 16px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 22px;
+      padding: 0 4px;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: #ccfbf1;
+      color: #134e4a;
+      font-weight: 950;
+    }
+
+    .brand strong {
+      display: block;
+      line-height: 1.15;
+    }
+
+    .brand span {
+      color: #94a3b8;
+      font-size: .88rem;
+    }
+
+    nav {
+      display: grid;
+      gap: 4px;
+    }
+
+    nav button {
+      width: 100%;
+      justify-content: flex-start;
+      background: transparent;
+      color: #cbd5e1;
+      border-color: transparent;
+      font-weight: 750;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background: #1e293b;
+      color: white;
+    }
+
+    .sidebar-foot {
+      margin-top: 20px;
+      border-top: 1px solid rgba(148, 163, 184, .22);
+      padding-top: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .workspace {
+      min-width: 0;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(246, 248, 251, .92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 22px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .topbar h1 {
+      margin: 0;
+      font-size: 1.35rem;
+      line-height: 1.2;
+    }
+
+    .topbar p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .status {
-      color: var(--muted);
-      font-size: .94rem;
       min-height: 24px;
+      color: var(--muted);
+      font-size: .92rem;
     }
 
-    .error {
+    .status.ok {
+      color: var(--ok);
+      font-weight: 800;
+    }
+
+    .status.error {
       color: var(--danger);
       font-weight: 800;
     }
 
-    .hint {
-      color: var(--muted);
-      font-size: .92rem;
-      margin: 8px 0 0;
+    main {
+      width: min(1220px, calc(100% - 32px));
+      margin: 22px auto 48px;
+      display: grid;
+      gap: 18px;
     }
 
-    @media (max-width: 820px) {
-      main,
-      .bar {
-        display: block;
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-head {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .panel-head h2 {
+      margin: 0;
+      font-size: 1.18rem;
+      line-height: 1.2;
+    }
+
+    .panel-head p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .panel-body {
+      padding: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 850;
+      font-size: .92rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      color: var(--text);
+      padding: 11px 12px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #2dd4bf;
+      box-shadow: 0 0 0 3px rgba(45, 212, 191, .18);
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfdff;
+      padding: 14px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .mini-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .mini-actions button {
+      min-height: 34px;
+      padding: 0 10px;
+      font-size: .88rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .json-editor {
+      min-height: 68vh;
+      font-family: Consolas, "Liberation Mono", monospace;
+      font-size: .92rem;
+      line-height: 1.5;
+    }
+
+    .login {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      background: rgba(15, 23, 42, .72);
+      display: grid;
+      place-items: center;
+      padding: 18px;
+    }
+
+    .login-card {
+      width: min(420px, 100%);
+      background: white;
+      border-radius: 10px;
+      padding: 22px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .26);
+    }
+
+    .login-card h2 {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+    }
+
+    .login-card p {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.45rem;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 980px) {
+      .shell {
+        grid-template-columns: 1fr;
       }
 
-      .panel + .panel {
-        margin-top: 16px;
+      aside {
+        position: static;
+        height: auto;
+      }
+
+      nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid,
+      .split,
+      .summary {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      header {
+        position: static;
+      }
+
+      .topbar {
+        display: grid;
+      }
+
+      .actions {
+        justify-content: stretch;
+      }
+
+      .actions button,
+      .actions a {
+        width: 100%;
+      }
+
+      nav {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="bar">
-      <h1>Admin Affiliate Skills</h1>
-      <a class="button secondary" href="/">Xem trang</a>
-    </div>
-  </header>
-
-  <main>
-    <section class="panel stack">
-      <div>
-        <label for="secret">Admin secret</label>
-        <input id="secret" type="password" autocomplete="current-password" placeholder="Nhap admin secret">
-        <p class="hint">Secret duoc luu trong trinh duyet cua ban de goi API ghi Supabase.</p>
+  <div id="login" class="login">
+    <form class="login-card" id="loginForm">
+      <h2>Dang nhap admin</h2>
+      <p>Nhap admin secret de chinh sua noi dung luu trong Supabase.</p>
+      <div class="field">
+        <label for="secretInput">Admin secret</label>
+        <input id="secretInput" type="password" autocomplete="current-password" required>
       </div>
-      <button id="load">Tai noi dung</button>
-      <button id="save">Luu vao Supabase</button>
-      <button id="format" class="secondary">Format JSON</button>
-      <div id="status" class="status"></div>
-    </section>
+      <div style="height:14px"></div>
+      <button type="submit" style="width:100%">Mo dashboard</button>
+      <p class="status error" id="loginError"></p>
+    </form>
+  </div>
 
-    <section class="panel">
-      <label for="editor">Toan bo noi dung landing page</label>
-      <textarea id="editor" spellcheck="false"></textarea>
-      <p class="hint">Moi thay doi o day se luu vao Supabase. Deploy/code moi tren GitHub khong ghi de du lieu nay.</p>
-    </section>
-  </main>
+  <div class="shell">
+    <aside>
+      <div class="brand">
+        <div class="mark">AS</div>
+        <div>
+          <strong>Affiliate Skills</strong>
+          <span>Landing CMS</span>
+        </div>
+      </div>
+      <nav id="nav"></nav>
+      <div class="sidebar-foot">
+        <a class="button secondary" href="/" target="_blank" rel="noopener">Xem site</a>
+        <button class="secondary" id="reloadBtn">Tai lai</button>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <header>
+        <div class="topbar">
+          <div>
+            <h1 id="sectionTitle">Dashboard</h1>
+            <p id="sectionHint">Quan ly noi dung landing page luu trong Supabase.</p>
+          </div>
+          <div class="actions">
+            <span class="status" id="status">Chua tai du lieu</span>
+            <button class="secondary" id="jsonBtn">JSON nang cao</button>
+            <button id="saveBtn">Luu thay doi</button>
+          </div>
+        </div>
+      </header>
+      <main id="content"></main>
+    </div>
+  </div>
 
   <script>
-    const editor = document.querySelector("#editor");
-    const secret = document.querySelector("#secret");
-    const statusBox = document.querySelector("#status");
+    const state = {
+      data: null,
+      active: "overview",
+      dirty: false,
+      updatedAt: null,
+      secret: localStorage.getItem("affiliate_admin_secret") || "",
+    };
 
-    secret.value = localStorage.getItem("affiliate_admin_secret") || "";
+    const sections = [
+      ["overview", "Tong quan", "Kiem tra nhanh cau truc noi dung va trang thai luu."],
+      ["seo", "SEO & thong bao", "Tieu de, meta description va disclosure dau trang."],
+      ["hero", "Hero", "Thong diep chinh va nut keu goi hanh dong dau trang."],
+      ["visual", "Visual", "Pipeline va terminal mo phong tren hero."],
+      ["workflow", "Workflow", "Khoi gioi thieu quy trinh va ba card tinh nang."],
+      ["offer", "Offer", "Khoi loi ich va checklist doi tuong phu hop."],
+      ["pricing", "Gia & cac buoc", "Gia tri offer va cac buoc dung nhanh."],
+      ["faq", "FAQ", "Cau hoi thuong gap."],
+      ["final", "CTA cuoi trang", "Loi keu goi hanh dong cuoi trang va footer."],
+      ["json", "JSON nang cao", "Chinh sua truc tiep toan bo cau truc du lieu."],
+    ];
 
-    const setStatus = (message, isError = false) => {
+    const $ = (selector) => document.querySelector(selector);
+    const content = $("#content");
+    const statusBox = $("#status");
+
+    const escapeHtml = (value = "") =>
+      String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+    const pathGet = (path) =>
+      path.split(".").reduce((current, part) => current?.[part], state.data);
+
+    const pathSet = (path, value) => {
+      const parts = path.split(".");
+      let current = state.data;
+      for (const part of parts.slice(0, -1)) current = current[part];
+      current[parts.at(-1)] = value;
+      state.dirty = true;
+      updateStatus("Co thay doi chua luu");
+    };
+
+    const updateStatus = (message, type = "") => {
       statusBox.textContent = message;
-      statusBox.className = isError ? "status error" : "status";
+      statusBox.className = `status ${type}`.trim();
+    };
+
+    const field = (label, path, type = "input") => {
+      const value = pathGet(path) || "";
+      const tag = type === "textarea" ? "textarea" : "input";
+      return `
+        <div class="field ${type === "textarea" ? "full" : ""}">
+          <label>${escapeHtml(label)}</label>
+          <${tag} data-path="${escapeHtml(path)}" ${tag === "input" ? `value="${escapeHtml(value)}"` : ""}>${tag === "textarea" ? escapeHtml(value) : ""}</${tag}>
+        </div>
+      `;
+    };
+
+    const ctaFields = (prefix) => `
+      ${field("Nhan nut", `${prefix}.label`)}
+      ${field("Lien ket", `${prefix}.href`)}
+    `;
+
+    const panel = (title, hint, body) => `
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>${escapeHtml(title)}</h2>
+            <p>${escapeHtml(hint)}</p>
+          </div>
+        </div>
+        <div class="panel-body">${body}</div>
+      </section>
+    `;
+
+    const listEditor = (title, hint, path, fields) => {
+      const items = pathGet(path) || [];
+      const body = `
+        <div class="list">
+          ${items.map((item, index) => `
+            <div class="item">
+              <div class="item-head">
+                <span>${escapeHtml(title)} ${index + 1}</span>
+                <div class="mini-actions">
+                  <button class="secondary" data-move="${path}:${index}:-1">Len</button>
+                  <button class="secondary" data-move="${path}:${index}:1">Xuong</button>
+                  <button class="danger" data-remove="${path}:${index}">Xoa</button>
+                </div>
+              </div>
+              <div class="grid">
+                ${fields.map(([label, key, type]) => {
+                  if (key === "__value") {
+                    const tag = type === "textarea" ? "textarea" : "input";
+                    const value = pathGet(`${path}.${index}`) || "";
+                    return `
+                      <div class="field ${type === "textarea" ? "full" : ""}">
+                        <label>${escapeHtml(label)}</label>
+                        <${tag} data-array-path="${escapeHtml(path)}" data-array-index="${index}" ${tag === "input" ? `value="${escapeHtml(value)}"` : ""}>${tag === "textarea" ? escapeHtml(value) : ""}</${tag}>
+                      </div>
+                    `;
+                  }
+                  return field(label, `${path}.${index}.${key}`, type);
+                }).join("")}
+              </div>
+            </div>
+          `).join("")}
+        </div>
+        <div style="height:14px"></div>
+        <button class="secondary" data-add="${path}">Them ${escapeHtml(title.toLowerCase())}</button>
+      `;
+      return panel(title, hint, body);
+    };
+
+    const renderOverview = () => {
+      const d = state.data;
+      content.innerHTML = `
+        <div class="summary">
+          <div class="metric"><strong>${d.trust?.length || 0}</strong><span>Chi so tin cay</span></div>
+          <div class="metric"><strong>${d.workflow?.cards?.length || 0}</strong><span>Card workflow</span></div>
+          <div class="metric"><strong>${d.steps?.length || 0}</strong><span>Buoc huong dan</span></div>
+          <div class="metric"><strong>${d.faq?.length || 0}</strong><span>Cau hoi FAQ</span></div>
+        </div>
+        ${panel("Trang thai du lieu", "Du lieu duoc doc tu Supabase va doc lap voi code GitHub.", `
+          <div class="grid">
+            <div class="field"><label>Cap nhat gan nhat</label><input value="${escapeHtml(state.updatedAt || "Chua ro")}" readonly></div>
+            <div class="field"><label>Tieu de hien tai</label><input value="${escapeHtml(d.title || "")}" readonly></div>
+          </div>
+        `)}
+      `;
+    };
+
+    const renderSeo = () => {
+      content.innerHTML = panel("SEO & disclosure", "Noi dung quan trong cho search result va minh bach affiliate.", `
+        <div class="grid">
+          ${field("Title", "title")}
+          ${field("Meta description", "description", "textarea")}
+          ${field("Disclosure dau trang", "notice", "textarea")}
+        </div>
+      `);
+    };
+
+    const renderHero = () => {
+      content.innerHTML = panel("Hero", "Thong diep dau trang can ngan gon, ro offer va co CTA chinh.", `
+        <div class="grid">
+          ${field("Eyebrow", "hero.eyebrow")}
+          ${field("Headline", "hero.title", "textarea")}
+          ${field("Lead", "hero.lead", "textarea")}
+          ${field("Microcopy", "hero.micro", "textarea")}
+        </div>
+      `) + panel("CTA hero", "Nut chinh va nut phu tren hero.", `
+        <div class="grid">
+          ${ctaFields("hero.primaryCta")}
+          ${ctaFields("hero.secondaryCta")}
+        </div>
+      `);
+    };
+
+    const renderVisual = () => {
+      content.innerHTML =
+        listEditor("Pipeline", "Cac buoc hien trong dashboard mo phong.", "stages", [["Nhan", "label"], ["Mo ta", "text", "textarea"]]) +
+        listEditor("Terminal", "Cac dong terminal mo phong.", "terminal", [["Noi dung", "__value", "textarea"]]);
+    };
+
+    const renderWorkflow = () => {
+      content.innerHTML = panel("Workflow intro", "Tieu de va mo ta truoc cac card.", `
+        <div class="grid">
+          ${field("Tieu de", "workflow.title", "textarea")}
+          ${field("Mo ta", "workflow.text", "textarea")}
+        </div>
+      `) + listEditor("Workflow card", "Cac card giai thich gia tri chinh.", "workflow.cards", [["Tag", "tag"], ["Tieu de", "title"], ["Mo ta", "text", "textarea"]]);
+    };
+
+    const renderOffer = () => {
+      content.innerHTML = panel("Offer", "Khoi nen toi mau giai thich co che ban hang.", `
+        <div class="grid">
+          ${field("Tieu de", "offer.title", "textarea")}
+          ${field("Mo ta", "offer.text", "textarea")}
+          ${ctaFields("offer.cta")}
+        </div>
+      `) + listEditor("Checklist", "Cac dong loi ich theo doi tuong.", "offer.checks", [["Tieu de", "title"], ["Mo ta", "text", "textarea"]]);
+    };
+
+    const renderPricing = () => {
+      content.innerHTML = panel("Gia", "Khoi offer/free va CTA cai dat.", `
+        <div class="grid">
+          ${field("Tag", "pricing.tag")}
+          ${field("Tieu de", "pricing.title", "textarea")}
+          ${field("Gia", "pricing.price")}
+          ${field("Mo ta", "pricing.text", "textarea")}
+          ${ctaFields("pricing.cta")}
+        </div>
+      `) + panel("Tieu de cac buoc", "Tieu de ben canh pricing.", `
+        <div class="grid">${field("Tieu de", "stepsTitle")}</div>
+      `) + listEditor("Buoc", "Quy trinh dung nhanh.", "steps", [["Tieu de", "title"], ["Mo ta", "text", "textarea"]]);
+    };
+
+    const renderFaq = () => {
+      content.innerHTML = panel("FAQ intro", "Tieu de va mo ta cho khoi FAQ.", `
+        <div class="grid">
+          ${field("Tieu de", "faqIntro.title")}
+          ${field("Mo ta", "faqIntro.text", "textarea")}
+        </div>
+      `) + listEditor("FAQ", "Quan ly cau hoi va cau tra loi.", "faq", [["Cau hoi", "title"], ["Tra loi", "text", "textarea"]]);
+    };
+
+    const renderFinal = () => {
+      content.innerHTML = panel("CTA cuoi trang", "Thong diep chot va hai CTA cuoi.", `
+        <div class="grid">
+          ${field("Tieu de", "final.title", "textarea")}
+          ${field("Lead", "final.lead", "textarea")}
+          ${ctaFields("final.primaryCta")}
+          ${ctaFields("final.secondaryCta")}
+        </div>
+      `) + panel("Footer", "Text va link footer.", `
+        <div class="grid">
+          ${field("Text", "footer.text")}
+          ${field("Link", "footer.href")}
+        </div>
+      `);
+    };
+
+    const renderJson = () => {
+      content.innerHTML = panel("JSON nang cao", "Dung khi can sua nhanh cau truc phuc tap. Hay format/kiem tra truoc khi luu.", `
+        <textarea class="json-editor" id="jsonEditor" spellcheck="false">${escapeHtml(JSON.stringify(state.data, null, 2))}</textarea>
+        <div style="height:14px"></div>
+        <div class="mini-actions">
+          <button class="secondary" id="formatJson">Format</button>
+          <button class="secondary" id="applyJson">Ap dung vao form</button>
+        </div>
+      `);
+      $("#formatJson").addEventListener("click", () => {
+        const editor = $("#jsonEditor");
+        editor.value = JSON.stringify(JSON.parse(editor.value), null, 2);
+        updateStatus("JSON hop le", "ok");
+      });
+      $("#applyJson").addEventListener("click", () => {
+        state.data = JSON.parse($("#jsonEditor").value);
+        state.dirty = true;
+        updateStatus("Da ap dung JSON, chua luu");
+      });
+    };
+
+    const render = () => {
+      const active = sections.find(([id]) => id === state.active);
+      $("#sectionTitle").textContent = active[1];
+      $("#sectionHint").textContent = active[2];
+
+      $("#nav").innerHTML = sections.map(([id, label]) => `
+        <button class="${id === state.active ? "active" : ""}" data-section="${id}">${escapeHtml(label)}</button>
+      `).join("");
+
+      const map = {
+        overview: renderOverview,
+        seo: renderSeo,
+        hero: renderHero,
+        visual: renderVisual,
+        workflow: renderWorkflow,
+        offer: renderOffer,
+        pricing: renderPricing,
+        faq: renderFaq,
+        final: renderFinal,
+        json: renderJson,
+      };
+
+      map[state.active]();
+      bindInputs();
+    };
+
+    const emptyForPath = (path) => {
+      if (path === "terminal") return "";
+      if (path === "stages") return { label: "", text: "" };
+      if (path === "trust") return { value: "", label: "" };
+      if (path.includes("cards")) return { tag: "", title: "", text: "" };
+      if (path.includes("checks") || path === "steps" || path === "faq") return { title: "", text: "" };
+      return {};
+    };
+
+    const bindInputs = () => {
+      content.querySelectorAll("[data-path]").forEach((input) => {
+        input.addEventListener("input", (event) => {
+          const path = event.target.dataset.path;
+          pathSet(path, event.target.value);
+        });
+      });
+
+      content.querySelectorAll("[data-array-path]").forEach((input) => {
+        input.addEventListener("input", (event) => {
+          const items = pathGet(event.target.dataset.arrayPath);
+          items[Number(event.target.dataset.arrayIndex)] = event.target.value;
+          state.dirty = true;
+          updateStatus("Co thay doi chua luu");
+        });
+      });
+
+      content.querySelectorAll("[data-section]").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.active = button.dataset.section;
+          render();
+        });
+      });
+
+      content.querySelectorAll("[data-add]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const path = button.dataset.add;
+          pathGet(path).push(emptyForPath(path));
+          state.dirty = true;
+          render();
+          updateStatus("Da them muc moi, chua luu");
+        });
+      });
+
+      content.querySelectorAll("[data-remove]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const [path, index] = button.dataset.remove.split(":");
+          pathGet(path).splice(Number(index), 1);
+          state.dirty = true;
+          render();
+          updateStatus("Da xoa muc, chua luu");
+        });
+      });
+
+      content.querySelectorAll("[data-move]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const [path, indexRaw, directionRaw] = button.dataset.move.split(":");
+          const index = Number(indexRaw);
+          const direction = Number(directionRaw);
+          const items = pathGet(path);
+          const target = index + direction;
+          if (target < 0 || target >= items.length) return;
+          [items[index], items[target]] = [items[target], items[index]];
+          state.dirty = true;
+          render();
+          updateStatus("Da sap xep lai, chua luu");
+        });
+      });
     };
 
     const loadContent = async () => {
-      setStatus("Dang tai...");
+      updateStatus("Dang tai...");
       const response = await fetch("/api/content");
       const payload = await response.json();
       if (!response.ok) throw new Error(payload.error || "Khong tai duoc noi dung");
-      editor.value = JSON.stringify(payload.data, null, 2);
-      setStatus(`Da tai. Cap nhat lan cuoi: ${payload.updated_at || "khong ro"}`);
+      state.data = payload.data;
+      state.updatedAt = payload.updated_at;
+      state.dirty = false;
+      updateStatus("Da tai tu Supabase", "ok");
+      render();
     };
 
     const saveContent = async () => {
-      const adminSecret = secret.value.trim();
-      if (!adminSecret) throw new Error("Can nhap admin secret");
-
-      const data = JSON.parse(editor.value);
-      localStorage.setItem("affiliate_admin_secret", adminSecret);
-      setStatus("Dang luu...");
-
+      if (!state.secret) throw new Error("Chua co admin secret");
+      updateStatus("Dang luu...");
       const response = await fetch("/api/content", {
         method: "PUT",
         headers: {
           "content-type": "application/json",
-          "x-admin-secret": adminSecret,
+          "x-admin-secret": state.secret,
         },
-        body: JSON.stringify({ data }),
+        body: JSON.stringify({ data: state.data }),
       });
-
       const payload = await response.json();
-      if (!response.ok) throw new Error(payload.error || "Khong luu duoc noi dung");
-      editor.value = JSON.stringify(payload.data, null, 2);
-      setStatus(`Da luu vao Supabase: ${payload.updated_at}`);
+      if (!response.ok) throw new Error(payload.error || "Khong luu duoc");
+      state.data = payload.data;
+      state.updatedAt = payload.updated_at;
+      state.dirty = false;
+      updateStatus(`Da luu ${payload.updated_at}`, "ok");
+      render();
     };
 
-    document.querySelector("#load").addEventListener("click", () => {
-      loadContent().catch((error) => setStatus(error.message, true));
+    $("#nav").addEventListener("click", (event) => {
+      const button = event.target.closest("[data-section]");
+      if (!button) return;
+      state.active = button.dataset.section;
+      render();
     });
 
-    document.querySelector("#save").addEventListener("click", () => {
-      saveContent().catch((error) => setStatus(error.message, true));
+    $("#reloadBtn").addEventListener("click", () => {
+      loadContent().catch((error) => updateStatus(error.message, "error"));
     });
 
-    document.querySelector("#format").addEventListener("click", () => {
-      try {
-        editor.value = JSON.stringify(JSON.parse(editor.value), null, 2);
-        setStatus("JSON hop le.");
-      } catch (error) {
-        setStatus(error.message, true);
+    $("#saveBtn").addEventListener("click", () => {
+      saveContent().catch((error) => updateStatus(error.message, "error"));
+    });
+
+    $("#jsonBtn").addEventListener("click", () => {
+      state.active = "json";
+      render();
+    });
+
+    $("#loginForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      state.secret = $("#secretInput").value.trim();
+      if (!state.secret) {
+        $("#loginError").textContent = "Can nhap admin secret.";
+        return;
       }
+      localStorage.setItem("affiliate_admin_secret", state.secret);
+      $("#login").classList.add("hidden");
+      loadContent().catch((error) => updateStatus(error.message, "error"));
     });
 
-    loadContent().catch((error) => setStatus(error.message, true));
+    if (state.secret) {
+      $("#secretInput").value = state.secret;
+      $("#login").classList.add("hidden");
+      loadContent().catch((error) => updateStatus(error.message, "error"));
+    }
   </script>
 </body>
 </html>
