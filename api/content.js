@@ -73,11 +73,6 @@ module.exports = async (request, response) => {
     }
 
     if (request.method === "PUT") {
-      const adminSecret = request.headers["x-admin-secret"];
-      if (!adminSecret || adminSecret !== process.env.ADMIN_SECRET) {
-        return json(response, 401, { error: "Unauthorized" });
-      }
-
       const body = await readJson(request);
       if (!body || typeof body.data !== "object" || Array.isArray(body.data)) {
         return json(response, 400, { error: "Expected { data: object }" });
