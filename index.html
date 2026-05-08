@@ -670,5 +670,109 @@
   <footer>
     Built with <a href="https://github.com/Affitor/affiliate-skills" target="_blank" rel="noopener">Affiliate Skills</a> by Affitor.
   </footer>
+  <script>
+    const setText = (selector, value) => {
+      const node = document.querySelector(selector);
+      if (node && value !== undefined) node.textContent = value;
+    };
+
+    const setLink = (selector, cta) => {
+      const node = document.querySelector(selector);
+      if (!node || !cta) return;
+      node.textContent = cta.label || node.textContent;
+      node.href = cta.href || node.href;
+    };
+
+    const renderCards = (selector, items, renderer) => {
+      const node = document.querySelector(selector);
+      if (!node || !Array.isArray(items)) return;
+      node.innerHTML = items.map(renderer).join("");
+    };
+
+    const escapeHtml = (value = "") =>
+      String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+    const renderSite = (data) => {
+      if (!data || typeof data !== "object") return;
+
+      document.title = data.title || document.title;
+      const description = document.querySelector('meta[name="description"]');
+      if (description && data.description) description.content = data.description;
+
+      setText(".notice", data.notice);
+      setText(".hero .eyebrow", data.hero?.eyebrow);
+      setText(".hero h1", data.hero?.title);
+      setText(".hero .lead", data.hero?.lead);
+      setLink(".hero .primary", data.hero?.primaryCta);
+      setLink(".hero .secondary", data.hero?.secondaryCta);
+      setText(".hero .micro", data.hero?.micro);
+
+      renderCards(".pipeline", data.stages, (stage) => `
+        <div class="stage"><b>${escapeHtml(stage.label)}</b><span>${escapeHtml(stage.text)}</span></div>
+      `);
+
+      renderCards(".terminal", data.terminal, (line) => `<p>${escapeHtml(line)}</p>`);
+
+      renderCards(".trust", data.trust, (item) => `
+        <div><strong>${escapeHtml(item.value)}</strong><span>${escapeHtml(item.label)}</span></div>
+      `);
+
+      setText("#workflow .section-head h2", data.workflow?.title);
+      setText("#workflow .section-head p", data.workflow?.text);
+      renderCards("#workflow .grid-3", data.workflow?.cards, (card) => `
+        <article class="card">
+          <span class="tag">${escapeHtml(card.tag)}</span>
+          <h3>${escapeHtml(card.title)}</h3>
+          <p>${escapeHtml(card.text)}</p>
+        </article>
+      `);
+
+      setText(".offer .split > div:first-child h2", data.offer?.title);
+      setText(".offer .split > div:first-child p", data.offer?.text);
+      setLink(".offer .button", data.offer?.cta);
+      renderCards(".offer .checklist", data.offer?.checks, (item) => `
+        <div class="check"><i>✓</i><div><strong>${escapeHtml(item.title)}</strong><br><span>${escapeHtml(item.text)}</span></div></div>
+      `);
+
+      setText(".price-card .tag", data.pricing?.tag);
+      setText(".price-card h2", data.pricing?.title);
+      setText(".price-card .price", data.pricing?.price);
+      setText(".price-card p", data.pricing?.text);
+      setLink(".price-card .button", data.pricing?.cta);
+      setText(".pricing > div:last-child h2", data.stepsTitle);
+      renderCards(".steps", data.steps, (step) => `
+        <li><strong>${escapeHtml(step.title)}</strong><br>${escapeHtml(step.text)}</li>
+      `);
+
+      setText("section:nth-of-type(5) .section-head h2", data.faqIntro?.title);
+      setText("section:nth-of-type(5) .section-head p", data.faqIntro?.text);
+      renderCards(".faq", data.faq, (item) => `
+        <article class="card">
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.text)}</p>
+        </article>
+      `);
+
+      setText(".final h2", data.final?.title);
+      setText(".final .lead", data.final?.lead);
+      setLink(".final .primary", data.final?.primaryCta);
+      setLink(".final .secondary", data.final?.secondaryCta);
+
+      const footer = document.querySelector("footer");
+      if (footer && data.footer) {
+        footer.innerHTML = `${escapeHtml(data.footer.text || "")} <a href="${escapeHtml(data.footer.href || "#")}" target="_blank" rel="noopener">Affiliate Skills</a>`;
+      }
+    };
+
+    fetch("/api/content")
+      .then((response) => response.ok ? response.json() : Promise.reject(response))
+      .then((payload) => renderSite(payload.data))
+      .catch(() => {});
+  </script>
 </body>
 </html>
