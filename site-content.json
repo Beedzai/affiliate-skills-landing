@@ -1,0 +1,171 @@
+{
+  "title": "Affiliate Skills - Bo ky nang AI cho affiliate marketing",
+  "description": "Affiliate Skills giup bien AI thanh doi ngu affiliate marketing: nghien cuu san pham, viet noi dung, tao landing page, trien khai va toi uu chuyen doi.",
+  "notice": "Cong khai minh bach: trang nay gioi thieu Affiliate Skills va co lien ket den GitHub/Affitor. Neu ban them link affiliate rieng, hay giu disclosure nay truoc moi CTA.",
+  "hero": {
+    "eyebrow": "52 skills AI cho affiliate marketing",
+    "title": "Bien AI thanh doi ngu affiliate ban hang",
+    "lead": "Affiliate Skills la bo quy trinh giup ban tim chuong trinh affiliate, bat trend noi dung, viet bai co du lieu, tao landing page, trien khai va toi uu chuyen doi trong mot flywheel khep kin.",
+    "primaryCta": {
+      "label": "Lay bo skills mien phi",
+      "href": "https://github.com/Affitor/affiliate-skills"
+    },
+    "secondaryCta": {
+      "label": "Xem cach van hanh",
+      "href": "#workflow"
+    },
+    "micro": "Hoat dong voi Claude Code, ChatGPT, Gemini, Cursor, Windsurf va bat ky AI nao doc duoc text."
+  },
+  "terminal": [
+    "> scout trending content about AI video tools",
+    "Top format: comparison | Best hook: proof-first demo",
+    "> build a landing page for the winning offer",
+    "Done: disclosure, 3 CTAs, mobile-ready HTML"
+  ],
+  "stages": [
+    {
+      "label": "S1 Research",
+      "text": "Tim program, scout trend, xep hang angle bang du lieu."
+    },
+    {
+      "label": "S2 Content",
+      "text": "Viet post, script, infographic tu research brief."
+    },
+    {
+      "label": "S4 Landing",
+      "text": "Tao sales page HTML tu chua can build step."
+    },
+    {
+      "label": "S6 Optimize",
+      "text": "Theo doi click, A/B test, dua insight ve research."
+    }
+  ],
+  "trust": [
+    {
+      "value": "52",
+      "label": "AI-powered skills"
+    },
+    {
+      "value": "8",
+      "label": "giai doan flywheel"
+    },
+    {
+      "value": "0",
+      "label": "dependency cho landing page"
+    },
+    {
+      "value": "MIT",
+      "label": "ma nguon mo"
+    }
+  ],
+  "workflow": {
+    "title": "Khong chi la prompt pack. Day la he dieu hanh nho cho affiliate.",
+    "text": "Moi skill co workflow, input/output schema va goi y buoc tiep theo, nen ban co the di tu nghien cuu den landing page roi quay lai toi uu bang du lieu.",
+    "cards": [
+      {
+        "tag": "Research",
+        "title": "Chon offer bang du lieu",
+        "text": "Tim chuong trinh affiliate, so sanh commission, cookie, traffic va diem suc khoe website truoc khi ban dau tu noi dung."
+      },
+      {
+        "tag": "Content",
+        "title": "Viet thu co co so",
+        "text": "Thu thap source, tim angle, viet LinkedIn post, thread, blog, script TikTok va infographic thay vi viet theo cam tinh."
+      },
+      {
+        "tag": "Landing",
+        "title": "Ban hang tren trang rieng",
+        "text": "Tao landing page AIDA, squeeze page, comparison page, bonus stack va CTA ro rang de day traffic ve mot muc tieu duy nhat."
+      }
+    ]
+  },
+  "offer": {
+    "title": "Tu y tuong den click affiliate trong mot quy trinh co the lap lai",
+    "text": "Thay vi mo nhieu tab, viet noi dung roi cau may, Affiliate Skills ep moi buoc phai co dau vao va dau ra ro rang: trend nao dang thang, offer nao dang dang quang cao, angle nao nen test, page nao nen deploy.",
+    "cta": {
+      "label": "Mo repo tren GitHub",
+      "href": "https://github.com/Affitor/affiliate-skills"
+    },
+    "checks": [
+      {
+        "title": "Phu hop nguoi moi",
+        "text": "Bat dau bang funnel-planner de co roadmap tung tuan."
+      },
+      {
+        "title": "Phu hop creator",
+        "text": "Bien mot research brief thanh post, short video, infographic va bio link."
+      },
+      {
+        "title": "Phu hop marketer",
+        "text": "Danh gia offer, xay trang chuyen doi, tracking va lap bao cao hieu suat."
+      }
+    ]
+  },
+  "pricing": {
+    "tag": "Open source",
+    "title": "Bat dau voi chi phi 0 dong",
+    "price": "Free",
+    "text": "Repo MIT license. Ban co the dung truc tiep voi AI hien tai, hoac clone vao moi truong lam viec cua minh.",
+    "cta": {
+      "label": "Cai dat ngay",
+      "href": "https://github.com/Affitor/affiliate-skills"
+    }
+  },
+  "stepsTitle": "Cach dung nhanh",
+  "steps": [
+    {
+      "title": "Mo repo hoac copy bootstrap prompt.",
+      "text": "Nap Affiliate Skills vao AI ban dang dung."
+    },
+    {
+      "title": "Chon niche hoac san pham.",
+      "text": "Yeu cau AI scout trend, tim offer va xep hang content angle."
+    },
+    {
+      "title": "Tao landing page ban hang.",
+      "text": "Chay skill landing-page-creator de co HTML tu chua, CTA va disclosure."
+    },
+    {
+      "title": "Do luong roi lap lai.",
+      "text": "Theo doi click, conversion, noi dung thang, roi dua insight ve buoc research."
+    }
+  ],
+  "faqIntro": {
+    "title": "Cau hoi truoc khi dung",
+    "text": "Nhung diem quan trong khi bien bo skills nay thanh may ban hang affiliate thuc te."
+  },
+  "faq": [
+    {
+      "title": "Affiliate Skills co phai SaaS khong?",
+      "text": "Khong. Day la bo skill dang Markdown va workflow de AI cua ban thuc thi. Ban so huu quy trinh va co the tuy bien."
+    },
+    {
+      "title": "Co can biet code khong?",
+      "text": "Khong bat buoc. Nhieu skill tao output text hoac HTML tu chua. Neu muon deploy GitHub Pages hay Vercel, biet command co ban se co loi."
+    },
+    {
+      "title": "Landing page tao ra co dung de chay ads khong?",
+      "text": "Co the dung lam diem den, nhung ban can kiem tra policy nen tang, disclosure, claim va tracking truoc khi chay ngan sach."
+    },
+    {
+      "title": "Co thay the nghien cuu thi truong khong?",
+      "text": "Khong. No giup ban nghien cuu nhanh va co cau truc hon. Nhung offer, claim, gia va chinh sach affiliate van can duoc kiem tra truoc khi publish."
+    }
+  ],
+  "final": {
+    "title": "Lay Affiliate Skills va tao landing page dau tien trong hom nay",
+    "lead": "Dung bo skill nay de tim offer dang gia, viet noi dung co ly do de click, va dua traffic ve mot trang ban hang gon, nhanh, do duoc.",
+    "primaryCta": {
+      "label": "Lay bo skills mien phi",
+      "href": "https://github.com/Affitor/affiliate-skills"
+    },
+    "secondaryCta": {
+      "label": "Xem danh muc skills",
+      "href": "https://list.affitor.com/skills"
+    }
+  },
+  "footer": {
+    "text": "Built with Affiliate Skills by Affitor.",
+    "href": "https://github.com/Affitor/affiliate-skills"
+  }
+}
