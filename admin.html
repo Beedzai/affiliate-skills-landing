@@ -447,20 +447,6 @@
   </style>
 </head>
 <body>
-  <div id="login" class="login">
-    <form class="login-card" id="loginForm">
-      <h2>Dang nhap admin</h2>
-      <p>Nhap admin secret de chinh sua noi dung luu trong Supabase. Neu vua doi secret tren Vercel, hay nhap lai o day.</p>
-      <div class="field">
-        <label for="secretInput">Admin secret</label>
-        <input id="secretInput" type="password" autocomplete="current-password" required>
-      </div>
-      <div style="height:14px"></div>
-      <button type="submit" style="width:100%">Mo dashboard</button>
-      <p class="status error" id="loginError"></p>
-    </form>
-  </div>
-
   <div class="shell">
     <aside>
       <div class="brand">
@@ -474,7 +460,6 @@
       <div class="sidebar-foot">
         <a class="button secondary" href="/" target="_blank" rel="noopener">Xem site</a>
         <button class="secondary" id="reloadBtn">Tai lai</button>
-        <button class="secondary" id="changeSecretBtn">Doi secret</button>
       </div>
     </aside>
 
@@ -502,7 +487,6 @@
       active: "overview",
       dirty: false,
       updatedAt: null,
-      secret: localStorage.getItem("affiliate_admin_secret") || "",
     };
 
     const sections = [
@@ -539,13 +523,6 @@
       for (const part of parts.slice(0, -1)) current = current[part];
       current[parts.at(-1)] = value;
       markDirty();
-    };
-
-    const openLogin = (message = "") => {
-      $("#login").classList.remove("hidden");
-      $("#secretInput").value = "";
-      $("#secretInput").focus();
-      $("#loginError").textContent = message;
     };
 
     const updateStatus = (message, type = "") => {
@@ -871,7 +848,6 @@
     };
 
     const saveContent = async () => {
-      if (!state.secret) throw new Error("Chua co admin secret");
       if (state.active === "json") {
         const editor = $("#jsonEditor");
         if (editor) state.data = JSON.parse(editor.value);
@@ -883,18 +859,11 @@
         method: "PUT",
         headers: {
           "content-type": "application/json",
-          "x-admin-secret": state.secret,
         },
         body: JSON.stringify({ data: state.data }),
       });
       const payload = await response.json();
       if (!response.ok) {
-        if (response.status === 401) {
-          localStorage.removeItem("affiliate_admin_secret");
-          state.secret = "";
-          openLogin("Secret khong dung hoac da het hieu luc. Hay nhap admin secret moi.");
-          throw new Error("Secret khong dung. Hay nhap lai admin secret.");
-        }
         throw new Error(payload.error || "Khong luu duoc");
       }
       state.data = payload.data;
@@ -915,12 +884,6 @@
       loadContent().catch((error) => updateStatus(error.message, "error"));
     });
 
-    $("#changeSecretBtn").addEventListener("click", () => {
-      localStorage.removeItem("affiliate_admin_secret");
-      state.secret = "";
-      openLogin("Nhap admin secret moi.");
-    });
-
     $("#saveBtn").addEventListener("click", () => {
       saveContent().catch((error) => updateStatus(error.message, "error"));
     });
@@ -930,23 +893,7 @@
       render();
     });
 
-    $("#loginForm").addEventListener("submit", (event) => {
-      event.preventDefault();
-      state.secret = $("#secretInput").value.trim();
-      if (!state.secret) {
-        $("#loginError").textContent = "Can nhap admin secret.";
-        return;
-      }
-      localStorage.setItem("affiliate_admin_secret", state.secret);
-      $("#login").classList.add("hidden");
-      loadContent().catch((error) => updateStatus(error.message, "error"));
-    });
-
-    if (state.secret) {
-      $("#secretInput").value = state.secret;
-      $("#login").classList.add("hidden");
-      loadContent().catch((error) => updateStatus(error.message, "error"));
-    }
+    loadContent().catch((error) => updateStatus(error.message, "error"));
   </script>
 </body>
 </html>
