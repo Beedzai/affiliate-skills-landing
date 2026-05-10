@@ -3,28 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin - Affiliate Skills Landing Page</title>
+  <title>Admin - Thao Chi Boutique</title>
   <style>
     :root {
-      --bg: #f6f8fb;
-      --surface: #ffffff;
-      --surface-soft: #f1f5f9;
-      --text: #111827;
-      --muted: #5b6472;
-      --line: #d9e1ea;
-      --primary: #0f766e;
-      --primary-dark: #0b5f59;
-      --accent: #f59e0b;
+      --bg: #f6f2ec;
+      --surface: #fffdf9;
+      --surface-soft: #f2e8dc;
+      --text: #181512;
+      --muted: #6b6258;
+      --line: #e2d4c3;
+      --primary: #7f1d1d;
+      --primary-dark: #5f1414;
       --danger: #be123c;
       --ok: #15803d;
       --radius: 8px;
-      --shadow: 0 14px 34px rgba(15, 23, 42, .08);
+      --shadow: 0 14px 34px rgba(46, 31, 20, .08);
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       background: var(--bg);
@@ -32,15 +27,8 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.45;
     }
-
-    button,
-    input,
-    textarea {
-      font: inherit;
-    }
-
-    button,
-    a.button {
+    button, input, textarea, select { font: inherit; }
+    button, a.button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -55,228 +43,74 @@
       cursor: pointer;
       text-decoration: none;
     }
-
-    button:hover,
-    a.button:hover {
-      background: var(--primary-dark);
-    }
-
-    button.secondary,
-    a.secondary {
-      background: white;
-      border-color: var(--line);
-      color: var(--text);
-    }
-
-    button.secondary:hover,
-    a.secondary:hover {
-      background: var(--surface-soft);
-    }
-
-    button.danger {
-      background: #fff1f2;
-      border-color: #fecdd3;
-      color: var(--danger);
-    }
-
-    button.danger:hover {
-      background: #ffe4e6;
-    }
-
-    .shell {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 280px minmax(0, 1fr);
-    }
-
+    button:hover, a.button:hover { background: var(--primary-dark); }
+    button.secondary, a.secondary { background: white; border-color: var(--line); color: var(--text); }
+    button.secondary:hover, a.secondary:hover { background: var(--surface-soft); }
+    button.danger { background: #fff1f2; border-color: #fecdd3; color: var(--danger); }
+    button.danger:hover { background: #ffe4e6; }
+    .shell { min-height: 100vh; display: grid; grid-template-columns: 292px minmax(0, 1fr); }
     aside {
-      background: #0f172a;
-      color: #e5e7eb;
+      background: #211815;
+      color: #f8efe3;
       padding: 22px 16px;
       position: sticky;
       top: 0;
       height: 100vh;
       overflow: auto;
     }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      margin-bottom: 22px;
-      padding: 0 4px;
-    }
-
+    .brand { display: flex; align-items: center; gap: 11px; margin-bottom: 22px; padding: 0 4px; }
     .mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
       display: grid;
       place-items: center;
-      background: #ccfbf1;
-      color: #134e4a;
+      background: #fff7ed;
+      color: var(--primary);
       font-weight: 950;
     }
-
-    .brand strong {
-      display: block;
-      line-height: 1.15;
-    }
-
-    .brand span {
-      color: #94a3b8;
-      font-size: .88rem;
-    }
-
-    nav {
-      display: grid;
-      gap: 4px;
-    }
-
+    .brand strong { display: block; line-height: 1.15; }
+    .brand span { color: #d8c9b6; font-size: .88rem; }
+    nav { display: grid; gap: 4px; }
     nav button {
       width: 100%;
       justify-content: flex-start;
       background: transparent;
-      color: #cbd5e1;
+      color: #e8dcca;
       border-color: transparent;
       font-weight: 750;
     }
-
-    nav button:hover,
-    nav button.active {
-      background: #1e293b;
-      color: white;
-    }
-
-    .sidebar-foot {
-      margin-top: 20px;
-      border-top: 1px solid rgba(148, 163, 184, .22);
-      padding-top: 16px;
-      display: grid;
-      gap: 10px;
-    }
-
-    .workspace {
-      min-width: 0;
-      display: grid;
-      grid-template-rows: auto 1fr;
-    }
-
+    nav button:hover, nav button.active { background: rgba(255, 255, 255, .1); color: white; }
+    .sidebar-foot { margin-top: 20px; border-top: 1px solid rgba(255, 255, 255, .16); padding-top: 16px; display: grid; gap: 10px; }
+    .workspace { min-width: 0; display: grid; grid-template-rows: auto 1fr; }
     header {
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(246, 248, 251, .92);
+      background: rgba(246, 242, 236, .92);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
       padding: 16px 22px;
     }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .topbar h1 {
-      margin: 0;
-      font-size: 1.35rem;
-      line-height: 1.2;
-    }
-
-    .topbar p {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: .94rem;
-    }
-
-    .actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .status {
-      min-height: 24px;
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
-    .status.ok {
-      color: var(--ok);
-      font-weight: 800;
-    }
-
-    .status.error {
-      color: var(--danger);
-      font-weight: 800;
-    }
-
-    main {
-      width: min(1220px, calc(100% - 32px));
-      margin: 22px auto 48px;
-      display: grid;
-      gap: 18px;
-    }
-
-    .panel {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .panel-head {
-      padding: 18px 20px;
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      align-items: start;
-    }
-
-    .panel-head h2 {
-      margin: 0;
-      font-size: 1.18rem;
-      line-height: 1.2;
-    }
-
-    .panel-head p {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: .94rem;
-    }
-
-    .panel-body {
-      padding: 20px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .field {
-      display: grid;
-      gap: 7px;
-    }
-
-    .field.full {
-      grid-column: 1 / -1;
-    }
-
-    label {
-      font-weight: 850;
-      font-size: .92rem;
-    }
-
-    input,
-    textarea {
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .topbar h1 { margin: 0; font-size: 1.35rem; line-height: 1.2; }
+    .topbar p { margin: 4px 0 0; color: var(--muted); font-size: .94rem; }
+    .actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+    .status { min-height: 24px; color: var(--muted); font-size: .92rem; }
+    .status.ok { color: var(--ok); font-weight: 850; }
+    .status.error { color: var(--danger); font-weight: 850; }
+    main { width: min(1240px, calc(100% - 32px)); margin: 22px auto 48px; display: grid; gap: 18px; }
+    .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .panel-head { padding: 18px 20px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 14px; align-items: start; }
+    .panel-head h2 { margin: 0; font-size: 1.18rem; line-height: 1.2; }
+    .panel-head p { margin: 6px 0 0; color: var(--muted); font-size: .94rem; }
+    .panel-body { padding: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .field { display: grid; gap: 7px; align-content: start; }
+    .field.full { grid-column: 1 / -1; }
+    label { font-weight: 850; font-size: .92rem; }
+    input, textarea, select {
       width: 100%;
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -285,202 +119,57 @@
       padding: 11px 12px;
       outline: none;
     }
-
-    textarea {
-      min-height: 92px;
-      resize: vertical;
-    }
-
-    input:focus,
-    textarea:focus {
-      border-color: #2dd4bf;
-      box-shadow: 0 0 0 3px rgba(45, 212, 191, .18);
-    }
-
-    .list {
+    textarea { min-height: 92px; resize: vertical; }
+    input:focus, textarea:focus, select:focus { border-color: #b45309; box-shadow: 0 0 0 3px rgba(180, 83, 9, .16); }
+    .list { display: grid; gap: 14px; }
+    .item { border: 1px solid var(--line); border-radius: var(--radius); background: #fffaf4; padding: 14px; display: grid; gap: 12px; }
+    .item-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; color: var(--muted); font-size: .9rem; font-weight: 850; }
+    .mini-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .mini-actions button { min-height: 34px; padding: 0 10px; font-size: .88rem; }
+    .summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .metric { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; }
+    .metric strong { display: block; font-size: 1.45rem; }
+    .metric span { color: var(--muted); font-size: .9rem; }
+    .product-admin {
       display: grid;
-      gap: 12px;
+      grid-template-columns: 170px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
     }
-
-    .item {
-      border: 1px solid var(--line);
+    .thumb {
+      width: 100%;
+      aspect-ratio: 4 / 5;
       border-radius: var(--radius);
-      background: #fbfdff;
-      padding: 14px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .item-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      color: var(--muted);
-      font-size: .9rem;
-      font-weight: 800;
-    }
-
-    .mini-actions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .mini-actions button {
-      min-height: 34px;
-      padding: 0 10px;
-      font-size: .88rem;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .json-editor {
-      min-height: 68vh;
-      font-family: Consolas, "Liberation Mono", monospace;
-      font-size: .92rem;
-      line-height: 1.5;
-    }
-
-    .login {
-      position: fixed;
-      inset: 0;
-      z-index: 30;
-      background: rgba(15, 23, 42, .72);
-      display: grid;
-      place-items: center;
-      padding: 18px;
-    }
-
-    .login-card {
-      width: min(420px, 100%);
-      background: white;
-      border-radius: 10px;
-      padding: 22px;
-      box-shadow: 0 24px 70px rgba(0, 0, 0, .26);
-    }
-
-    .login-card h2 {
-      margin: 0 0 8px;
-      font-size: 1.35rem;
-    }
-
-    .login-card p {
-      color: var(--muted);
-      margin: 0 0 16px;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    .summary {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .metric {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 16px;
-    }
-
-    .metric strong {
-      display: block;
-      font-size: 1.45rem;
-    }
-
-    .metric span {
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    .score {
-      display: grid;
-      gap: 10px;
-    }
-
-    .score-bar {
-      height: 12px;
-      background: #e5e7eb;
-      border-radius: 999px;
       overflow: hidden;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
     }
-
-    .score-bar i {
-      display: block;
-      height: 100%;
-      width: var(--score, 0%);
-      background: var(--primary);
-    }
-
-    .table {
-      display: grid;
-      gap: 8px;
-    }
-
-    .row {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      border-bottom: 1px solid var(--line);
-      padding: 10px 0;
-      color: var(--muted);
-    }
-
-    .row strong {
-      color: var(--text);
-      overflow-wrap: anywhere;
-    }
-
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .score { display: grid; gap: 10px; }
+    .score-bar { height: 12px; background: #e5e7eb; border-radius: 999px; overflow: hidden; }
+    .score-bar i { display: block; height: 100%; width: var(--score, 0%); background: var(--primary); }
+    .table { display: grid; gap: 8px; }
+    .row { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); padding: 10px 0; color: var(--muted); }
+    .row strong { color: var(--text); overflow-wrap: anywhere; }
+    .json-editor { min-height: 68vh; font-family: Consolas, "Liberation Mono", monospace; font-size: .92rem; line-height: 1.5; }
+    .login { position: fixed; inset: 0; z-index: 30; background: rgba(24, 21, 18, .72); display: grid; place-items: center; padding: 18px; }
+    .login-card { width: min(420px, 100%); background: white; border-radius: 10px; padding: 22px; box-shadow: 0 24px 70px rgba(0, 0, 0, .26); }
+    .login-card h2 { margin: 0 0 8px; font-size: 1.35rem; }
+    .login-card p { color: var(--muted); margin: 0 0 16px; }
+    .hidden { display: none !important; }
     @media (max-width: 980px) {
-      .shell {
-        grid-template-columns: 1fr;
-      }
-
-      aside {
-        position: static;
-        height: auto;
-      }
-
-      nav {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .grid,
-      .split,
-      .summary {
-        grid-template-columns: 1fr;
-      }
+      .shell { grid-template-columns: 1fr; }
+      aside { position: static; height: auto; }
+      nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid, .grid-3, .split, .summary, .product-admin { grid-template-columns: 1fr; }
     }
-
     @media (max-width: 620px) {
-      header {
-        position: static;
-      }
-
-      .topbar {
-        display: grid;
-      }
-
-      .actions {
-        justify-content: stretch;
-      }
-
-      .actions button,
-      .actions a {
-        width: 100%;
-      }
-
-      nav {
-        grid-template-columns: 1fr;
-      }
+      header { position: static; }
+      .topbar { display: grid; }
+      .actions { justify-content: stretch; }
+      .actions button, .actions a { width: 100%; }
+      nav { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -488,16 +177,10 @@
   <div id="login" class="login">
     <form class="login-card" id="loginForm">
       <h2>Dang nhap admin</h2>
-      <p>Nhap tai khoan quan tri de vao dashboard chinh sua noi dung.</p>
-      <div class="field">
-        <label for="usernameInput">Tai khoan</label>
-        <input id="usernameInput" type="text" autocomplete="username" required>
-      </div>
+      <p>Quan ly san pham, gia, anh va link mua cua Thao Chi Boutique.</p>
+      <div class="field"><label for="usernameInput">Tai khoan</label><input id="usernameInput" type="text" autocomplete="username" required></div>
       <div style="height:12px"></div>
-      <div class="field">
-        <label for="passwordInput">Mat khau</label>
-        <input id="passwordInput" type="password" autocomplete="current-password" required>
-      </div>
+      <div class="field"><label for="passwordInput">Mat khau</label><input id="passwordInput" type="password" autocomplete="current-password" required></div>
       <div style="height:14px"></div>
       <button type="submit" style="width:100%">Dang nhap</button>
       <p class="status error" id="loginError"></p>
@@ -507,11 +190,8 @@
   <div class="shell">
     <aside>
       <div class="brand">
-        <div class="mark">AS</div>
-        <div>
-          <strong>Affiliate Skills</strong>
-          <span>Landing CMS</span>
-        </div>
+        <div class="mark">TC</div>
+        <div><strong>Thao Chi Boutique</strong><span>Commerce CMS</span></div>
       </div>
       <nav id="nav"></nav>
       <div class="sidebar-foot">
@@ -520,13 +200,12 @@
         <button class="secondary" id="logoutBtn">Dang xuat</button>
       </div>
     </aside>
-
     <div class="workspace">
       <header>
         <div class="topbar">
           <div>
             <h1 id="sectionTitle">Dashboard</h1>
-            <p id="sectionHint">Quan ly noi dung landing page luu trong Supabase.</p>
+            <p id="sectionHint">Quan ly noi dung cua hang luu trong Supabase.</p>
           </div>
           <div class="actions">
             <span class="status" id="status">Chua tai du lieu</span>
@@ -540,6 +219,21 @@
   </div>
 
   <script>
+    const fallbackData = {
+      title: "Thao Chi Boutique - Thoi trang va phu kien cao cap",
+      description: "Thao Chi Boutique tuyen chon thoi trang, tui xach, phu kien va qua tang cao cap voi hinh anh sang trong, gia niem yet ro rang va link mua truc tiep cho tung san pham.",
+      notice: "Mien phi tu van chon san pham. Gia va tinh trang hang co the thay doi theo tung thoi diem.",
+      brand: { name: "Thao Chi Boutique", tagline: "Curated fashion & lifestyle" },
+      hero: { eyebrow: "Bo suu tap moi", title: "San pham cao cap duoc tuyen chon cho phong cach hien dai", lead: "Kham pha cac mau thoi trang, tui xach, phu kien va qua tang duoc sap xep theo danh muc.", primaryCta: { label: "Xem san pham", href: "#products" }, secondaryCta: { label: "Lien he tu van", href: "https://zalo.me/0900000000" }, image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=85" },
+      categories: [{ id: "fashion", label: "Thoi trang" }, { id: "bags", label: "Tui xach" }, { id: "accessories", label: "Phu kien" }],
+      products: [],
+      benefits: [],
+      faqIntro: { title: "Cau hoi thuong gap", text: "" },
+      faq: [],
+      final: { title: "Can tu van chon san pham phu hop?", lead: "", primaryCta: { label: "Chat Zalo", href: "https://zalo.me/0900000000" }, secondaryCta: { label: "Gui email", href: "mailto:contact@thaochi-boutique.vn" } },
+      footer: { text: "Thao Chi Boutique", label: "thaochi-boutique.vercel.app", href: "https://thaochi-boutique.vercel.app" }
+    };
+
     const state = {
       data: null,
       active: "overview",
@@ -550,154 +244,111 @@
     };
 
     const sections = [
-      ["overview", "Tong quan", "Kiem tra nhanh cau truc noi dung va trang thai luu."],
+      ["overview", "Tong quan", "Kiem tra nhanh cua hang, san pham va trang thai luu."],
       ["analytics", "Do luong & SEO", "Theo doi luot truy cap va diem toi uu SEO cua website."],
-      ["seo", "SEO & thong bao", "Tieu de, meta description va disclosure dau trang."],
-      ["hero", "Hero", "Thong diep chinh va nut keu goi hanh dong dau trang."],
-      ["visual", "Visual", "Pipeline va terminal mo phong tren hero."],
-      ["workflow", "Workflow", "Khoi gioi thieu quy trinh va ba card tinh nang."],
-      ["offer", "Offer", "Khoi loi ich va checklist doi tuong phu hop."],
-      ["pricing", "Gia & cac buoc", "Gia tri offer va cac buoc dung nhanh."],
+      ["seo", "SEO & thong bao", "Tieu de, meta description va thanh thong bao."],
+      ["hero", "Hero", "Thong diep dau trang, anh hero va CTA chinh."],
+      ["categories", "Danh muc", "Tao tab mat hang va ID de gan cho san pham."],
+      ["products", "San pham", "Them moi, sua gia, anh, mo ta va link mua tung san pham."],
+      ["benefits", "Loi ich", "Cac ly do mua hang hien o khoi dich vu."],
       ["faq", "FAQ", "Cau hoi thuong gap."],
-      ["final", "CTA cuoi trang", "Loi keu goi hanh dong cuoi trang va footer."],
+      ["final", "Lien he & footer", "CTA cuoi trang va thong tin footer."],
       ["json", "JSON nang cao", "Chinh sua truc tiep toan bo cau truc du lieu."],
     ];
 
     const $ = (selector) => document.querySelector(selector);
     const content = $("#content");
     const statusBox = $("#status");
+    const escapeHtml = (value = "") => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+    const clone = (value) => JSON.parse(JSON.stringify(value));
 
-    const escapeHtml = (value = "") =>
-      String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+    const normalizeData = (data) => {
+      const base = clone(fallbackData);
+      const incoming = data && typeof data === "object" ? data : {};
+      return {
+        ...base,
+        ...incoming,
+        brand: { ...base.brand, ...(incoming.brand || {}) },
+        hero: { ...base.hero, ...(incoming.hero || {}), primaryCta: { ...base.hero.primaryCta, ...(incoming.hero?.primaryCta || {}) }, secondaryCta: { ...base.hero.secondaryCta, ...(incoming.hero?.secondaryCta || {}) } },
+        final: { ...base.final, ...(incoming.final || {}), primaryCta: { ...base.final.primaryCta, ...(incoming.final?.primaryCta || {}) }, secondaryCta: { ...base.final.secondaryCta, ...(incoming.final?.secondaryCta || {}) } },
+        footer: { ...base.footer, ...(incoming.footer || {}) },
+        categories: Array.isArray(incoming.categories) ? incoming.categories : base.categories,
+        products: Array.isArray(incoming.products) ? incoming.products : [],
+        benefits: Array.isArray(incoming.benefits) ? incoming.benefits : [],
+        faqIntro: { ...base.faqIntro, ...(incoming.faqIntro || {}) },
+        faq: Array.isArray(incoming.faq) ? incoming.faq : [],
+      };
+    };
 
-    const pathGet = (path) =>
-      path.split(".").reduce((current, part) => current?.[part], state.data);
-
+    const pathGet = (path) => path.split(".").reduce((current, part) => current?.[part], state.data);
     const pathSet = (path, value) => {
       const parts = path.split(".");
       let current = state.data;
-      for (const part of parts.slice(0, -1)) current = current[part];
+      for (const part of parts.slice(0, -1)) {
+        if (current[part] === undefined) current[part] = {};
+        current = current[part];
+      }
       current[parts.at(-1)] = value;
       markDirty();
     };
-
-    const updateStatus = (message, type = "") => {
-      statusBox.textContent = message;
-      statusBox.className = `status ${type}`.trim();
-    };
-
-    const markDirty = () => {
-      state.dirty = true;
-      updateStatus("Co thay doi chua luu", "error");
-    };
+    const updateStatus = (message, type = "") => { statusBox.textContent = message; statusBox.className = `status ${type}`.trim(); };
+    const markDirty = () => { state.dirty = true; updateStatus("Co thay doi chua luu", "error"); };
 
     const field = (label, path, type = "input") => {
-      const value = pathGet(path) || "";
+      const value = pathGet(path) ?? "";
       const tag = type === "textarea" ? "textarea" : "input";
-      return `
-        <div class="field ${type === "textarea" ? "full" : ""}">
-          <label>${escapeHtml(label)}</label>
-          <${tag} data-path="${escapeHtml(path)}" ${tag === "input" ? `value="${escapeHtml(value)}"` : ""}>${tag === "textarea" ? escapeHtml(value) : ""}</${tag}>
-        </div>
-      `;
+      return `<div class="field ${type === "textarea" ? "full" : ""}"><label>${escapeHtml(label)}</label><${tag} data-path="${escapeHtml(path)}" ${tag === "input" ? `value="${escapeHtml(value)}"` : ""}>${tag === "textarea" ? escapeHtml(value) : ""}</${tag}></div>`;
     };
-
-    const ctaFields = (prefix) => `
-      ${field("Nhan nut", `${prefix}.label`)}
-      ${field("Lien ket", `${prefix}.href`)}
-    `;
-
-    const panel = (title, hint, body) => `
-      <section class="panel">
-        <div class="panel-head">
-          <div>
-            <h2>${escapeHtml(title)}</h2>
-            <p>${escapeHtml(hint)}</p>
-          </div>
-        </div>
-        <div class="panel-body">${body}</div>
-      </section>
-    `;
+    const ctaFields = (prefix) => `${field("Nhan nut", `${prefix}.label`)}${field("Lien ket", `${prefix}.href`)}`;
+    const panel = (title, hint, body) => `<section class="panel"><div class="panel-head"><div><h2>${escapeHtml(title)}</h2><p>${escapeHtml(hint)}</p></div></div><div class="panel-body">${body}</div></section>`;
 
     const listEditor = (title, hint, path, fields) => {
       const items = pathGet(path) || [];
-      const body = `
+      return panel(title, hint, `
         <div class="list">
           ${items.map((item, index) => `
             <div class="item">
-              <div class="item-head">
-                <span>${escapeHtml(title)} ${index + 1}</span>
-                <div class="mini-actions">
-                  <button class="secondary" data-move="${path}:${index}:-1">Len</button>
-                  <button class="secondary" data-move="${path}:${index}:1">Xuong</button>
-                  <button class="danger" data-remove="${path}:${index}">Xoa</button>
-                </div>
-              </div>
+              <div class="item-head"><span>${escapeHtml(title)} ${index + 1}</span><div class="mini-actions"><button class="secondary" data-move="${path}:${index}:-1">Len</button><button class="secondary" data-move="${path}:${index}:1">Xuong</button><button class="danger" data-remove="${path}:${index}">Xoa</button></div></div>
               <div class="grid">
-                ${fields.map(([label, key, type]) => {
-                  if (key === "__value") {
-                    const tag = type === "textarea" ? "textarea" : "input";
-                    const value = pathGet(`${path}.${index}`) || "";
-                    return `
-                      <div class="field ${type === "textarea" ? "full" : ""}">
-                        <label>${escapeHtml(label)}</label>
-                        <${tag} data-array-path="${escapeHtml(path)}" data-array-index="${index}" ${tag === "input" ? `value="${escapeHtml(value)}"` : ""}>${tag === "textarea" ? escapeHtml(value) : ""}</${tag}>
-                      </div>
-                    `;
-                  }
-                  return field(label, `${path}.${index}.${key}`, type);
-                }).join("")}
+                ${fields.map(([label, key, type]) => field(label, `${path}.${index}.${key}`, type)).join("")}
               </div>
             </div>
           `).join("")}
         </div>
-        <div style="height:14px"></div>
-        <button class="secondary" data-add="${path}">Them ${escapeHtml(title.toLowerCase())}</button>
-      `;
-      return panel(title, hint, body);
+        <div style="height:14px"></div><button class="secondary" data-add="${path}">Them ${escapeHtml(title.toLowerCase())}</button>
+      `);
+    };
+
+    const calculateSeoScore = (data) => {
+      const products = data.products || [];
+      const categories = data.categories || [];
+      const checks = [
+        ["Title dai 35-65 ky tu", (data.title || "").length >= 35 && (data.title || "").length <= 65],
+        ["Meta description dai 120-170 ky tu", (data.description || "").length >= 120 && (data.description || "").length <= 170],
+        ["Hero co thong diep ro", (data.hero?.title || "").length >= 24],
+        ["Co anh hero", Boolean(data.hero?.image)],
+        ["Co it nhat 3 danh muc", categories.length >= 3],
+        ["Co it nhat 6 san pham", products.length >= 6],
+        ["Moi san pham co anh va link mua", products.length > 0 && products.every((item) => item.image && item.buyUrl)],
+        ["Co FAQ tu 3 cau tro len", (data.faq || []).length >= 3],
+      ];
+      const passed = checks.filter(([, ok]) => ok).length;
+      return { score: Math.round((passed / checks.length) * 100), checks: checks.map(([label, ok]) => ({ label, ok })) };
     };
 
     const renderOverview = () => {
       const d = state.data;
       const seo = calculateSeoScore(d);
+      const featured = (d.products || []).filter((item) => item.featured).length;
       content.innerHTML = `
         <div class="summary">
-          <div class="metric"><strong>${d.trust?.length || 0}</strong><span>Chi so tin cay</span></div>
-          <div class="metric"><strong>${d.workflow?.cards?.length || 0}</strong><span>Card workflow</span></div>
-          <div class="metric"><strong>${d.steps?.length || 0}</strong><span>Buoc huong dan</span></div>
+          <div class="metric"><strong>${d.products?.length || 0}</strong><span>San pham</span></div>
+          <div class="metric"><strong>${d.categories?.length || 0}</strong><span>Danh muc</span></div>
+          <div class="metric"><strong>${featured}</strong><span>San pham noi bat</span></div>
           <div class="metric"><strong>${seo.score}/100</strong><span>Diem SEO</span></div>
         </div>
-        ${panel("Trang thai du lieu", "Du lieu duoc doc tu Supabase va doc lap voi code GitHub.", `
-          <div class="grid">
-            <div class="field"><label>Cap nhat gan nhat</label><input value="${escapeHtml(state.updatedAt || "Chua ro")}" readonly></div>
-            <div class="field"><label>Tieu de hien tai</label><input value="${escapeHtml(d.title || "")}" readonly></div>
-          </div>
-        `)}
+        ${panel("Trang thai du lieu", "Du lieu duoc doc tu Supabase va doc lap voi code GitHub.", `<div class="grid"><div class="field"><label>Cap nhat gan nhat</label><input value="${escapeHtml(state.updatedAt || "Chua ro")}" readonly></div><div class="field"><label>Tieu de hien tai</label><input value="${escapeHtml(d.title || "")}" readonly></div></div>`)}
       `;
-    };
-
-    const calculateSeoScore = (data) => {
-      const haystack = `${data.title || ""} ${data.description || ""} ${data.hero?.lead || ""}`.toLowerCase();
-      const checks = [
-        ["Title dài 35-65 ký tự", (data.title || "").length >= 35 && (data.title || "").length <= 65],
-        ["Meta description dài 120-170 ký tự", (data.description || "").length >= 120 && (data.description || "").length <= 170],
-        ["Hero headline rõ ràng", (data.hero?.title || "").length >= 20],
-        ["Có CTA chính", Boolean(data.hero?.primaryCta?.label && data.hero?.primaryCta?.href)],
-        ["Có FAQ từ 3 câu trở lên", (data.faq || []).length >= 3],
-        ["Có footer/link thương hiệu", Boolean(data.footer?.text && data.footer?.href)],
-        ["Có nội dung quy trình", (data.steps || []).length >= 3],
-        ["Có từ khóa bất động sản", haystack.includes("bất động sản")],
-      ];
-      const passed = checks.filter(([, ok]) => ok).length;
-      return {
-        score: Math.round((passed / checks.length) * 100),
-        checks: checks.map(([label, ok]) => ({ label, ok })),
-      };
     };
 
     const renderAnalytics = () => {
@@ -705,149 +356,86 @@
       const seo = calculateSeoScore(state.data);
       const topPages = metrics.topPages || [];
       const topReferrers = metrics.topReferrers || [];
-
       content.innerHTML = `
         <div class="summary">
-          <div class="metric"><strong>${metrics.today ?? 0}</strong><span>Hôm nay</span></div>
-          <div class="metric"><strong>${metrics.last7d ?? 0}</strong><span>7 ngày</span></div>
-          <div class="metric"><strong>${metrics.total30d ?? 0}</strong><span>30 ngày</span></div>
-          <div class="metric"><strong>${metrics.unique30d ?? 0}</strong><span>Khách riêng 30 ngày</span></div>
+          <div class="metric"><strong>${metrics.today ?? 0}</strong><span>Hom nay</span></div>
+          <div class="metric"><strong>${metrics.last7d ?? 0}</strong><span>7 ngay</span></div>
+          <div class="metric"><strong>${metrics.total30d ?? 0}</strong><span>30 ngay</span></div>
+          <div class="metric"><strong>${metrics.unique30d ?? 0}</strong><span>Khach rieng 30 ngay</span></div>
         </div>
-        ${panel("Điểm SEO", "Điểm này được tính từ title, description, CTA, FAQ và từ khóa bất động sản trong CMS.", `
-          <div class="score">
-            <h2 style="margin:0">${seo.score}/100</h2>
-            <div class="score-bar" style="--score:${seo.score}%"><i></i></div>
-            <div class="table">
-              ${seo.checks.map((item) => `<div class="row"><strong>${escapeHtml(item.label)}</strong><span>${item.ok ? "Đạt" : "Cần sửa"}</span></div>`).join("")}
-            </div>
-          </div>
-        `)}
+        ${panel("Diem SEO commerce", "Diem tinh tu title, description, hero, danh muc, anh san pham, link mua va FAQ.", `<div class="score"><h2 style="margin:0">${seo.score}/100</h2><div class="score-bar" style="--score:${seo.score}%"><i></i></div><div class="table">${seo.checks.map((item) => `<div class="row"><strong>${escapeHtml(item.label)}</strong><span>${item.ok ? "Dat" : "Can sua"}</span></div>`).join("")}</div></div>`)}
         <div class="split">
-          ${panel("Trang được xem nhiều", "Tổng hợp 30 ngày gần nhất.", `
-            <div class="table">
-              ${topPages.length ? topPages.map((item) => `<div class="row"><strong>${escapeHtml(item.label)}</strong><span>${item.count}</span></div>`).join("") : "<p class=\"hint\">Chưa có dữ liệu.</p>"}
-            </div>
-          `)}
-          ${panel("Nguồn truy cập", "Referrer 30 ngày gần nhất.", `
-            <div class="table">
-              ${topReferrers.length ? topReferrers.map((item) => `<div class="row"><strong>${escapeHtml(item.label)}</strong><span>${item.count}</span></div>`).join("") : "<p class=\"hint\">Chưa có dữ liệu.</p>"}
-            </div>
-          `)}
+          ${panel("Trang duoc xem nhieu", "Tong hop 30 ngay gan nhat.", `<div class="table">${topPages.length ? topPages.map((item) => `<div class="row"><strong>${escapeHtml(item.label)}</strong><span>${item.count}</span></div>`).join("") : "<p>Chua co du lieu.</p>"}</div>`)}
+          ${panel("Nguon truy cap", "Referrer 30 ngay gan nhat.", `<div class="table">${topReferrers.length ? topReferrers.map((item) => `<div class="row"><strong>${escapeHtml(item.label)}</strong><span>${item.count}</span></div>`).join("") : "<p>Chua co du lieu.</p>"}</div>`)}
         </div>
       `;
     };
 
     const renderSeo = () => {
-      content.innerHTML = panel("SEO & disclosure", "Noi dung quan trong cho search result va minh bach affiliate.", `
-        <div class="grid">
-          ${field("Title", "title")}
-          ${field("Meta description", "description", "textarea")}
-          ${field("Disclosure dau trang", "notice", "textarea")}
-        </div>
-      `);
+      content.innerHTML = panel("SEO & thong bao", "Noi dung quan trong cho Google va thanh thong bao dau trang.", `<div class="grid">${field("Title", "title")}${field("Meta description", "description", "textarea")}${field("Thong bao dau trang", "notice", "textarea")}${field("Ten thuong hieu", "brand.name")}${field("Tagline", "brand.tagline")}</div>`);
     };
-
     const renderHero = () => {
-      content.innerHTML = panel("Hero", "Thong diep dau trang can ngan gon, ro offer va co CTA chinh.", `
-        <div class="grid">
-          ${field("Eyebrow", "hero.eyebrow")}
-          ${field("Headline", "hero.title", "textarea")}
-          ${field("Lead", "hero.lead", "textarea")}
-          ${field("Microcopy", "hero.micro", "textarea")}
+      content.innerHTML = panel("Hero", "Thong diep dau trang, anh nen va nut keu goi hanh dong.", `<div class="grid">${field("Eyebrow", "hero.eyebrow")}${field("Headline", "hero.title", "textarea")}${field("Lead", "hero.lead", "textarea")}${field("Anh hero URL", "hero.image", "textarea")}</div>`) + panel("CTA hero", "Nut chinh va nut phu tren hero.", `<div class="grid">${ctaFields("hero.primaryCta")}${ctaFields("hero.secondaryCta")}</div>`);
+    };
+    const renderCategories = () => listEditor("Danh muc", "ID viet lien khong dau, dung de gan vao Category ID cua san pham.", "categories", [["ID", "id"], ["Ten hien thi", "label"]]);
+
+    const renderProducts = () => {
+      const products = state.data.products || [];
+      const categoryOptions = (state.data.categories || []).map((category) => `<option value="${escapeHtml(category.id)}">${escapeHtml(category.label)} (${escapeHtml(category.id)})</option>`).join("");
+      content.innerHTML = panel("San pham", "Quan ly anh, gia, gia goc, nhan, danh muc va link mua rieng cho tung san pham.", `
+        <div class="list">
+          ${products.map((product, index) => `
+            <div class="item">
+              <div class="item-head">
+                <span>${escapeHtml(product.name || "San pham")} ${index + 1}</span>
+                <div class="mini-actions"><button class="secondary" data-move="products:${index}:-1">Len</button><button class="secondary" data-move="products:${index}:1">Xuong</button><button class="danger" data-remove="products:${index}">Xoa</button></div>
+              </div>
+              <div class="product-admin">
+                <div class="thumb"><img src="${escapeHtml(product.image || "")}" alt=""></div>
+                <div class="grid">
+                  ${field("Ten san pham", `products.${index}.name`)}
+                  <div class="field"><label>Danh muc</label><select data-path="products.${index}.categoryId">${categoryOptions}</select></div>
+                  ${field("Gia hien tai", `products.${index}.price`)}
+                  ${field("Gia goc / gia cu", `products.${index}.oldPrice`)}
+                  ${field("Nhan", `products.${index}.badge`)}
+                  ${field("Link mua", `products.${index}.buyUrl`)}
+                  ${field("Anh san pham URL", `products.${index}.image`, "textarea")}
+                  ${field("Mo ta ngan", `products.${index}.description`, "textarea")}
+                  <div class="field"><label>Noi bat</label><select data-path="products.${index}.featured"><option value="true">Co</option><option value="false">Khong</option></select></div>
+                  ${field("Ma san pham", `products.${index}.id`)}
+                </div>
+              </div>
+            </div>
+          `).join("")}
         </div>
-      `) + panel("CTA hero", "Nut chinh va nut phu tren hero.", `
-        <div class="grid">
-          ${ctaFields("hero.primaryCta")}
-          ${ctaFields("hero.secondaryCta")}
-        </div>
+        <div style="height:14px"></div><button class="secondary" data-add="products">Them san pham</button>
       `);
+      products.forEach((product, index) => {
+        const category = content.querySelector(`select[data-path="products.${index}.categoryId"]`);
+        if (category) category.value = product.categoryId || "";
+        const featured = content.querySelector(`select[data-path="products.${index}.featured"]`);
+        if (featured) featured.value = String(Boolean(product.featured));
+      });
     };
 
-    const renderVisual = () => {
-      content.innerHTML =
-        panel("Nhan dashboard", "Ten hien trong khung visual dau trang.", `
-          <div class="grid">${field("Visual title", "visualTitle")}</div>
-        `) +
-        listEditor("Pipeline", "Cac buoc hien trong dashboard mo phong.", "stages", [["Nhan", "label"], ["Mo ta", "text", "textarea"]]) +
-        listEditor("Terminal", "Cac dong terminal mo phong.", "terminal", [["Noi dung", "__value", "textarea"]]);
-    };
-
-    const renderWorkflow = () => {
-      content.innerHTML = panel("Workflow intro", "Tieu de va mo ta truoc cac card.", `
-        <div class="grid">
-          ${field("Tieu de", "workflow.title", "textarea")}
-          ${field("Mo ta", "workflow.text", "textarea")}
-        </div>
-      `) + listEditor("Workflow card", "Cac card giai thich gia tri chinh.", "workflow.cards", [["Tag", "tag"], ["Tieu de", "title"], ["Mo ta", "text", "textarea"]]);
-    };
-
-    const renderOffer = () => {
-      content.innerHTML = panel("Offer", "Khoi nen toi mau giai thich co che ban hang.", `
-        <div class="grid">
-          ${field("Tieu de", "offer.title", "textarea")}
-          ${field("Mo ta", "offer.text", "textarea")}
-          ${ctaFields("offer.cta")}
-        </div>
-      `) + listEditor("Checklist", "Cac dong loi ich theo doi tuong.", "offer.checks", [["Tieu de", "title"], ["Mo ta", "text", "textarea"]]);
-    };
-
-    const renderPricing = () => {
-      content.innerHTML = panel("Gia", "Khoi offer/free va CTA cai dat.", `
-        <div class="grid">
-          ${field("Tag", "pricing.tag")}
-          ${field("Tieu de", "pricing.title", "textarea")}
-          ${field("Gia", "pricing.price")}
-          ${field("Mo ta", "pricing.text", "textarea")}
-          ${ctaFields("pricing.cta")}
-        </div>
-      `) + panel("Tieu de cac buoc", "Tieu de ben canh pricing.", `
-        <div class="grid">${field("Tieu de", "stepsTitle")}</div>
-      `) + listEditor("Buoc", "Quy trinh dung nhanh.", "steps", [["Tieu de", "title"], ["Mo ta", "text", "textarea"]]);
-    };
-
+    const renderBenefits = () => listEditor("Loi ich", "Cac card giai thich ly do khach nen mua hang.", "benefits", [["Tieu de", "title"], ["Mo ta", "text", "textarea"]]);
     const renderFaq = () => {
-      content.innerHTML = panel("FAQ intro", "Tieu de va mo ta cho khoi FAQ.", `
-        <div class="grid">
-          ${field("Tieu de", "faqIntro.title")}
-          ${field("Mo ta", "faqIntro.text", "textarea")}
-        </div>
-      `) + listEditor("FAQ", "Quan ly cau hoi va cau tra loi.", "faq", [["Cau hoi", "title"], ["Tra loi", "text", "textarea"]]);
+      content.innerHTML = panel("FAQ intro", "Tieu de va mo ta cho khoi FAQ.", `<div class="grid">${field("Tieu de", "faqIntro.title")}${field("Mo ta", "faqIntro.text", "textarea")}</div>`) + listEditor("FAQ", "Quan ly cau hoi va cau tra loi.", "faq", [["Cau hoi", "title"], ["Tra loi", "text", "textarea"]]);
     };
-
     const renderFinal = () => {
-      content.innerHTML = panel("CTA cuoi trang", "Thong diep chot va hai CTA cuoi.", `
-        <div class="grid">
-          ${field("Tieu de", "final.title", "textarea")}
-          ${field("Lead", "final.lead", "textarea")}
-          ${ctaFields("final.primaryCta")}
-          ${ctaFields("final.secondaryCta")}
-        </div>
-      `) + panel("Footer", "Text va link footer.", `
-        <div class="grid">
-          ${field("Text", "footer.text")}
-          ${field("Nhan link", "footer.label")}
-          ${field("Link", "footer.href")}
-        </div>
-      `);
+      content.innerHTML = panel("CTA cuoi trang", "Thong diep chot va hai CTA cuoi.", `<div class="grid">${field("Tieu de", "final.title", "textarea")}${field("Lead", "final.lead", "textarea")}${ctaFields("final.primaryCta")}${ctaFields("final.secondaryCta")}</div>`) + panel("Footer", "Text va link footer.", `<div class="grid">${field("Text", "footer.text")}${field("Nhan link", "footer.label")}${field("Link", "footer.href")}</div>`);
     };
-
     const renderJson = () => {
-      content.innerHTML = panel("JSON nang cao", "Dung khi can sua nhanh cau truc phuc tap. Hay format/kiem tra truoc khi luu.", `
-        <textarea class="json-editor" id="jsonEditor" spellcheck="false">${escapeHtml(JSON.stringify(state.data, null, 2))}</textarea>
-        <div style="height:14px"></div>
-        <div class="mini-actions">
-          <button class="secondary" id="formatJson">Format</button>
-          <button class="secondary" id="applyJson">Ap dung vao form</button>
-        </div>
-      `);
+      content.innerHTML = panel("JSON nang cao", "Dung khi can sua nhanh cau truc phuc tap. Hay format/kiem tra truoc khi luu.", `<textarea class="json-editor" id="jsonEditor" spellcheck="false">${escapeHtml(JSON.stringify(state.data, null, 2))}</textarea><div style="height:14px"></div><div class="mini-actions"><button class="secondary" id="formatJson">Format</button><button class="secondary" id="applyJson">Ap dung vao form</button></div>`);
       $("#formatJson").addEventListener("click", () => {
         const editor = $("#jsonEditor");
         editor.value = JSON.stringify(JSON.parse(editor.value), null, 2);
         updateStatus("JSON hop le", "ok");
       });
       $("#applyJson").addEventListener("click", () => {
-        state.data = JSON.parse($("#jsonEditor").value);
+        state.data = normalizeData(JSON.parse($("#jsonEditor").value));
         markDirty();
+        render();
       });
     };
 
@@ -855,35 +443,16 @@
       const active = sections.find(([id]) => id === state.active);
       $("#sectionTitle").textContent = active[1];
       $("#sectionHint").textContent = active[2];
-
-      $("#nav").innerHTML = sections.map(([id, label]) => `
-        <button class="${id === state.active ? "active" : ""}" data-section="${id}">${escapeHtml(label)}</button>
-      `).join("");
-
-      const map = {
-        overview: renderOverview,
-        analytics: renderAnalytics,
-        seo: renderSeo,
-        hero: renderHero,
-        visual: renderVisual,
-        workflow: renderWorkflow,
-        offer: renderOffer,
-        pricing: renderPricing,
-        faq: renderFaq,
-        final: renderFinal,
-        json: renderJson,
-      };
-
+      $("#nav").innerHTML = sections.map(([id, label]) => `<button class="${id === state.active ? "active" : ""}" data-section="${id}">${escapeHtml(label)}</button>`).join("");
+      const map = { overview: renderOverview, analytics: renderAnalytics, seo: renderSeo, hero: renderHero, categories: renderCategories, products: renderProducts, benefits: renderBenefits, faq: renderFaq, final: renderFinal, json: renderJson };
       map[state.active]();
       bindInputs();
     };
 
     const emptyForPath = (path) => {
-      if (path === "terminal") return "";
-      if (path === "stages") return { label: "", text: "" };
-      if (path === "trust") return { value: "", label: "" };
-      if (path.includes("cards")) return { tag: "", title: "", text: "" };
-      if (path.includes("checks") || path === "steps" || path === "faq") return { title: "", text: "" };
+      if (path === "categories") return { id: "new-category", label: "Danh muc moi" };
+      if (path === "products") return { id: `product-${Date.now()}`, categoryId: state.data.categories?.[0]?.id || "fashion", name: "San pham moi", price: "0d", oldPrice: "", badge: "New", image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85", buyUrl: "https://thaochi-boutique.vercel.app/#contact", description: "Mo ta ngan cho san pham.", featured: false };
+      if (path === "benefits" || path === "faq") return { title: "", text: "" };
       return {};
     };
 
@@ -891,25 +460,12 @@
       content.querySelectorAll("[data-path]").forEach((input) => {
         input.addEventListener("input", (event) => {
           const path = event.target.dataset.path;
-          pathSet(path, event.target.value);
+          let value = event.target.value;
+          if (path.endsWith(".featured")) value = value === "true";
+          pathSet(path, value);
+          if (state.active === "products" && path.includes(".image")) render();
         });
       });
-
-      content.querySelectorAll("[data-array-path]").forEach((input) => {
-        input.addEventListener("input", (event) => {
-          const items = pathGet(event.target.dataset.arrayPath);
-          items[Number(event.target.dataset.arrayIndex)] = event.target.value;
-          markDirty();
-        });
-      });
-
-      content.querySelectorAll("[data-section]").forEach((button) => {
-        button.addEventListener("click", () => {
-          state.active = button.dataset.section;
-          render();
-        });
-      });
-
       content.querySelectorAll("[data-add]").forEach((button) => {
         button.addEventListener("click", () => {
           const path = button.dataset.add;
@@ -918,7 +474,6 @@
           markDirty();
         });
       });
-
       content.querySelectorAll("[data-remove]").forEach((button) => {
         button.addEventListener("click", () => {
           const [path, index] = button.dataset.remove.split(":");
@@ -927,7 +482,6 @@
           markDirty();
         });
       });
-
       content.querySelectorAll("[data-move]").forEach((button) => {
         button.addEventListener("click", () => {
           const [path, indexRaw, directionRaw] = button.dataset.move.split(":");
@@ -945,31 +499,20 @@
 
     const syncVisibleFormToState = () => {
       if (!state.data || state.active === "json") return;
-
       content.querySelectorAll("[data-path]").forEach((input) => {
-        pathSet(input.dataset.path, input.value);
-      });
-
-      content.querySelectorAll("[data-array-path]").forEach((input) => {
-        const items = pathGet(input.dataset.arrayPath);
-        if (Array.isArray(items)) {
-          items[Number(input.dataset.arrayIndex)] = input.value;
-        }
+        let value = input.value;
+        if (input.dataset.path.endsWith(".featured")) value = value === "true";
+        pathSet(input.dataset.path, value);
       });
     };
 
     const loadContent = async () => {
       updateStatus("Dang tai...");
-      const [response, metricsResponse] = await Promise.all([
-        fetch("/api/content"),
-        fetch("/api/metrics").catch(() => null),
-      ]);
+      const [response, metricsResponse] = await Promise.all([fetch("/api/content"), fetch("/api/metrics").catch(() => null)]);
       const payload = await response.json();
       if (!response.ok) throw new Error(payload.error || "Khong tai duoc noi dung");
-      if (metricsResponse?.ok) {
-        state.metrics = await metricsResponse.json();
-      }
-      state.data = payload.data;
+      if (metricsResponse?.ok) state.metrics = await metricsResponse.json();
+      state.data = normalizeData(payload.data);
       state.updatedAt = payload.updated_at;
       state.dirty = false;
       updateStatus("Da tai tu Supabase - chua co thay doi", "ok");
@@ -979,33 +522,18 @@
     const saveContent = async () => {
       if (state.active === "json") {
         const editor = $("#jsonEditor");
-        if (editor) state.data = JSON.parse(editor.value);
+        if (editor) state.data = normalizeData(JSON.parse(editor.value));
       } else {
         syncVisibleFormToState();
       }
       updateStatus("Dang luu...");
-      const dataToSave = JSON.parse(JSON.stringify(state.data));
-      const response = await fetch("/api/content", {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({ data: dataToSave }),
-      });
+      const response = await fetch("/api/content", { method: "PUT", headers: { "content-type": "application/json" }, body: JSON.stringify({ data: clone(state.data) }) });
       const payload = await response.json();
-      if (!response.ok) {
-        throw new Error(payload.error || "Khong luu duoc");
-      }
-
-      const verifyResponse = await fetch(`/api/content?verify=${Date.now()}`, {
-        cache: "no-store",
-      });
+      if (!response.ok) throw new Error(payload.error || "Khong luu duoc");
+      const verifyResponse = await fetch(`/api/content?verify=${Date.now()}`, { cache: "no-store" });
       const verified = await verifyResponse.json();
-      if (!verifyResponse.ok) {
-        throw new Error(verified.error || "Da luu nhung khong doc lai duoc");
-      }
-
-      state.data = verified.data;
+      if (!verifyResponse.ok) throw new Error(verified.error || "Da luu nhung khong doc lai duoc");
+      state.data = normalizeData(verified.data);
       state.updatedAt = verified.updated_at;
       state.dirty = false;
       updateStatus(`Da luu va doc lai tu Supabase ${verified.updated_at}`, "ok");
@@ -1018,20 +546,9 @@
       state.active = button.dataset.section;
       render();
     });
-
-    $("#reloadBtn").addEventListener("click", () => {
-      loadContent().catch((error) => updateStatus(error.message, "error"));
-    });
-
-    $("#saveBtn").addEventListener("click", () => {
-      saveContent().catch((error) => updateStatus(error.message, "error"));
-    });
-
-    $("#jsonBtn").addEventListener("click", () => {
-      state.active = "json";
-      render();
-    });
-
+    $("#reloadBtn").addEventListener("click", () => loadContent().catch((error) => updateStatus(error.message, "error")));
+    $("#saveBtn").addEventListener("click", () => saveContent().catch((error) => updateStatus(error.message, "error")));
+    $("#jsonBtn").addEventListener("click", () => { state.active = "json"; render(); });
     $("#logoutBtn").addEventListener("click", () => {
       sessionStorage.removeItem("affiliate_admin_logged_in");
       state.loggedIn = false;
@@ -1040,26 +557,21 @@
       $("#usernameInput").focus();
       updateStatus("Da dang xuat");
     });
-
     $("#viewSiteBtn").addEventListener("click", (event) => {
       event.preventDefault();
       window.open(`/?cms=${Date.now()}`, "_blank", "noopener");
     });
-
     $("#loginForm").addEventListener("submit", (event) => {
       event.preventDefault();
       const username = $("#usernameInput").value.trim();
       const password = $("#passwordInput").value;
-
       if (username !== "beedzai" || password !== "aqswde123") {
         $("#loginError").textContent = "Tai khoan hoac mat khau khong dung.";
         return;
       }
-
       sessionStorage.setItem("affiliate_admin_logged_in", "true");
       state.loggedIn = true;
       $("#login").classList.add("hidden");
-      $("#loginError").textContent = "";
       loadContent().catch((error) => updateStatus(error.message, "error"));
     });
 
@@ -1068,7 +580,6 @@
       loadContent().catch((error) => updateStatus(error.message, "error"));
     } else {
       $("#usernameInput").focus();
-      updateStatus("Can dang nhap de quan tri");
     }
   </script>
 </body>
