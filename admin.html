@@ -24,7 +24,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.45;
     }
     button, input, textarea, select { font: inherit; }
@@ -176,13 +176,13 @@
 <body>
   <div id="login" class="login">
     <form class="login-card" id="loginForm">
-      <h2>Dang nhap admin</h2>
-      <p>Quan ly san pham, gia, anh va link mua cua Thao Chi Boutique.</p>
-      <div class="field"><label for="usernameInput">Tai khoan</label><input id="usernameInput" type="text" autocomplete="username" required></div>
+      <h2>Đăng nhập admin</h2>
+      <p>Quản lý sản phẩm, giá, ảnh và link mua của Thảo Chi Boutique.</p>
+      <div class="field"><label for="usernameInput">Tài khoản</label><input id="usernameInput" type="text" autocomplete="username" required></div>
       <div style="height:12px"></div>
-      <div class="field"><label for="passwordInput">Mat khau</label><input id="passwordInput" type="password" autocomplete="current-password" required></div>
+      <div class="field"><label for="passwordInput">Mật khẩu</label><input id="passwordInput" type="password" autocomplete="current-password" required></div>
       <div style="height:14px"></div>
-      <button type="submit" style="width:100%">Dang nhap</button>
+      <button type="submit" style="width:100%">Đăng nhập</button>
       <p class="status error" id="loginError"></p>
     </form>
   </div>
@@ -191,13 +191,13 @@
     <aside>
       <div class="brand">
         <div class="mark">TC</div>
-        <div><strong>Thao Chi Boutique</strong><span>Commerce CMS</span></div>
+        <div><strong>Thảo Chi Boutique</strong><span>Commerce CMS</span></div>
       </div>
       <nav id="nav"></nav>
       <div class="sidebar-foot">
         <a class="button secondary" href="/" target="_blank" rel="noopener" id="viewSiteBtn">Xem site</a>
-        <button class="secondary" id="reloadBtn">Tai lai</button>
-        <button class="secondary" id="logoutBtn">Dang xuat</button>
+        <button class="secondary" id="reloadBtn">Tải lại</button>
+        <button class="secondary" id="logoutBtn">Đăng xuất</button>
       </div>
     </aside>
     <div class="workspace">
@@ -205,12 +205,12 @@
         <div class="topbar">
           <div>
             <h1 id="sectionTitle">Dashboard</h1>
-            <p id="sectionHint">Quan ly noi dung cua hang luu trong Supabase.</p>
+            <p id="sectionHint">Quản lý nội dung cửa hàng lưu trong Supabase.</p>
           </div>
           <div class="actions">
-            <span class="status" id="status">Chua tai du lieu</span>
-            <button class="secondary" id="jsonBtn">JSON nang cao</button>
-            <button id="saveBtn">Luu thay doi</button>
+            <span class="status" id="status">Chưa tải dữ liệu</span>
+            <button class="secondary" id="jsonBtn">JSON nâng cao</button>
+            <button id="saveBtn">Lưu thay đổi</button>
           </div>
         </div>
       </header>
@@ -261,6 +261,138 @@
     const statusBox = $("#status");
     const escapeHtml = (value = "") => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
     const clone = (value) => JSON.parse(JSON.stringify(value));
+    const viText = new Map(Object.entries({
+      "Thao Chi Boutique": "Thảo Chi Boutique",
+      "Thao Chi Boutique - Thoi trang va phu kien cao cap": "Thảo Chi Boutique - Thời trang và phụ kiện cao cấp",
+      "Mien phi tu van chon san pham. Gia va tinh trang hang co the thay doi theo tung thoi diem.": "Miễn phí tư vấn chọn sản phẩm. Giá và tình trạng hàng có thể thay đổi theo từng thời điểm.",
+      "Bo suu tap moi": "Bộ sưu tập mới",
+      "San pham cao cap duoc tuyen chon cho phong cach hien dai": "Sản phẩm cao cấp được tuyển chọn cho phong cách hiện đại",
+      "Kham pha cac mau thoi trang, tui xach, phu kien va qua tang duoc sap xep theo danh muc.": "Khám phá các mẫu thời trang, túi xách, phụ kiện và quà tặng được sắp xếp theo danh mục.",
+      "Xem san pham": "Xem sản phẩm",
+      "Lien he tu van": "Liên hệ tư vấn",
+      "Thoi trang": "Thời trang",
+      "Tui xach": "Túi xách",
+      "Phu kien": "Phụ kiện",
+      "Qua tang": "Quà tặng",
+      "Cau hoi thuong gap": "Câu hỏi thường gặp",
+      "Can tu van chon san pham phu hop?": "Cần tư vấn chọn sản phẩm phù hợp?",
+      "Gui email": "Gửi email",
+      "Tong quan": "Tổng quan",
+      "Kiem tra nhanh cua hang, san pham va trang thai luu.": "Kiểm tra nhanh cửa hàng, sản phẩm và trạng thái lưu.",
+      "Do luong & SEO": "Đo lường & SEO",
+      "Theo doi luot truy cap va diem toi uu SEO cua website.": "Theo dõi lượt truy cập và điểm tối ưu SEO của website.",
+      "SEO & thong bao": "SEO & thông báo",
+      "Tieu de, meta description va thanh thong bao.": "Tiêu đề, meta description và thanh thông báo.",
+      "Thong diep dau trang, anh hero va CTA chinh.": "Thông điệp đầu trang, ảnh hero và CTA chính.",
+      "Danh muc": "Danh mục",
+      "Tao tab mat hang va ID de gan cho san pham.": "Tạo tab mặt hàng và ID để gán cho sản phẩm.",
+      "San pham": "Sản phẩm",
+      "Them moi, sua gia, anh, mo ta va link mua tung san pham.": "Thêm mới, sửa giá, ảnh, mô tả và link mua từng sản phẩm.",
+      "Loi ich": "Lợi ích",
+      "Cac ly do mua hang hien o khoi dich vu.": "Các lý do mua hàng hiện ở khối dịch vụ.",
+      "Lien he & footer": "Liên hệ & footer",
+      "CTA cuoi trang va thong tin footer.": "CTA cuối trang và thông tin footer.",
+      "JSON nang cao": "JSON nâng cao",
+      "Chinh sua truc tiep toan bo cau truc du lieu.": "Chỉnh sửa trực tiếp toàn bộ cấu trúc dữ liệu.",
+      "Co thay doi chua luu": "Có thay đổi chưa lưu",
+      "Nhan nut": "Nhãn nút",
+      "Lien ket": "Liên kết",
+      "Len": "Lên",
+      "Xuong": "Xuống",
+      "Xoa": "Xóa",
+      "Hero co thong diep ro": "Hero có thông điệp rõ",
+      "Co anh hero": "Có ảnh hero",
+      "Co it nhat 3 danh muc": "Có ít nhất 3 danh mục",
+      "Co it nhat 6 san pham": "Có ít nhất 6 sản phẩm",
+      "Moi san pham co anh va link mua": "Mỗi sản phẩm có ảnh và link mua",
+      "Co FAQ tu 3 cau tro len": "Có FAQ từ 3 câu trở lên",
+      "San pham noi bat": "Sản phẩm nổi bật",
+      "Diem SEO": "Điểm SEO",
+      "Trang thai du lieu": "Trạng thái dữ liệu",
+      "Du lieu duoc doc tu Supabase va doc lap voi code GitHub.": "Dữ liệu được đọc từ Supabase và độc lập với code GitHub.",
+      "Cap nhat gan nhat": "Cập nhật gần nhất",
+      "Chua ro": "Chưa rõ",
+      "Tieu de hien tai": "Tiêu đề hiện tại",
+      "Hom nay": "Hôm nay",
+      "7 ngay": "7 ngày",
+      "30 ngay": "30 ngày",
+      "Khach rieng 30 ngay": "Khách riêng 30 ngày",
+      "Diem SEO commerce": "Điểm SEO commerce",
+      "Diem tinh tu title, description, hero, danh muc, anh san pham, link mua va FAQ.": "Điểm tính từ title, description, hero, danh mục, ảnh sản phẩm, link mua và FAQ.",
+      "Dat": "Đạt",
+      "Can sua": "Cần sửa",
+      "Trang duoc xem nhieu": "Trang được xem nhiều",
+      "Tong hop 30 ngay gan nhat.": "Tổng hợp 30 ngày gần nhất.",
+      "Chua co du lieu.": "Chưa có dữ liệu.",
+      "Nguon truy cap": "Nguồn truy cập",
+      "Referrer 30 ngay gan nhat.": "Referrer 30 ngày gần nhất.",
+      "SEO & disclosure": "SEO & thông báo",
+      "Noi dung quan trong cho Google va thanh thong bao dau trang.": "Nội dung quan trọng cho Google và thanh thông báo đầu trang.",
+      "Thong bao dau trang": "Thông báo đầu trang",
+      "Ten thuong hieu": "Tên thương hiệu",
+      "Thong diep dau trang, anh nen va nut keu goi hanh dong.": "Thông điệp đầu trang, ảnh nền và nút kêu gọi hành động.",
+      "Anh hero URL": "Ảnh hero URL",
+      "CTA hero": "CTA hero",
+      "Nut chinh va nut phu tren hero.": "Nút chính và nút phụ trên hero.",
+      "ID viet lien khong dau, dung de gan vao Category ID cua san pham.": "ID viết liền không dấu, dùng để gán vào Category ID của sản phẩm.",
+      "Ten hien thi": "Tên hiển thị",
+      "Quan ly anh, gia, gia goc, nhan, danh muc va link mua rieng cho tung san pham.": "Quản lý ảnh, giá, giá gốc, nhãn, danh mục và link mua riêng cho từng sản phẩm.",
+      "Ten san pham": "Tên sản phẩm",
+      "Gia hien tai": "Giá hiện tại",
+      "Gia goc / gia cu": "Giá gốc / giá cũ",
+      "Nhan": "Nhãn",
+      "Link mua": "Link mua",
+      "Anh san pham URL": "Ảnh sản phẩm URL",
+      "Mo ta ngan": "Mô tả ngắn",
+      "Noi bat": "Nổi bật",
+      "Co": "Có",
+      "Khong": "Không",
+      "Ma san pham": "Mã sản phẩm",
+      "Them san pham": "Thêm sản phẩm",
+      "Cac card giai thich ly do khach nen mua hang.": "Các card giải thích lý do khách nên mua hàng.",
+      "Tieu de": "Tiêu đề",
+      "Mo ta": "Mô tả",
+      "Tieu de va mo ta cho khoi FAQ.": "Tiêu đề và mô tả cho khối FAQ.",
+      "Quan ly cau hoi va cau tra loi.": "Quản lý câu hỏi và câu trả lời.",
+      "Cau hoi": "Câu hỏi",
+      "Tra loi": "Trả lời",
+      "Thong diep chot va hai CTA cuoi.": "Thông điệp chốt và hai CTA cuối.",
+      "Nhan link": "Nhãn link",
+      "Dung khi can sua nhanh cau truc phuc tap. Hay format/kiem tra truoc khi luu.": "Dùng khi cần sửa nhanh cấu trúc phức tạp. Hãy format/kiểm tra trước khi lưu.",
+      "Ap dung vao form": "Áp dụng vào form",
+      "Danh muc moi": "Danh mục mới",
+      "San pham moi": "Sản phẩm mới",
+      "Mo ta ngan cho san pham.": "Mô tả ngắn cho sản phẩm.",
+      "Dang tai...": "Đang tải...",
+      "Khong tai duoc noi dung": "Không tải được nội dung",
+      "Da tai tu Supabase - chua co thay doi": "Đã tải từ Supabase - chưa có thay đổi",
+      "Dang luu...": "Đang lưu...",
+      "Khong luu duoc": "Không lưu được",
+      "Da luu nhung khong doc lai duoc": "Đã lưu nhưng không đọc lại được",
+      "Da dang xuat": "Đã đăng xuất",
+      "Tai khoan hoac mat khau khong dung.": "Tài khoản hoặc mật khẩu không đúng."
+    }));
+
+    const translateVietnameseUi = (root = document.body) => {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach((node) => {
+        const key = node.nodeValue.trim();
+        if (viText.has(key)) node.nodeValue = node.nodeValue.replace(key, viText.get(key));
+        node.nodeValue = node.nodeValue
+          .replaceAll("Them ", "Thêm ")
+          .replaceAll("danh muc", "danh mục")
+          .replaceAll("san pham", "sản phẩm")
+          .replaceAll("loi ich", "lợi ích")
+          .replaceAll("Danh muc", "Danh mục")
+          .replaceAll("San pham", "Sản phẩm")
+          .replaceAll("Loi ich", "Lợi ích")
+          .replaceAll("Tieu de", "Tiêu đề")
+          .replaceAll("Mo ta", "Mô tả")
+          .replaceAll("Cau hoi", "Câu hỏi");
+      });
+    };
 
     const normalizeData = (data) => {
       const base = clone(fallbackData);
@@ -292,7 +424,7 @@
       markDirty();
     };
     const updateStatus = (message, type = "") => { statusBox.textContent = message; statusBox.className = `status ${type}`.trim(); };
-    const markDirty = () => { state.dirty = true; updateStatus("Co thay doi chua luu", "error"); };
+    const markDirty = () => { state.dirty = true; updateStatus("Có thay đổi chưa lưu", "error"); };
 
     const field = (label, path, type = "input") => {
       const value = pathGet(path) ?? "";
@@ -447,6 +579,7 @@
       const map = { overview: renderOverview, analytics: renderAnalytics, seo: renderSeo, hero: renderHero, categories: renderCategories, products: renderProducts, benefits: renderBenefits, faq: renderFaq, final: renderFinal, json: renderJson };
       map[state.active]();
       bindInputs();
+      translateVietnameseUi(document.body);
     };
 
     const emptyForPath = (path) => {
@@ -507,15 +640,15 @@
     };
 
     const loadContent = async () => {
-      updateStatus("Dang tai...");
+      updateStatus("Đang tải...");
       const [response, metricsResponse] = await Promise.all([fetch("/api/content"), fetch("/api/metrics").catch(() => null)]);
       const payload = await response.json();
-      if (!response.ok) throw new Error(payload.error || "Khong tai duoc noi dung");
+      if (!response.ok) throw new Error(payload.error || "Không tải được nội dung");
       if (metricsResponse?.ok) state.metrics = await metricsResponse.json();
       state.data = normalizeData(payload.data);
       state.updatedAt = payload.updated_at;
       state.dirty = false;
-      updateStatus("Da tai tu Supabase - chua co thay doi", "ok");
+      updateStatus("Đã tải từ Supabase - chưa có thay đổi", "ok");
       render();
     };
 
@@ -526,17 +659,17 @@
       } else {
         syncVisibleFormToState();
       }
-      updateStatus("Dang luu...");
+      updateStatus("Đang lưu...");
       const response = await fetch("/api/content", { method: "PUT", headers: { "content-type": "application/json" }, body: JSON.stringify({ data: clone(state.data) }) });
       const payload = await response.json();
-      if (!response.ok) throw new Error(payload.error || "Khong luu duoc");
+      if (!response.ok) throw new Error(payload.error || "Không lưu được");
       const verifyResponse = await fetch(`/api/content?verify=${Date.now()}`, { cache: "no-store" });
       const verified = await verifyResponse.json();
-      if (!verifyResponse.ok) throw new Error(verified.error || "Da luu nhung khong doc lai duoc");
+      if (!verifyResponse.ok) throw new Error(verified.error || "Đã lưu nhưng không đọc lại được");
       state.data = normalizeData(verified.data);
       state.updatedAt = verified.updated_at;
       state.dirty = false;
-      updateStatus(`Da luu va doc lai tu Supabase ${verified.updated_at}`, "ok");
+      updateStatus(`Đã lưu và đọc lại từ Supabase ${verified.updated_at}`, "ok");
       render();
     };
 
@@ -555,7 +688,7 @@
       $("#login").classList.remove("hidden");
       $("#passwordInput").value = "";
       $("#usernameInput").focus();
-      updateStatus("Da dang xuat");
+      updateStatus("Đã đăng xuất");
     });
     $("#viewSiteBtn").addEventListener("click", (event) => {
       event.preventDefault();
@@ -566,7 +699,7 @@
       const username = $("#usernameInput").value.trim();
       const password = $("#passwordInput").value;
       if (username !== "beedzai" || password !== "aqswde123") {
-        $("#loginError").textContent = "Tai khoan hoac mat khau khong dung.";
+        $("#loginError").textContent = "Tài khoản hoặc mật khẩu không đúng.";
         return;
       }
       sessionStorage.setItem("affiliate_admin_logged_in", "true");
