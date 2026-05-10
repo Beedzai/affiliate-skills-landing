@@ -1,173 +1,164 @@
 {
-  "title": "Thảo Chi Boutique Realty - Tư vấn bất động sản chọn lọc",
-  "description": "Thảo Chi Boutique Realty tư vấn mua, bán và đầu tư bất động sản theo nhu cầu thật: lọc sản phẩm, thẩm định giá, hỗ trợ pháp lý và đồng hành đến khi giao dịch hoàn tất.",
-  "notice": "Tư vấn bất động sản minh bạch: mọi thông tin về giá, pháp lý, tiến độ và chính sách bán hàng cần được xác minh trên hồ sơ thực tế trước khi quyết định giao dịch.",
-  "visualTitle": "thaochi-boutique / property desk",
+  "title": "Thao Chi Boutique - Thoi trang va phu kien cao cap",
+  "description": "Thao Chi Boutique tuyen chon thoi trang, tui xach, phu kien va qua tang cao cap voi hinh anh sang trong, gia niem yet ro rang va link mua truc tiep cho tung san pham.",
+  "notice": "Mien phi tu van chon san pham. Gia va tinh trang hang co the thay doi theo tung thoi diem, vui long bam nut mua de kiem tra thong tin moi nhat.",
+  "brand": {
+    "name": "Thao Chi Boutique",
+    "tagline": "Curated fashion & lifestyle"
+  },
   "hero": {
-    "eyebrow": "Tư vấn bất động sản chọn lọc",
-    "title": "Tìm đúng căn nhà và cơ hội đầu tư phù hợp",
-    "lead": "Thảo Chi Boutique Realty đồng hành cùng khách hàng từ bước xác định nhu cầu, lọc sản phẩm, xem nhà, thương lượng đến hoàn tất hồ sơ. Mỗi đề xuất đều được đặt trên ngân sách, vị trí, pháp lý và mục tiêu sử dụng thực tế.",
+    "eyebrow": "Bo suu tap moi",
+    "title": "San pham cao cap duoc tuyen chon cho phong cach hien dai",
+    "lead": "Kham pha cac mau thoi trang, tui xach, phu kien va qua tang duoc sap xep theo danh muc. Moi san pham co anh, gia va link mua rieng de khach hang dat hang nhanh hon.",
     "primaryCta": {
-      "label": "Nhận tư vấn 1:1",
-      "href": "#final"
+      "label": "Xem san pham",
+      "href": "#products"
     },
     "secondaryCta": {
-      "label": "Xem quy trình",
-      "href": "#workflow"
+      "label": "Lien he tu van",
+      "href": "https://zalo.me/0900000000"
     },
-    "micro": "Phù hợp với người mua để ở, nhà đầu tư, chủ nhà cần bán/cho thuê và khách hàng cần đánh giá bất động sản trước giao dịch."
+    "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=85"
   },
-  "terminal": [
-    "> tiếp nhận nhu cầu: ngân sách, khu vực, mục tiêu",
-    "Phân khúc phù hợp: căn hộ trung tâm | nhà phố | BĐS dòng tiền",
-    "> lọc danh sách sản phẩm có hồ sơ rõ ràng",
-    "Sẵn sàng: lịch xem thực tế, bảng so sánh, checklist pháp lý"
-  ],
-  "stages": [
+  "categories": [
     {
-      "label": "01 Nhu cầu",
-      "text": "Làm rõ ngân sách, vị trí, mục đích ở/đầu tư và thời gian giao dịch."
+      "id": "fashion",
+      "label": "Thoi trang"
     },
     {
-      "label": "02 Lọc sản phẩm",
-      "text": "So sánh giá, pháp lý, tiện ích, thanh khoản và tiềm năng tăng giá."
+      "id": "bags",
+      "label": "Tui xach"
     },
     {
-      "label": "03 Xem thực tế",
-      "text": "Sắp lịch xem nhà, ghi nhận ưu/nhược điểm và chi phí phát sinh."
+      "id": "accessories",
+      "label": "Phu kien"
     },
     {
-      "label": "04 Giao dịch",
-      "text": "Hỗ trợ thương lượng, đặt cọc, công chứng và bàn giao theo checklist."
+      "id": "gifts",
+      "label": "Qua tang"
     }
   ],
-  "trust": [
+  "products": [
     {
-      "value": "1:1",
-      "label": "tư vấn theo nhu cầu"
+      "id": "silk-dress",
+      "categoryId": "fashion",
+      "name": "Dam lua co dien",
+      "price": "1.890.000d",
+      "oldPrice": "2.250.000d",
+      "badge": "Best seller",
+      "image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85",
+      "buyUrl": "https://thaochi-boutique.vercel.app/#contact",
+      "description": "Chat lieu mem, form ton dang, phu hop di tiec, gap khach hang hoac su kien cuoi tuan.",
+      "featured": true
     },
     {
-      "value": "24h",
-      "label": "phản hồi danh sách phù hợp"
+      "id": "linen-set",
+      "categoryId": "fashion",
+      "name": "Set linen toi gian",
+      "price": "1.490.000d",
+      "oldPrice": "",
+      "badge": "New",
+      "image": "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=900&q=85",
+      "buyUrl": "https://thaochi-boutique.vercel.app/#contact",
+      "description": "Thiet ke gon, sang va de phoi cho ngay lam viec lan lich hen sau gio.",
+      "featured": false
     },
     {
-      "value": "4",
-      "label": "bước giao dịch rõ ràng"
+      "id": "leather-tote",
+      "categoryId": "bags",
+      "name": "Tui tote da mem",
+      "price": "2.690.000d",
+      "oldPrice": "3.100.000d",
+      "badge": "Limited",
+      "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85",
+      "buyUrl": "https://thaochi-boutique.vercel.app/#contact",
+      "description": "Suc chua rong, duong may sac net, phu hop di lam va di chuyen hang ngay.",
+      "featured": true
     },
     {
-      "value": "100%",
-      "label": "ưu tiên minh bạch hồ sơ"
+      "id": "mini-bag",
+      "categoryId": "bags",
+      "name": "Tui mini du tiec",
+      "price": "1.250.000d",
+      "oldPrice": "",
+      "badge": "Hot",
+      "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=85",
+      "buyUrl": "https://thaochi-boutique.vercel.app/#contact",
+      "description": "Kich thuoc nho gon, diem nhan anh kim tinh te cho cac buoi hen toi.",
+      "featured": false
+    },
+    {
+      "id": "silk-scarf",
+      "categoryId": "accessories",
+      "name": "Khan lua hoa tiet",
+      "price": "590.000d",
+      "oldPrice": "720.000d",
+      "badge": "Gift pick",
+      "image": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=900&q=85",
+      "buyUrl": "https://thaochi-boutique.vercel.app/#contact",
+      "description": "Phu kien nho nhung tao diem nhan ro cho blazer, dam tron mau hoac tui xach.",
+      "featured": false
+    },
+    {
+      "id": "signature-box",
+      "categoryId": "gifts",
+      "name": "Hop qua signature",
+      "price": "990.000d",
+      "oldPrice": "",
+      "badge": "Ready",
+      "image": "https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=900&q=85",
+      "buyUrl": "https://thaochi-boutique.vercel.app/#contact",
+      "description": "Set qua tang dong goi san, phu hop sinh nhat, cam on khach hang va dip dac biet.",
+      "featured": true
     }
   ],
-  "workflow": {
-    "title": "Quy trình bất động sản được thiết kế để giảm rủi ro giao dịch.",
-    "text": "Thay vì đưa khách xem thật nhiều sản phẩm không liên quan, chúng tôi bắt đầu từ nhu cầu thật và dùng checklist để lọc bất động sản đáng xem, đáng đàm phán và đáng xuống tiền.",
-    "cards": [
-      {
-        "tag": "Mua để ở",
-        "title": "Chọn nhà theo lối sống",
-        "text": "Đánh giá vị trí, tiện ích, hướng nhà, kết nối giao thông, môi trường sống và chi phí sở hữu dài hạn."
-      },
-      {
-        "tag": "Đầu tư",
-        "title": "Phân tích dòng tiền và thanh khoản",
-        "text": "So sánh giá khu vực, khả năng cho thuê, biên độ tăng giá, chi phí vốn và kịch bản thoát hàng."
-      },
-      {
-        "tag": "Bán/cho thuê",
-        "title": "Định vị sản phẩm để ra hàng tốt hơn",
-        "text": "Tư vấn giá chào, điểm mạnh cần truyền thông, hồ sơ cần chuẩn bị và cách sàng lọc khách mua/khách thuê."
-      }
-    ]
-  },
-  "offer": {
-    "title": "Một đầu mối đồng hành từ lúc xem nhà đến khi bàn giao.",
-    "text": "Mỗi giao dịch bất động sản đều có nhiều điểm cần kiểm tra: giá, quy hoạch, pháp lý, chất lượng tài sản, dòng tiền, thuế phí và điều khoản đặt cọc. Thảo Chi Boutique Realty giúp bạn gom tất cả vào một quy trình để ra quyết định rõ ràng hơn.",
-    "cta": {
-      "label": "Đặt lịch tư vấn",
-      "href": "#final"
-    },
-    "checks": [
-      {
-        "title": "Không đẩy sản phẩm đại trà",
-        "text": "Chỉ đề xuất bất động sản phù hợp với nhu cầu, ngân sách và mục tiêu giao dịch."
-      },
-      {
-        "title": "Có bảng so sánh trước khi xem",
-        "text": "Mỗi danh sách đều có lý do để xem, điểm cần hỏi và rủi ro cần xác minh."
-      },
-      {
-        "title": "Đồng hành ở các mốc quan trọng",
-        "text": "Từ xem nhà, thương lượng, đặt cọc, công chứng đến bàn giao tài sản."
-      }
-    ]
-  },
-  "pricing": {
-    "tag": "Tư vấn ban đầu",
-    "title": "Bắt đầu bằng một buổi trao đổi nhu cầu",
-    "price": "Miễn phí",
-    "text": "Buổi tư vấn đầu tiên giúp xác định khu vực, ngân sách, tiêu chí lọc sản phẩm và mục tiêu giao dịch. Chi phí dịch vụ cụ thể sẽ được thống nhất minh bạch theo từng trường hợp.",
-    "cta": {
-      "label": "Gửi nhu cầu",
-      "href": "#final"
-    }
-  },
-  "stepsTitle": "Cách chúng tôi làm việc",
-  "steps": [
+  "benefits": [
     {
-      "title": "Tiếp nhận nhu cầu và ngân sách.",
-      "text": "Ghi nhận khu vực, loại tài sản, mục tiêu sử dụng, tiến độ và điều kiện tài chính."
+      "title": "Anh san pham ro net",
+      "text": "Moi san pham hien thi bang anh lon, ti le dep va thong tin gia de khach hang ra quyet dinh nhanh."
     },
     {
-      "title": "Lọc danh sách bất động sản phù hợp.",
-      "text": "So sánh giá, vị trí, pháp lý, tính thanh khoản và các điểm cần xác minh."
+      "title": "Danh muc de loc",
+      "text": "Tab theo mat hang giup khach xem dung nhom san pham minh quan tam."
     },
     {
-      "title": "Xem thực tế và thương lượng.",
-      "text": "Sắp lịch xem, đánh giá ưu/nhược điểm, chuẩn bị câu hỏi và chiến lược đàm phán."
-    },
-    {
-      "title": "Hoàn tất hồ sơ và bàn giao.",
-      "text": "Theo dõi đặt cọc, công chứng, thanh toán, thuế phí và checklist bàn giao."
+      "title": "Mua bang mot cham",
+      "text": "Tung anh san pham co nut mua rieng, co the gan link Shopee, Zalo, Facebook, TikTok Shop hoac form dat hang."
     }
   ],
   "faqIntro": {
-    "title": "Câu hỏi thường gặp",
-    "text": "Những điểm khách hàng thường cần làm rõ trước khi bắt đầu mua, bán hoặc đầu tư bất động sản."
+    "title": "Cau hoi thuong gap",
+    "text": "Nhung thong tin khach hang hay can biet truoc khi dat mua san pham."
   },
   "faq": [
     {
-      "title": "Tôi chưa rõ nên mua khu vực nào, có tư vấn được không?",
-      "text": "Có. Chúng tôi bắt đầu từ nhu cầu sống, ngân sách, thời gian di chuyển, mục tiêu đầu tư và mức độ chấp nhận rủi ro để khoanh vùng khu vực phù hợp."
+      "title": "Toi co the thay link mua cho tung san pham khong?",
+      "text": "Co. Trong admin, mo muc San pham va sua truong Link mua cua tung san pham."
     },
     {
-      "title": "Thông tin pháp lý được kiểm tra như thế nào?",
-      "text": "Mỗi hồ sơ cần được đối chiếu với giấy tờ gốc và cơ quan/chuyên gia liên quan khi cần. Chúng tôi giúp lập checklist câu hỏi và điểm cần xác minh trước khi đặt cọc."
+      "title": "Anh san pham nen dung kich thuoc nao?",
+      "text": "Nen dung anh doc hoac vuong, toi thieu 900px, anh sang ro va it chu tren anh."
     },
     {
-      "title": "Nếu tôi cần bán hoặc cho thuê nhà thì sao?",
-      "text": "Chúng tôi có thể hỗ trợ định vị giá, chuẩn bị thông tin sản phẩm, lọc khách hàng và xây quy trình xem nhà/giao dịch gọn hơn."
-    },
-    {
-      "title": "Có cam kết lợi nhuận đầu tư không?",
-      "text": "Không. Bất động sản luôn có rủi ro thị trường, pháp lý và thanh khoản. Chúng tôi tập trung vào phân tích kịch bản và minh bạch dữ liệu để bạn ra quyết định tốt hơn."
+      "title": "Co the chia them danh muc moi khong?",
+      "text": "Co. Tao danh muc moi trong admin, sau do gan Category ID do cho san pham can hien thi."
     }
   ],
   "final": {
-    "title": "Bắt đầu tìm bất động sản phù hợp với mục tiêu của bạn",
-    "lead": "Gửi nhu cầu về khu vực, ngân sách và mục đích mua/bán/cho thuê. Chúng tôi sẽ phản hồi với hướng lọc sản phẩm và các bước tiếp theo.",
+    "title": "Can tu van chon san pham phu hop?",
+    "lead": "Gui cho Thao Chi Boutique nhu cau, ngan sach va dip su dung. Chung toi se goi y mau phu hop va gui link dat hang nhanh.",
     "primaryCta": {
-      "label": "Liên hệ tư vấn",
-      "href": "mailto:contact@thaochi-boutique.vn"
+      "label": "Chat Zalo",
+      "href": "https://zalo.me/0900000000"
     },
     "secondaryCta": {
-      "label": "Gọi ngay",
-      "href": "tel:+84900000000"
+      "label": "Gui email",
+      "href": "mailto:contact@thaochi-boutique.vn"
     }
   },
   "footer": {
-    "text": "Thảo Chi Boutique Realty",
-    "label": "Tư vấn bất động sản chọn lọc",
+    "text": "Thao Chi Boutique",
+    "label": "thaochi-boutique.vercel.app",
     "href": "https://thaochi-boutique.vercel.app"
   }
 }
