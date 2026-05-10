@@ -668,6 +668,9 @@
 
     const renderVisual = () => {
       content.innerHTML =
+        panel("Nhan dashboard", "Ten hien trong khung visual dau trang.", `
+          <div class="grid">${field("Visual title", "visualTitle")}</div>
+        `) +
         listEditor("Pipeline", "Cac buoc hien trong dashboard mo phong.", "stages", [["Nhan", "label"], ["Mo ta", "text", "textarea"]]) +
         listEditor("Terminal", "Cac dong terminal mo phong.", "terminal", [["Noi dung", "__value", "textarea"]]);
     };
@@ -725,6 +728,7 @@
       `) + panel("Footer", "Text va link footer.", `
         <div class="grid">
           ${field("Text", "footer.text")}
+          ${field("Nhan link", "footer.label")}
           ${field("Link", "footer.href")}
         </div>
       `);
