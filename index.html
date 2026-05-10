@@ -732,6 +732,7 @@
       setLink(".hero .primary", data.hero?.primaryCta);
       setLink(".hero .secondary", data.hero?.secondaryCta);
       setText(".hero .micro", data.hero?.micro);
+      setText(".visual-top strong", data.visualTitle);
 
       renderCards(".pipeline", data.stages, (stage) => `
         <div class="stage"><b>${escapeHtml(stage.label)}</b><span>${escapeHtml(stage.text)}</span></div>
@@ -786,7 +787,7 @@
 
       const footer = document.querySelector("footer");
       if (footer && data.footer) {
-        footer.innerHTML = `${escapeHtml(data.footer.text || "")} <a href="${escapeHtml(data.footer.href || "#")}" target="_blank" rel="noopener">Affiliate Skills</a>`;
+        footer.innerHTML = `${escapeHtml(data.footer.text || "")} <a href="${escapeHtml(data.footer.href || "#")}" target="_blank" rel="noopener">${escapeHtml(data.footer.label || "")}</a>`;
       }
     };
 
