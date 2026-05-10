@@ -1,173 +1,173 @@
 {
-  "title": "Thao Chi Boutique Realty - Tu van bat dong san chon loc",
-  "description": "Thao Chi Boutique Realty tu van mua, ban va dau tu bat dong san theo nhu cau that: loc san pham, tham dinh gia, ho tro phap ly va dong hanh den khi giao dich hoan tat.",
-  "notice": "Tu van bat dong san minh bach: moi thong tin ve gia, phap ly, tien do va chinh sach ban hang can duoc xac minh tren ho so thuc te truoc khi quyet dinh giao dich.",
+  "title": "Thảo Chi Boutique Realty - Tư vấn bất động sản chọn lọc",
+  "description": "Thảo Chi Boutique Realty tư vấn mua, bán và đầu tư bất động sản theo nhu cầu thật: lọc sản phẩm, thẩm định giá, hỗ trợ pháp lý và đồng hành đến khi giao dịch hoàn tất.",
+  "notice": "Tư vấn bất động sản minh bạch: mọi thông tin về giá, pháp lý, tiến độ và chính sách bán hàng cần được xác minh trên hồ sơ thực tế trước khi quyết định giao dịch.",
   "visualTitle": "thaochi-boutique / property desk",
   "hero": {
-    "eyebrow": "Tu van bat dong san chon loc",
-    "title": "Tim dung can nha va co hoi dau tu phu hop",
-    "lead": "Thao Chi Boutique Realty dong hanh cung khach hang tu buoc xac dinh nhu cau, loc san pham, xem nha, thuong luong den hoan tat ho so. Moi de xuat deu duoc dat tren ngan sach, vi tri, phap ly va muc tieu su dung thuc te.",
+    "eyebrow": "Tư vấn bất động sản chọn lọc",
+    "title": "Tìm đúng căn nhà và cơ hội đầu tư phù hợp",
+    "lead": "Thảo Chi Boutique Realty đồng hành cùng khách hàng từ bước xác định nhu cầu, lọc sản phẩm, xem nhà, thương lượng đến hoàn tất hồ sơ. Mỗi đề xuất đều được đặt trên ngân sách, vị trí, pháp lý và mục tiêu sử dụng thực tế.",
     "primaryCta": {
-      "label": "Nhan tu van 1:1",
+      "label": "Nhận tư vấn 1:1",
       "href": "#final"
     },
     "secondaryCta": {
-      "label": "Xem quy trinh",
+      "label": "Xem quy trình",
       "href": "#workflow"
     },
-    "micro": "Phu hop voi nguoi mua de o, nha dau tu, chu nha can ban/cho thue va khach hang can danh gia bat dong san truoc giao dich."
+    "micro": "Phù hợp với người mua để ở, nhà đầu tư, chủ nhà cần bán/cho thuê và khách hàng cần đánh giá bất động sản trước giao dịch."
   },
   "terminal": [
-    "> tiep nhan nhu cau: ngan sach, khu vuc, muc tieu",
-    "Phan khuc phu hop: can ho trung tam | nha pho | bds dong tien",
-    "> loc danh sach san pham co ho so ro rang",
-    "San sang: lich xem thuc te, bang so sanh, checklist phap ly"
+    "> tiếp nhận nhu cầu: ngân sách, khu vực, mục tiêu",
+    "Phân khúc phù hợp: căn hộ trung tâm | nhà phố | BĐS dòng tiền",
+    "> lọc danh sách sản phẩm có hồ sơ rõ ràng",
+    "Sẵn sàng: lịch xem thực tế, bảng so sánh, checklist pháp lý"
   ],
   "stages": [
     {
-      "label": "01 Nhu cau",
-      "text": "Lam ro ngan sach, vi tri, muc dich o/dau tu va thoi gian giao dich."
+      "label": "01 Nhu cầu",
+      "text": "Làm rõ ngân sách, vị trí, mục đích ở/đầu tư và thời gian giao dịch."
     },
     {
-      "label": "02 Loc san pham",
-      "text": "So sanh gia, phap ly, tien ich, thanh khoan va tiem nang tang gia."
+      "label": "02 Lọc sản phẩm",
+      "text": "So sánh giá, pháp lý, tiện ích, thanh khoản và tiềm năng tăng giá."
     },
     {
-      "label": "03 Xem thuc te",
-      "text": "Sap lich xem nha, ghi nhan uu/nhuoc diem va chi phi phat sinh."
+      "label": "03 Xem thực tế",
+      "text": "Sắp lịch xem nhà, ghi nhận ưu/nhược điểm và chi phí phát sinh."
     },
     {
-      "label": "04 Giao dich",
-      "text": "Ho tro thuong luong, dat coc, cong chung va ban giao theo checklist."
+      "label": "04 Giao dịch",
+      "text": "Hỗ trợ thương lượng, đặt cọc, công chứng và bàn giao theo checklist."
     }
   ],
   "trust": [
     {
       "value": "1:1",
-      "label": "tu van theo nhu cau"
+      "label": "tư vấn theo nhu cầu"
     },
     {
       "value": "24h",
-      "label": "phan hoi danh sach phu hop"
+      "label": "phản hồi danh sách phù hợp"
     },
     {
       "value": "4",
-      "label": "buoc giao dich ro rang"
+      "label": "bước giao dịch rõ ràng"
     },
     {
       "value": "100%",
-      "label": "uu tien minh bach ho so"
+      "label": "ưu tiên minh bạch hồ sơ"
     }
   ],
   "workflow": {
-    "title": "Quy trinh bat dong san duoc thiet ke de giam rui ro giao dich.",
-    "text": "Thay vi dua khach xem that nhieu san pham khong lien quan, chung toi bat dau tu nhu cau that va dung checklist de loc bat dong san dang xem, dang dam phan va dang xuong tien.",
+    "title": "Quy trình bất động sản được thiết kế để giảm rủi ro giao dịch.",
+    "text": "Thay vì đưa khách xem thật nhiều sản phẩm không liên quan, chúng tôi bắt đầu từ nhu cầu thật và dùng checklist để lọc bất động sản đáng xem, đáng đàm phán và đáng xuống tiền.",
     "cards": [
       {
-        "tag": "Mua de o",
-        "title": "Chon nha theo loi song",
-        "text": "Danh gia vi tri, tien ich, huong nha, ket noi giao thong, moi truong song va chi phi so huu dai han."
+        "tag": "Mua để ở",
+        "title": "Chọn nhà theo lối sống",
+        "text": "Đánh giá vị trí, tiện ích, hướng nhà, kết nối giao thông, môi trường sống và chi phí sở hữu dài hạn."
       },
       {
-        "tag": "Dau tu",
-        "title": "Phan tich dong tien va thanh khoan",
-        "text": "So sanh gia khu vuc, kha nang cho thue, bien do tang gia, chi phi von va kich ban thoat hang."
+        "tag": "Đầu tư",
+        "title": "Phân tích dòng tiền và thanh khoản",
+        "text": "So sánh giá khu vực, khả năng cho thuê, biên độ tăng giá, chi phí vốn và kịch bản thoát hàng."
       },
       {
-        "tag": "Ban/cho thue",
-        "title": "Dinh vi san pham de ra hang tot hon",
-        "text": "Tu van gia chao, diem manh can truyen thong, ho so can chuan bi va cach sang loc khach mua/khach thue."
+        "tag": "Bán/cho thuê",
+        "title": "Định vị sản phẩm để ra hàng tốt hơn",
+        "text": "Tư vấn giá chào, điểm mạnh cần truyền thông, hồ sơ cần chuẩn bị và cách sàng lọc khách mua/khách thuê."
       }
     ]
   },
   "offer": {
-    "title": "Mot dau moi dong hanh tu luc xem nha den khi ban giao.",
-    "text": "Moi giao dich bat dong san deu co nhieu diem can kiem tra: gia, quy hoach, phap ly, chat luong tai san, dong tien, thue phi va dieu khoan dat coc. Thao Chi Boutique Realty giup ban gom tat ca vao mot quy trinh de ra quyet dinh ro rang hon.",
+    "title": "Một đầu mối đồng hành từ lúc xem nhà đến khi bàn giao.",
+    "text": "Mỗi giao dịch bất động sản đều có nhiều điểm cần kiểm tra: giá, quy hoạch, pháp lý, chất lượng tài sản, dòng tiền, thuế phí và điều khoản đặt cọc. Thảo Chi Boutique Realty giúp bạn gom tất cả vào một quy trình để ra quyết định rõ ràng hơn.",
     "cta": {
-      "label": "Dat lich tu van",
+      "label": "Đặt lịch tư vấn",
       "href": "#final"
     },
     "checks": [
       {
-        "title": "Khong day san pham dai tra",
-        "text": "Chi de xuat bat dong san phu hop voi nhu cau, ngan sach va muc tieu giao dich."
+        "title": "Không đẩy sản phẩm đại trà",
+        "text": "Chỉ đề xuất bất động sản phù hợp với nhu cầu, ngân sách và mục tiêu giao dịch."
       },
       {
-        "title": "Co bang so sanh truoc khi xem",
-        "text": "Moi danh sach deu co ly do de xem, diem can hoi va rui ro can xac minh."
+        "title": "Có bảng so sánh trước khi xem",
+        "text": "Mỗi danh sách đều có lý do để xem, điểm cần hỏi và rủi ro cần xác minh."
       },
       {
-        "title": "Dong hanh o cac moc quan trong",
-        "text": "Tu xem nha, thuong luong, dat coc, cong chung den ban giao tai san."
+        "title": "Đồng hành ở các mốc quan trọng",
+        "text": "Từ xem nhà, thương lượng, đặt cọc, công chứng đến bàn giao tài sản."
       }
     ]
   },
   "pricing": {
-    "tag": "Tu van ban dau",
-    "title": "Bat dau bang mot buoi trao doi nhu cau",
-    "price": "Free",
-    "text": "Buoi tu van dau tien giup xac dinh khu vuc, ngan sach, tieu chi loc san pham va muc tieu giao dich. Chi phi dich vu cu the se duoc thong nhat minh bach theo tung truong hop.",
+    "tag": "Tư vấn ban đầu",
+    "title": "Bắt đầu bằng một buổi trao đổi nhu cầu",
+    "price": "Miễn phí",
+    "text": "Buổi tư vấn đầu tiên giúp xác định khu vực, ngân sách, tiêu chí lọc sản phẩm và mục tiêu giao dịch. Chi phí dịch vụ cụ thể sẽ được thống nhất minh bạch theo từng trường hợp.",
     "cta": {
-      "label": "Gui nhu cau",
+      "label": "Gửi nhu cầu",
       "href": "#final"
     }
   },
-  "stepsTitle": "Cach chung toi lam viec",
+  "stepsTitle": "Cách chúng tôi làm việc",
   "steps": [
     {
-      "title": "Tiep nhan nhu cau va ngan sach.",
-      "text": "Ghi nhan khu vuc, loai tai san, muc tieu su dung, tien do va dieu kien tai chinh."
+      "title": "Tiếp nhận nhu cầu và ngân sách.",
+      "text": "Ghi nhận khu vực, loại tài sản, mục tiêu sử dụng, tiến độ và điều kiện tài chính."
     },
     {
-      "title": "Loc danh sach bat dong san phu hop.",
-      "text": "So sanh gia, vi tri, phap ly, tinh thanh khoan va cac diem can xac minh."
+      "title": "Lọc danh sách bất động sản phù hợp.",
+      "text": "So sánh giá, vị trí, pháp lý, tính thanh khoản và các điểm cần xác minh."
     },
     {
-      "title": "Xem thuc te va thuong luong.",
-      "text": "Sap lich xem, danh gia uu/nhuoc diem, chuan bi cau hoi va chien luoc dam phan."
+      "title": "Xem thực tế và thương lượng.",
+      "text": "Sắp lịch xem, đánh giá ưu/nhược điểm, chuẩn bị câu hỏi và chiến lược đàm phán."
     },
     {
-      "title": "Hoan tat ho so va ban giao.",
-      "text": "Theo doi dat coc, cong chung, thanh toan, thue phi va checklist ban giao."
+      "title": "Hoàn tất hồ sơ và bàn giao.",
+      "text": "Theo dõi đặt cọc, công chứng, thanh toán, thuế phí và checklist bàn giao."
     }
   ],
   "faqIntro": {
-    "title": "Cau hoi thuong gap",
-    "text": "Nhung diem khach hang thuong can lam ro truoc khi bat dau mua, ban hoac dau tu bat dong san."
+    "title": "Câu hỏi thường gặp",
+    "text": "Những điểm khách hàng thường cần làm rõ trước khi bắt đầu mua, bán hoặc đầu tư bất động sản."
   },
   "faq": [
     {
-      "title": "Toi chua ro nen mua khu vuc nao, co tu van duoc khong?",
-      "text": "Co. Chung toi bat dau tu nhu cau song, ngan sach, thoi gian di chuyen, muc tieu dau tu va muc do chap nhan rui ro de khoanh vung khu vuc phu hop."
+      "title": "Tôi chưa rõ nên mua khu vực nào, có tư vấn được không?",
+      "text": "Có. Chúng tôi bắt đầu từ nhu cầu sống, ngân sách, thời gian di chuyển, mục tiêu đầu tư và mức độ chấp nhận rủi ro để khoanh vùng khu vực phù hợp."
     },
     {
-      "title": "Thong tin phap ly duoc kiem tra nhu the nao?",
-      "text": "Moi ho so can duoc doi chieu voi giay to goc va co quan/chuyen gia lien quan khi can. Chung toi giup lap checklist cau hoi va diem can xac minh truoc khi dat coc."
+      "title": "Thông tin pháp lý được kiểm tra như thế nào?",
+      "text": "Mỗi hồ sơ cần được đối chiếu với giấy tờ gốc và cơ quan/chuyên gia liên quan khi cần. Chúng tôi giúp lập checklist câu hỏi và điểm cần xác minh trước khi đặt cọc."
     },
     {
-      "title": "Neu toi can ban hoac cho thue nha thi sao?",
-      "text": "Chung toi co the ho tro dinh vi gia, chuan bi thong tin san pham, loc khach hang va xay quy trinh xem nha/giao dich gon hon."
+      "title": "Nếu tôi cần bán hoặc cho thuê nhà thì sao?",
+      "text": "Chúng tôi có thể hỗ trợ định vị giá, chuẩn bị thông tin sản phẩm, lọc khách hàng và xây quy trình xem nhà/giao dịch gọn hơn."
     },
     {
-      "title": "Co cam ket loi nhuan dau tu khong?",
-      "text": "Khong. Bat dong san luon co rui ro thi truong, phap ly va thanh khoan. Chung toi tap trung vao phan tich kich ban va minh bach du lieu de ban ra quyet dinh tot hon."
+      "title": "Có cam kết lợi nhuận đầu tư không?",
+      "text": "Không. Bất động sản luôn có rủi ro thị trường, pháp lý và thanh khoản. Chúng tôi tập trung vào phân tích kịch bản và minh bạch dữ liệu để bạn ra quyết định tốt hơn."
     }
   ],
   "final": {
-    "title": "Bat dau tim bat dong san phu hop voi muc tieu cua ban",
-    "lead": "Gui nhu cau ve khu vuc, ngan sach va muc dich mua/ban/cho thue. Chung toi se phan hoi voi huong loc san pham va cac buoc tiep theo.",
+    "title": "Bắt đầu tìm bất động sản phù hợp với mục tiêu của bạn",
+    "lead": "Gửi nhu cầu về khu vực, ngân sách và mục đích mua/bán/cho thuê. Chúng tôi sẽ phản hồi với hướng lọc sản phẩm và các bước tiếp theo.",
     "primaryCta": {
-      "label": "Lien he tu van",
+      "label": "Liên hệ tư vấn",
       "href": "mailto:contact@thaochi-boutique.vn"
     },
     "secondaryCta": {
-      "label": "Goi ngay",
+      "label": "Gọi ngay",
       "href": "tel:+84900000000"
     }
   },
   "footer": {
-    "text": "Thao Chi Boutique Realty",
-    "label": "Tu van bat dong san chon loc",
+    "text": "Thảo Chi Boutique Realty",
+    "label": "Tư vấn bất động sản chọn lọc",
     "href": "https://thaochi-boutique.vercel.app"
   }
 }
