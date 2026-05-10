@@ -401,6 +401,44 @@
       font-size: .9rem;
     }
 
+    .score {
+      display: grid;
+      gap: 10px;
+    }
+
+    .score-bar {
+      height: 12px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .score-bar i {
+      display: block;
+      height: 100%;
+      width: var(--score, 0%);
+      background: var(--primary);
+    }
+
+    .table {
+      display: grid;
+      gap: 8px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      padding: 10px 0;
+      color: var(--muted);
+    }
+
+    .row strong {
+      color: var(--text);
+      overflow-wrap: anywhere;
+    }
+
     @media (max-width: 980px) {
       .shell {
         grid-template-columns: 1fr;
@@ -508,10 +546,12 @@
       dirty: false,
       updatedAt: null,
       loggedIn: sessionStorage.getItem("affiliate_admin_logged_in") === "true",
+      metrics: null,
     };
 
     const sections = [
       ["overview", "Tong quan", "Kiem tra nhanh cau truc noi dung va trang thai luu."],
+      ["analytics", "Do luong & SEO", "Theo doi luot truy cap va diem toi uu SEO cua website."],
       ["seo", "SEO & thong bao", "Tieu de, meta description va disclosure dau trang."],
       ["hero", "Hero", "Thong diep chinh va nut keu goi hanh dong dau trang."],
       ["visual", "Visual", "Pipeline va terminal mo phong tren hero."],
@@ -624,12 +664,13 @@
 
     const renderOverview = () => {
       const d = state.data;
+      const seo = calculateSeoScore(d);
       content.innerHTML = `
         <div class="summary">
           <div class="metric"><strong>${d.trust?.length || 0}</strong><span>Chi so tin cay</span></div>
           <div class="metric"><strong>${d.workflow?.cards?.length || 0}</strong><span>Card workflow</span></div>
           <div class="metric"><strong>${d.steps?.length || 0}</strong><span>Buoc huong dan</span></div>
-          <div class="metric"><strong>${d.faq?.length || 0}</strong><span>Cau hoi FAQ</span></div>
+          <div class="metric"><strong>${seo.score}/100</strong><span>Diem SEO</span></div>
         </div>
         ${panel("Trang thai du lieu", "Du lieu duoc doc tu Supabase va doc lap voi code GitHub.", `
           <div class="grid">
@@ -637,6 +678,62 @@
             <div class="field"><label>Tieu de hien tai</label><input value="${escapeHtml(d.title || "")}" readonly></div>
           </div>
         `)}
+      `;
+    };
+
+    const calculateSeoScore = (data) => {
+      const haystack = `${data.title || ""} ${data.description || ""} ${data.hero?.lead || ""}`.toLowerCase();
+      const checks = [
+        ["Title dài 35-65 ký tự", (data.title || "").length >= 35 && (data.title || "").length <= 65],
+        ["Meta description dài 120-170 ký tự", (data.description || "").length >= 120 && (data.description || "").length <= 170],
+        ["Hero headline rõ ràng", (data.hero?.title || "").length >= 20],
+        ["Có CTA chính", Boolean(data.hero?.primaryCta?.label && data.hero?.primaryCta?.href)],
+        ["Có FAQ từ 3 câu trở lên", (data.faq || []).length >= 3],
+        ["Có footer/link thương hiệu", Boolean(data.footer?.text && data.footer?.href)],
+        ["Có nội dung quy trình", (data.steps || []).length >= 3],
+        ["Có từ khóa bất động sản", haystack.includes("bất động sản")],
+      ];
+      const passed = checks.filter(([, ok]) => ok).length;
+      return {
+        score: Math.round((passed / checks.length) * 100),
+        checks: checks.map(([label, ok]) => ({ label, ok })),
+      };
+    };
+
+    const renderAnalytics = () => {
+      const metrics = state.metrics || {};
+      const seo = calculateSeoScore(state.data);
+      const topPages = metrics.topPages || [];
+      const topReferrers = metrics.topReferrers || [];
+
+      content.innerHTML = `
+        <div class="summary">
+          <div class="metric"><strong>${metrics.today ?? 0}</strong><span>Hôm nay</span></div>
+          <div class="metric"><strong>${metrics.last7d ?? 0}</strong><span>7 ngày</span></div>
+          <div class="metric"><strong>${metrics.total30d ?? 0}</strong><span>30 ngày</span></div>
+          <div class="metric"><strong>${metrics.unique30d ?? 0}</strong><span>Khách riêng 30 ngày</span></div>
+        </div>
+        ${panel("Điểm SEO", "Điểm này được tính từ title, description, CTA, FAQ và từ khóa bất động sản trong CMS.", `
+          <div class="score">
+            <h2 style="margin:0">${seo.score}/100</h2>
+            <div class="score-bar" style="--score:${seo.score}%"><i></i></div>
+            <div class="table">
+              ${seo.checks.map((item) => `<div class="row"><strong>${escapeHtml(item.label)}</strong><span>${item.ok ? "Đạt" : "Cần sửa"}</span></div>`).join("")}
+            </div>
+          </div>
+        `)}
+        <div class="split">
+          ${panel("Trang được xem nhiều", "Tổng hợp 30 ngày gần nhất.", `
+            <div class="table">
+              ${topPages.length ? topPages.map((item) => `<div class="row"><strong>${escapeHtml(item.label)}</strong><span>${item.count}</span></div>`).join("") : "<p class=\"hint\">Chưa có dữ liệu.</p>"}
+            </div>
+          `)}
+          ${panel("Nguồn truy cập", "Referrer 30 ngày gần nhất.", `
+            <div class="table">
+              ${topReferrers.length ? topReferrers.map((item) => `<div class="row"><strong>${escapeHtml(item.label)}</strong><span>${item.count}</span></div>`).join("") : "<p class=\"hint\">Chưa có dữ liệu.</p>"}
+            </div>
+          `)}
+        </div>
       `;
     };
 
@@ -765,6 +862,7 @@
 
       const map = {
         overview: renderOverview,
+        analytics: renderAnalytics,
         seo: renderSeo,
         hero: renderHero,
         visual: renderVisual,
@@ -862,9 +960,15 @@
 
     const loadContent = async () => {
       updateStatus("Dang tai...");
-      const response = await fetch("/api/content");
+      const [response, metricsResponse] = await Promise.all([
+        fetch("/api/content"),
+        fetch("/api/metrics").catch(() => null),
+      ]);
       const payload = await response.json();
       if (!response.ok) throw new Error(payload.error || "Khong tai duoc noi dung");
+      if (metricsResponse?.ok) {
+        state.metrics = await metricsResponse.json();
+      }
       state.data = payload.data;
       state.updatedAt = payload.updated_at;
       state.dirty = false;
