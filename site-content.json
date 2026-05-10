@@ -1,21 +1,21 @@
 {
-  "title": "Thao Chi Boutique - Thoi trang va phu kien cao cap",
-  "description": "Thao Chi Boutique tuyen chon thoi trang, tui xach, phu kien va qua tang cao cap voi hinh anh sang trong, gia niem yet ro rang va link mua truc tiep cho tung san pham.",
-  "notice": "Mien phi tu van chon san pham. Gia va tinh trang hang co the thay doi theo tung thoi diem, vui long bam nut mua de kiem tra thong tin moi nhat.",
+  "title": "Thảo Chi Boutique - Thời trang và phụ kiện cao cấp",
+  "description": "Thảo Chi Boutique tuyển chọn thời trang, túi xách, phụ kiện và quà tặng cao cấp với hình ảnh sang trọng, giá niêm yết rõ ràng và link mua trực tiếp cho từng sản phẩm.",
+  "notice": "Miễn phí tư vấn chọn sản phẩm. Giá và tình trạng hàng có thể thay đổi theo từng thời điểm, vui lòng bấm nút mua để kiểm tra thông tin mới nhất.",
   "brand": {
-    "name": "Thao Chi Boutique",
-    "tagline": "Curated fashion & lifestyle"
+    "name": "Thảo Chi Boutique",
+    "tagline": "Thời trang & phong cách sống tuyển chọn"
   },
   "hero": {
-    "eyebrow": "Bo suu tap moi",
-    "title": "San pham cao cap duoc tuyen chon cho phong cach hien dai",
-    "lead": "Kham pha cac mau thoi trang, tui xach, phu kien va qua tang duoc sap xep theo danh muc. Moi san pham co anh, gia va link mua rieng de khach hang dat hang nhanh hon.",
+    "eyebrow": "Bộ sưu tập mới",
+    "title": "Sản phẩm cao cấp được tuyển chọn cho phong cách hiện đại",
+    "lead": "Khám phá các mẫu thời trang, túi xách, phụ kiện và quà tặng được sắp xếp theo danh mục. Mỗi sản phẩm có ảnh, giá và link mua riêng để khách hàng đặt hàng nhanh hơn.",
     "primaryCta": {
-      "label": "Xem san pham",
+      "label": "Xem sản phẩm",
       "href": "#products"
     },
     "secondaryCta": {
-      "label": "Lien he tu van",
+      "label": "Liên hệ tư vấn",
       "href": "https://zalo.me/0900000000"
     },
     "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=85"
@@ -23,141 +23,141 @@
   "categories": [
     {
       "id": "fashion",
-      "label": "Thoi trang"
+      "label": "Thời trang"
     },
     {
       "id": "bags",
-      "label": "Tui xach"
+      "label": "Túi xách"
     },
     {
       "id": "accessories",
-      "label": "Phu kien"
+      "label": "Phụ kiện"
     },
     {
       "id": "gifts",
-      "label": "Qua tang"
+      "label": "Quà tặng"
     }
   ],
   "products": [
     {
       "id": "silk-dress",
       "categoryId": "fashion",
-      "name": "Dam lua co dien",
-      "price": "1.890.000d",
-      "oldPrice": "2.250.000d",
-      "badge": "Best seller",
+      "name": "Đầm lụa cổ điển",
+      "price": "1.890.000đ",
+      "oldPrice": "2.250.000đ",
+      "badge": "Bán chạy",
       "image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85",
       "buyUrl": "https://thaochi-boutique.vercel.app/#contact",
-      "description": "Chat lieu mem, form ton dang, phu hop di tiec, gap khach hang hoac su kien cuoi tuan.",
+      "description": "Chất liệu mềm, form tôn dáng, phù hợp đi tiệc, gặp khách hàng hoặc sự kiện cuối tuần.",
       "featured": true
     },
     {
       "id": "linen-set",
       "categoryId": "fashion",
-      "name": "Set linen toi gian",
-      "price": "1.490.000d",
+      "name": "Set linen tối giản",
+      "price": "1.490.000đ",
       "oldPrice": "",
-      "badge": "New",
+      "badge": "Mới",
       "image": "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=900&q=85",
       "buyUrl": "https://thaochi-boutique.vercel.app/#contact",
-      "description": "Thiet ke gon, sang va de phoi cho ngay lam viec lan lich hen sau gio.",
+      "description": "Thiết kế gọn, sang và dễ phối cho ngày làm việc lẫn lịch hẹn sau giờ.",
       "featured": false
     },
     {
       "id": "leather-tote",
       "categoryId": "bags",
-      "name": "Tui tote da mem",
-      "price": "2.690.000d",
-      "oldPrice": "3.100.000d",
-      "badge": "Limited",
+      "name": "Túi tote da mềm",
+      "price": "2.690.000đ",
+      "oldPrice": "3.100.000đ",
+      "badge": "Số lượng ít",
       "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85",
       "buyUrl": "https://thaochi-boutique.vercel.app/#contact",
-      "description": "Suc chua rong, duong may sac net, phu hop di lam va di chuyen hang ngay.",
+      "description": "Sức chứa rộng, đường may sắc nét, phù hợp đi làm và di chuyển hằng ngày.",
       "featured": true
     },
     {
       "id": "mini-bag",
       "categoryId": "bags",
-      "name": "Tui mini du tiec",
-      "price": "1.250.000d",
+      "name": "Túi mini dự tiệc",
+      "price": "1.250.000đ",
       "oldPrice": "",
       "badge": "Hot",
       "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=85",
       "buyUrl": "https://thaochi-boutique.vercel.app/#contact",
-      "description": "Kich thuoc nho gon, diem nhan anh kim tinh te cho cac buoi hen toi.",
+      "description": "Kích thước nhỏ gọn, điểm nhấn ánh kim tinh tế cho các buổi hẹn tối.",
       "featured": false
     },
     {
       "id": "silk-scarf",
       "categoryId": "accessories",
-      "name": "Khan lua hoa tiet",
-      "price": "590.000d",
-      "oldPrice": "720.000d",
-      "badge": "Gift pick",
+      "name": "Khăn lụa họa tiết",
+      "price": "590.000đ",
+      "oldPrice": "720.000đ",
+      "badge": "Gợi ý quà tặng",
       "image": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=900&q=85",
       "buyUrl": "https://thaochi-boutique.vercel.app/#contact",
-      "description": "Phu kien nho nhung tao diem nhan ro cho blazer, dam tron mau hoac tui xach.",
+      "description": "Phụ kiện nhỏ nhưng tạo điểm nhấn rõ cho blazer, đầm trơn màu hoặc túi xách.",
       "featured": false
     },
     {
       "id": "signature-box",
       "categoryId": "gifts",
-      "name": "Hop qua signature",
-      "price": "990.000d",
+      "name": "Hộp quà signature",
+      "price": "990.000đ",
       "oldPrice": "",
-      "badge": "Ready",
+      "badge": "Có sẵn",
       "image": "https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=900&q=85",
       "buyUrl": "https://thaochi-boutique.vercel.app/#contact",
-      "description": "Set qua tang dong goi san, phu hop sinh nhat, cam on khach hang va dip dac biet.",
+      "description": "Set quà tặng đóng gói sẵn, phù hợp sinh nhật, cảm ơn khách hàng và dịp đặc biệt.",
       "featured": true
     }
   ],
   "benefits": [
     {
-      "title": "Anh san pham ro net",
-      "text": "Moi san pham hien thi bang anh lon, ti le dep va thong tin gia de khach hang ra quyet dinh nhanh."
+      "title": "Ảnh sản phẩm rõ nét",
+      "text": "Mỗi sản phẩm hiển thị bằng ảnh lớn, tỉ lệ đẹp và thông tin giá để khách hàng ra quyết định nhanh."
     },
     {
-      "title": "Danh muc de loc",
-      "text": "Tab theo mat hang giup khach xem dung nhom san pham minh quan tam."
+      "title": "Danh mục dễ lọc",
+      "text": "Tab theo mặt hàng giúp khách xem đúng nhóm sản phẩm mình quan tâm."
     },
     {
-      "title": "Mua bang mot cham",
-      "text": "Tung anh san pham co nut mua rieng, co the gan link Shopee, Zalo, Facebook, TikTok Shop hoac form dat hang."
+      "title": "Mua bằng một chạm",
+      "text": "Từng ảnh sản phẩm có nút mua riêng, có thể gắn link Shopee, Zalo, Facebook, TikTok Shop hoặc form đặt hàng."
     }
   ],
   "faqIntro": {
-    "title": "Cau hoi thuong gap",
-    "text": "Nhung thong tin khach hang hay can biet truoc khi dat mua san pham."
+    "title": "Câu hỏi thường gặp",
+    "text": "Những thông tin khách hàng hay cần biết trước khi đặt mua sản phẩm."
   },
   "faq": [
     {
-      "title": "Toi co the thay link mua cho tung san pham khong?",
-      "text": "Co. Trong admin, mo muc San pham va sua truong Link mua cua tung san pham."
+      "title": "Tôi có thể thay link mua cho từng sản phẩm không?",
+      "text": "Có. Trong admin, mở mục Sản phẩm và sửa trường Link mua của từng sản phẩm."
     },
     {
-      "title": "Anh san pham nen dung kich thuoc nao?",
-      "text": "Nen dung anh doc hoac vuong, toi thieu 900px, anh sang ro va it chu tren anh."
+      "title": "Ảnh sản phẩm nên dùng kích thước nào?",
+      "text": "Nên dùng ảnh dọc hoặc vuông, tối thiểu 900px, ảnh sáng rõ và ít chữ trên ảnh."
     },
     {
-      "title": "Co the chia them danh muc moi khong?",
-      "text": "Co. Tao danh muc moi trong admin, sau do gan Category ID do cho san pham can hien thi."
+      "title": "Có thể chia thêm danh mục mới không?",
+      "text": "Có. Tạo danh mục mới trong admin, sau đó gán Category ID đó cho sản phẩm cần hiển thị."
     }
   ],
   "final": {
-    "title": "Can tu van chon san pham phu hop?",
-    "lead": "Gui cho Thao Chi Boutique nhu cau, ngan sach va dip su dung. Chung toi se goi y mau phu hop va gui link dat hang nhanh.",
+    "title": "Cần tư vấn chọn sản phẩm phù hợp?",
+    "lead": "Gửi cho Thảo Chi Boutique nhu cầu, ngân sách và dịp sử dụng. Chúng tôi sẽ gợi ý mẫu phù hợp và gửi link đặt hàng nhanh.",
     "primaryCta": {
       "label": "Chat Zalo",
       "href": "https://zalo.me/0900000000"
     },
     "secondaryCta": {
-      "label": "Gui email",
+      "label": "Gửi email",
       "href": "mailto:contact@thaochi-boutique.vn"
     }
   },
   "footer": {
-    "text": "Thao Chi Boutique",
+    "text": "Thảo Chi Boutique",
     "label": "thaochi-boutique.vercel.app",
     "href": "https://thaochi-boutique.vercel.app"
   }
