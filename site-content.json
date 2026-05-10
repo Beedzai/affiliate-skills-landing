@@ -1,171 +1,173 @@
 {
-  "title": "Affiliate Skills - Bo ky nang AI cho affiliate marketing",
-  "description": "Affiliate Skills giup bien AI thanh doi ngu affiliate marketing: nghien cuu san pham, viet noi dung, tao landing page, trien khai va toi uu chuyen doi.",
-  "notice": "Cong khai minh bach: trang nay gioi thieu Affiliate Skills va co lien ket den GitHub/Affitor. Neu ban them link affiliate rieng, hay giu disclosure nay truoc moi CTA.",
+  "title": "Thao Chi Boutique Realty - Tu van bat dong san chon loc",
+  "description": "Thao Chi Boutique Realty tu van mua, ban va dau tu bat dong san theo nhu cau that: loc san pham, tham dinh gia, ho tro phap ly va dong hanh den khi giao dich hoan tat.",
+  "notice": "Tu van bat dong san minh bach: moi thong tin ve gia, phap ly, tien do va chinh sach ban hang can duoc xac minh tren ho so thuc te truoc khi quyet dinh giao dich.",
+  "visualTitle": "thaochi-boutique / property desk",
   "hero": {
-    "eyebrow": "52 skills AI cho affiliate marketing",
-    "title": "Bien AI thanh doi ngu affiliate ban hang",
-    "lead": "Affiliate Skills la bo quy trinh giup ban tim chuong trinh affiliate, bat trend noi dung, viet bai co du lieu, tao landing page, trien khai va toi uu chuyen doi trong mot flywheel khep kin.",
+    "eyebrow": "Tu van bat dong san chon loc",
+    "title": "Tim dung can nha va co hoi dau tu phu hop",
+    "lead": "Thao Chi Boutique Realty dong hanh cung khach hang tu buoc xac dinh nhu cau, loc san pham, xem nha, thuong luong den hoan tat ho so. Moi de xuat deu duoc dat tren ngan sach, vi tri, phap ly va muc tieu su dung thuc te.",
     "primaryCta": {
-      "label": "Lay bo skills mien phi",
-      "href": "https://github.com/Affitor/affiliate-skills"
+      "label": "Nhan tu van 1:1",
+      "href": "#final"
     },
     "secondaryCta": {
-      "label": "Xem cach van hanh",
+      "label": "Xem quy trinh",
       "href": "#workflow"
     },
-    "micro": "Hoat dong voi Claude Code, ChatGPT, Gemini, Cursor, Windsurf va bat ky AI nao doc duoc text."
+    "micro": "Phu hop voi nguoi mua de o, nha dau tu, chu nha can ban/cho thue va khach hang can danh gia bat dong san truoc giao dich."
   },
   "terminal": [
-    "> scout trending content about AI video tools",
-    "Top format: comparison | Best hook: proof-first demo",
-    "> build a landing page for the winning offer",
-    "Done: disclosure, 3 CTAs, mobile-ready HTML"
+    "> tiep nhan nhu cau: ngan sach, khu vuc, muc tieu",
+    "Phan khuc phu hop: can ho trung tam | nha pho | bds dong tien",
+    "> loc danh sach san pham co ho so ro rang",
+    "San sang: lich xem thuc te, bang so sanh, checklist phap ly"
   ],
   "stages": [
     {
-      "label": "S1 Research",
-      "text": "Tim program, scout trend, xep hang angle bang du lieu."
+      "label": "01 Nhu cau",
+      "text": "Lam ro ngan sach, vi tri, muc dich o/dau tu va thoi gian giao dich."
     },
     {
-      "label": "S2 Content",
-      "text": "Viet post, script, infographic tu research brief."
+      "label": "02 Loc san pham",
+      "text": "So sanh gia, phap ly, tien ich, thanh khoan va tiem nang tang gia."
     },
     {
-      "label": "S4 Landing",
-      "text": "Tao sales page HTML tu chua can build step."
+      "label": "03 Xem thuc te",
+      "text": "Sap lich xem nha, ghi nhan uu/nhuoc diem va chi phi phat sinh."
     },
     {
-      "label": "S6 Optimize",
-      "text": "Theo doi click, A/B test, dua insight ve research."
+      "label": "04 Giao dich",
+      "text": "Ho tro thuong luong, dat coc, cong chung va ban giao theo checklist."
     }
   ],
   "trust": [
     {
-      "value": "52",
-      "label": "AI-powered skills"
+      "value": "1:1",
+      "label": "tu van theo nhu cau"
     },
     {
-      "value": "8",
-      "label": "giai doan flywheel"
+      "value": "24h",
+      "label": "phan hoi danh sach phu hop"
     },
     {
-      "value": "0",
-      "label": "dependency cho landing page"
+      "value": "4",
+      "label": "buoc giao dich ro rang"
     },
     {
-      "value": "MIT",
-      "label": "ma nguon mo"
+      "value": "100%",
+      "label": "uu tien minh bach ho so"
     }
   ],
   "workflow": {
-    "title": "Khong chi la prompt pack. Day la he dieu hanh nho cho affiliate.",
-    "text": "Moi skill co workflow, input/output schema va goi y buoc tiep theo, nen ban co the di tu nghien cuu den landing page roi quay lai toi uu bang du lieu.",
+    "title": "Quy trinh bat dong san duoc thiet ke de giam rui ro giao dich.",
+    "text": "Thay vi dua khach xem that nhieu san pham khong lien quan, chung toi bat dau tu nhu cau that va dung checklist de loc bat dong san dang xem, dang dam phan va dang xuong tien.",
     "cards": [
       {
-        "tag": "Research",
-        "title": "Chon offer bang du lieu",
-        "text": "Tim chuong trinh affiliate, so sanh commission, cookie, traffic va diem suc khoe website truoc khi ban dau tu noi dung."
+        "tag": "Mua de o",
+        "title": "Chon nha theo loi song",
+        "text": "Danh gia vi tri, tien ich, huong nha, ket noi giao thong, moi truong song va chi phi so huu dai han."
       },
       {
-        "tag": "Content",
-        "title": "Viet thu co co so",
-        "text": "Thu thap source, tim angle, viet LinkedIn post, thread, blog, script TikTok va infographic thay vi viet theo cam tinh."
+        "tag": "Dau tu",
+        "title": "Phan tich dong tien va thanh khoan",
+        "text": "So sanh gia khu vuc, kha nang cho thue, bien do tang gia, chi phi von va kich ban thoat hang."
       },
       {
-        "tag": "Landing",
-        "title": "Ban hang tren trang rieng",
-        "text": "Tao landing page AIDA, squeeze page, comparison page, bonus stack va CTA ro rang de day traffic ve mot muc tieu duy nhat."
+        "tag": "Ban/cho thue",
+        "title": "Dinh vi san pham de ra hang tot hon",
+        "text": "Tu van gia chao, diem manh can truyen thong, ho so can chuan bi va cach sang loc khach mua/khach thue."
       }
     ]
   },
   "offer": {
-    "title": "Tu y tuong den click affiliate trong mot quy trinh co the lap lai",
-    "text": "Thay vi mo nhieu tab, viet noi dung roi cau may, Affiliate Skills ep moi buoc phai co dau vao va dau ra ro rang: trend nao dang thang, offer nao dang dang quang cao, angle nao nen test, page nao nen deploy.",
+    "title": "Mot dau moi dong hanh tu luc xem nha den khi ban giao.",
+    "text": "Moi giao dich bat dong san deu co nhieu diem can kiem tra: gia, quy hoach, phap ly, chat luong tai san, dong tien, thue phi va dieu khoan dat coc. Thao Chi Boutique Realty giup ban gom tat ca vao mot quy trinh de ra quyet dinh ro rang hon.",
     "cta": {
-      "label": "Mo repo tren GitHub",
-      "href": "https://github.com/Affitor/affiliate-skills"
+      "label": "Dat lich tu van",
+      "href": "#final"
     },
     "checks": [
       {
-        "title": "Phu hop nguoi moi",
-        "text": "Bat dau bang funnel-planner de co roadmap tung tuan."
+        "title": "Khong day san pham dai tra",
+        "text": "Chi de xuat bat dong san phu hop voi nhu cau, ngan sach va muc tieu giao dich."
       },
       {
-        "title": "Phu hop creator",
-        "text": "Bien mot research brief thanh post, short video, infographic va bio link."
+        "title": "Co bang so sanh truoc khi xem",
+        "text": "Moi danh sach deu co ly do de xem, diem can hoi va rui ro can xac minh."
       },
       {
-        "title": "Phu hop marketer",
-        "text": "Danh gia offer, xay trang chuyen doi, tracking va lap bao cao hieu suat."
+        "title": "Dong hanh o cac moc quan trong",
+        "text": "Tu xem nha, thuong luong, dat coc, cong chung den ban giao tai san."
       }
     ]
   },
   "pricing": {
-    "tag": "Open source",
-    "title": "Bat dau voi chi phi 0 dong",
+    "tag": "Tu van ban dau",
+    "title": "Bat dau bang mot buoi trao doi nhu cau",
     "price": "Free",
-    "text": "Repo MIT license. Ban co the dung truc tiep voi AI hien tai, hoac clone vao moi truong lam viec cua minh.",
+    "text": "Buoi tu van dau tien giup xac dinh khu vuc, ngan sach, tieu chi loc san pham va muc tieu giao dich. Chi phi dich vu cu the se duoc thong nhat minh bach theo tung truong hop.",
     "cta": {
-      "label": "Cai dat ngay",
-      "href": "https://github.com/Affitor/affiliate-skills"
+      "label": "Gui nhu cau",
+      "href": "#final"
     }
   },
-  "stepsTitle": "Cach dung nhanh",
+  "stepsTitle": "Cach chung toi lam viec",
   "steps": [
     {
-      "title": "Mo repo hoac copy bootstrap prompt.",
-      "text": "Nap Affiliate Skills vao AI ban dang dung."
+      "title": "Tiep nhan nhu cau va ngan sach.",
+      "text": "Ghi nhan khu vuc, loai tai san, muc tieu su dung, tien do va dieu kien tai chinh."
     },
     {
-      "title": "Chon niche hoac san pham.",
-      "text": "Yeu cau AI scout trend, tim offer va xep hang content angle."
+      "title": "Loc danh sach bat dong san phu hop.",
+      "text": "So sanh gia, vi tri, phap ly, tinh thanh khoan va cac diem can xac minh."
     },
     {
-      "title": "Tao landing page ban hang.",
-      "text": "Chay skill landing-page-creator de co HTML tu chua, CTA va disclosure."
+      "title": "Xem thuc te va thuong luong.",
+      "text": "Sap lich xem, danh gia uu/nhuoc diem, chuan bi cau hoi va chien luoc dam phan."
     },
     {
-      "title": "Do luong roi lap lai.",
-      "text": "Theo doi click, conversion, noi dung thang, roi dua insight ve buoc research."
+      "title": "Hoan tat ho so va ban giao.",
+      "text": "Theo doi dat coc, cong chung, thanh toan, thue phi va checklist ban giao."
     }
   ],
   "faqIntro": {
-    "title": "Cau hoi truoc khi dung",
-    "text": "Nhung diem quan trong khi bien bo skills nay thanh may ban hang affiliate thuc te."
+    "title": "Cau hoi thuong gap",
+    "text": "Nhung diem khach hang thuong can lam ro truoc khi bat dau mua, ban hoac dau tu bat dong san."
   },
   "faq": [
     {
-      "title": "Affiliate Skills co phai SaaS khong?",
-      "text": "Khong. Day la bo skill dang Markdown va workflow de AI cua ban thuc thi. Ban so huu quy trinh va co the tuy bien."
+      "title": "Toi chua ro nen mua khu vuc nao, co tu van duoc khong?",
+      "text": "Co. Chung toi bat dau tu nhu cau song, ngan sach, thoi gian di chuyen, muc tieu dau tu va muc do chap nhan rui ro de khoanh vung khu vuc phu hop."
     },
     {
-      "title": "Co can biet code khong?",
-      "text": "Khong bat buoc. Nhieu skill tao output text hoac HTML tu chua. Neu muon deploy GitHub Pages hay Vercel, biet command co ban se co loi."
+      "title": "Thong tin phap ly duoc kiem tra nhu the nao?",
+      "text": "Moi ho so can duoc doi chieu voi giay to goc va co quan/chuyen gia lien quan khi can. Chung toi giup lap checklist cau hoi va diem can xac minh truoc khi dat coc."
     },
     {
-      "title": "Landing page tao ra co dung de chay ads khong?",
-      "text": "Co the dung lam diem den, nhung ban can kiem tra policy nen tang, disclosure, claim va tracking truoc khi chay ngan sach."
+      "title": "Neu toi can ban hoac cho thue nha thi sao?",
+      "text": "Chung toi co the ho tro dinh vi gia, chuan bi thong tin san pham, loc khach hang va xay quy trinh xem nha/giao dich gon hon."
     },
     {
-      "title": "Co thay the nghien cuu thi truong khong?",
-      "text": "Khong. No giup ban nghien cuu nhanh va co cau truc hon. Nhung offer, claim, gia va chinh sach affiliate van can duoc kiem tra truoc khi publish."
+      "title": "Co cam ket loi nhuan dau tu khong?",
+      "text": "Khong. Bat dong san luon co rui ro thi truong, phap ly va thanh khoan. Chung toi tap trung vao phan tich kich ban va minh bach du lieu de ban ra quyet dinh tot hon."
     }
   ],
   "final": {
-    "title": "Lay Affiliate Skills va tao landing page dau tien trong hom nay",
-    "lead": "Dung bo skill nay de tim offer dang gia, viet noi dung co ly do de click, va dua traffic ve mot trang ban hang gon, nhanh, do duoc.",
+    "title": "Bat dau tim bat dong san phu hop voi muc tieu cua ban",
+    "lead": "Gui nhu cau ve khu vuc, ngan sach va muc dich mua/ban/cho thue. Chung toi se phan hoi voi huong loc san pham va cac buoc tiep theo.",
     "primaryCta": {
-      "label": "Lay bo skills mien phi",
-      "href": "https://github.com/Affitor/affiliate-skills"
+      "label": "Lien he tu van",
+      "href": "mailto:contact@thaochi-boutique.vn"
     },
     "secondaryCta": {
-      "label": "Xem danh muc skills",
-      "href": "https://list.affitor.com/skills"
+      "label": "Goi ngay",
+      "href": "tel:+84900000000"
     }
   },
   "footer": {
-    "text": "Built with Affiliate Skills by Affitor.",
-    "href": "https://github.com/Affitor/affiliate-skills"
+    "text": "Thao Chi Boutique Realty",
+    "label": "Tu van bat dong san chon loc",
+    "href": "https://thaochi-boutique.vercel.app"
   }
 }
