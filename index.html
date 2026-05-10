@@ -799,6 +799,26 @@
       .finally(() => {
         document.body.classList.add("cms-ready");
       });
+
+    (() => {
+      const key = "thaochi_visitor_id";
+      let visitorId = localStorage.getItem(key);
+      if (!visitorId) {
+        visitorId = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+        localStorage.setItem(key, visitorId);
+      }
+
+      fetch("/api/track", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          path: location.pathname,
+          referrer: document.referrer || "",
+          visitorId,
+        }),
+        keepalive: true,
+      }).catch(() => {});
+    })();
   </script>
 </body>
 </html>
