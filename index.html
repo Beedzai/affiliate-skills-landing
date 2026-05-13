@@ -283,6 +283,30 @@
       color: var(--muted);
     }
     footer a { color: var(--ink); font-weight: 850; }
+    .scroll-tools {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 30;
+      display: grid;
+      gap: 10px;
+    }
+    .scroll-tools button {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .72);
+      background: rgba(24, 21, 18, .88);
+      color: #fffdf9;
+      box-shadow: 0 12px 28px rgba(46, 31, 20, .22);
+      cursor: pointer;
+      font-size: 1.15rem;
+      font-weight: 950;
+      line-height: 1;
+    }
+    .scroll-tools button:hover {
+      background: var(--brand);
+    }
     @media (max-width: 980px) {
       .hero-grid, .product-grid, .benefit-grid, .faq-grid { grid-template-columns: 1fr 1fr; }
       .hero-grid { align-items: start; }
@@ -297,6 +321,14 @@
       .hero-media { min-height: 420px; }
       .button { width: 100%; }
       section { padding: 54px 0; }
+      .scroll-tools {
+        right: 12px;
+        bottom: 12px;
+      }
+      .scroll-tools button {
+        width: 42px;
+        height: 42px;
+      }
     }
   </style>
 </head>
@@ -379,6 +411,10 @@
     </section>
   </main>
   <footer>Thảo Chi Boutique <a href="https://thaochi-boutique.vercel.app">thaochi-boutique.vercel.app</a></footer>
+  <div class="scroll-tools" aria-label="Điều hướng nhanh">
+    <button type="button" data-scroll-target="top" aria-label="Lên đầu trang" title="Lên đầu trang">↑</button>
+    <button type="button" data-scroll-target="bottom" aria-label="Xuống cuối trang" title="Xuống cuối trang">↓</button>
+  </div>
   <script>
     const escapeHtml = (value = "") =>
       String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
@@ -480,6 +516,13 @@
       .then((payload) => renderSite(payload.data))
       .catch(() => {})
       .finally(() => document.body.classList.add("cms-ready"));
+
+    document.querySelectorAll("[data-scroll-target]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const top = button.dataset.scrollTarget === "top" ? 0 : document.documentElement.scrollHeight;
+        window.scrollTo({ top, behavior: "smooth" });
+      });
+    });
 
     (() => {
       const key = "thaochi_visitor_id";
