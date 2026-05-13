@@ -145,6 +145,18 @@
       border: 1px solid var(--line);
     }
     .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .upload-box {
+      display: grid;
+      gap: 8px;
+    }
+    .upload-box input[type="file"] {
+      padding: 9px;
+      background: #fff;
+    }
+    .upload-note {
+      color: var(--muted);
+      font-size: .86rem;
+    }
     .split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .score { display: grid; gap: 10px; }
     .score-bar { height: 12px; background: #e5e7eb; border-radius: 999px; overflow: hidden; }
@@ -342,6 +354,9 @@
       "Gia goc / gia cu": "Giá gốc / giá cũ",
       "Nhan": "Nhãn",
       "Link mua": "Link mua",
+      "Tải ảnh từ máy": "Tải ảnh từ máy",
+      "Chọn file ảnh": "Chọn file ảnh",
+      "Hỗ trợ JPG, PNG, WEBP, GIF. Tối đa 6MB. Upload xong URL ảnh sẽ tự điền vào ô bên dưới.": "Hỗ trợ JPG, PNG, WEBP, GIF. Tối đa 6MB. Upload xong URL ảnh sẽ tự điền vào ô bên dưới.",
       "Anh san pham URL": "Ảnh sản phẩm URL",
       "Mo ta ngan": "Mô tả ngắn",
       "Noi bat": "Nổi bật",
@@ -367,6 +382,8 @@
       "Khong tai duoc noi dung": "Không tải được nội dung",
       "Da tai tu Supabase - chua co thay doi": "Đã tải từ Supabase - chưa có thay đổi",
       "Dang luu...": "Đang lưu...",
+      "Đang tải ảnh lên...": "Đang tải ảnh lên...",
+      "Đã tải ảnh lên. Bấm Lưu thay đổi để cập nhật ra site.": "Đã tải ảnh lên. Bấm Lưu thay đổi để cập nhật ra site.",
       "Khong luu duoc": "Không lưu được",
       "Da luu nhung khong doc lai duoc": "Đã lưu nhưng không đọc lại được",
       "Da dang xuat": "Đã đăng xuất",
@@ -531,6 +548,11 @@
                   ${field("Gia goc / gia cu", `products.${index}.oldPrice`)}
                   ${field("Nhan", `products.${index}.badge`)}
                   ${field("Link mua", `products.${index}.buyUrl`)}
+                  <div class="field full upload-box">
+                    <label>Tải ảnh từ máy</label>
+                    <input type="file" accept="image/png,image/jpeg,image/webp,image/gif" data-upload-product="${index}">
+                    <span class="upload-note">Hỗ trợ JPG, PNG, WEBP, GIF. Tối đa 6MB. Upload xong URL ảnh sẽ tự điền vào ô bên dưới.</span>
+                  </div>
                   ${field("Anh san pham URL", `products.${index}.image`, "textarea")}
                   ${field("Mo ta ngan", `products.${index}.description`, "textarea")}
                   <div class="field"><label>Noi bat</label><select data-path="products.${index}.featured"><option value="true">Co</option><option value="false">Khong</option></select></div>
@@ -597,6 +619,54 @@
           if (path.endsWith(".featured")) value = value === "true";
           pathSet(path, value);
           if (state.active === "products" && path.includes(".image")) render();
+        });
+      });
+      content.querySelectorAll("[data-upload-product]").forEach((input) => {
+        input.addEventListener("change", async (event) => {
+          const file = event.target.files?.[0];
+          if (!file) return;
+          if (!file.type.startsWith("image/")) {
+            updateStatus("Vui lòng chọn file ảnh.", "error");
+            event.target.value = "";
+            return;
+          }
+          if (file.size > 6 * 1024 * 1024) {
+            updateStatus("File quá lớn. Vui lòng dùng ảnh tối đa 6MB.", "error");
+            event.target.value = "";
+            return;
+          }
+
+          const index = Number(event.target.dataset.uploadProduct);
+          const product = state.data.products[index];
+          updateStatus("Đang tải ảnh lên...");
+
+          try {
+            const dataUrl = await new Promise((resolve, reject) => {
+              const reader = new FileReader();
+              reader.onload = () => resolve(reader.result);
+              reader.onerror = reject;
+              reader.readAsDataURL(file);
+            });
+            const response = await fetch("/api/upload", {
+              method: "POST",
+              headers: { "content-type": "application/json" },
+              body: JSON.stringify({
+                filename: file.name,
+                productId: product?.id || `product-${index + 1}`,
+                dataUrl,
+              }),
+            });
+            const payload = await response.json();
+            if (!response.ok) throw new Error(payload.error || "Không tải ảnh lên được");
+
+            pathSet(`products.${index}.image`, payload.url);
+            updateStatus("Đã tải ảnh lên. Bấm Lưu thay đổi để cập nhật ra site.", "ok");
+            render();
+          } catch (error) {
+            updateStatus(error.message, "error");
+          } finally {
+            event.target.value = "";
+          }
         });
       });
       content.querySelectorAll("[data-add]").forEach((button) => {
