@@ -246,6 +246,30 @@
     .price { font-size: 1.18rem; font-weight: 950; color: var(--brand); }
     .old-price { color: #9b8d80; text-decoration: line-through; font-size: .95rem; }
     .product-body .button { width: 100%; }
+    .ad-wrap {
+      width: min(1180px, calc(100% - 32px));
+      margin: 18px auto;
+    }
+    .ad-wrap:empty {
+      display: none;
+    }
+    .ad-box {
+      min-height: 96px;
+      display: grid;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 249, .72);
+      padding: 10px;
+    }
+    .ad-label {
+      color: var(--muted);
+      font-size: .76rem;
+      font-weight: 750;
+      text-align: center;
+      text-transform: uppercase;
+    }
     .benefits {
       background: #211815;
       color: #fff8ed;
@@ -367,6 +391,7 @@
         </div>
       </div>
     </section>
+    <div class="ad-wrap" data-ad-position="top"></div>
     <section id="products">
       <div class="wrap">
         <div class="section-head">
@@ -379,6 +404,7 @@
         <div class="product-grid"></div>
       </div>
     </section>
+    <div class="ad-wrap" data-ad-position="middle"></div>
     <section class="benefits" id="benefits">
       <div class="wrap">
         <div class="section-head">
@@ -399,6 +425,7 @@
         <div class="faq-grid"></div>
       </div>
     </section>
+    <div class="ad-wrap" data-ad-position="bottom"></div>
     <section class="final" id="contact">
       <div class="wrap">
         <h2>Cần tư vấn chọn sản phẩm phù hợp?</h2>
@@ -463,6 +490,51 @@
       });
     };
 
+    const loadAdSense = (publisherId) => {
+      if (!publisherId || document.querySelector("script[data-adsense-script]")) return;
+      const script = document.createElement("script");
+      script.async = true;
+      script.crossOrigin = "anonymous";
+      script.dataset.adsenseScript = "true";
+      script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(publisherId)}`;
+      document.head.appendChild(script);
+    };
+
+    const renderAds = (ads = {}) => {
+      const enabled = Boolean(ads.enabled && ads.publisherId);
+      document.querySelectorAll("[data-ad-position]").forEach((node) => {
+        const slot = (ads.slots || []).find((item) => item.position === node.dataset.adPosition);
+        if (!enabled || !slot?.slotId || slot.enabled === false) {
+          node.innerHTML = "";
+          return;
+        }
+
+        node.innerHTML = `
+          <div class="ad-box">
+            <div class="ad-label">Quảng cáo</div>
+            <ins class="adsbygoogle"
+              style="display:block"
+              data-ad-client="${escapeHtml(ads.publisherId)}"
+              data-ad-slot="${escapeHtml(slot.slotId)}"
+              data-ad-format="${escapeHtml(slot.format || "auto")}"
+              data-full-width-responsive="true"></ins>
+          </div>
+        `;
+      });
+
+      if (!enabled) return;
+      loadAdSense(ads.publisherId);
+      setTimeout(() => {
+        document.querySelectorAll(".adsbygoogle").forEach((node) => {
+          if (node.dataset.loaded) return;
+          node.dataset.loaded = "true";
+          try {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (error) {}
+        });
+      }, 300);
+    };
+
     const renderSite = (data) => {
       if (!data || typeof data !== "object") return;
       cmsData = data;
@@ -509,6 +581,7 @@
       if (footer && data.footer) {
         footer.innerHTML = `${escapeHtml(data.footer.text || "")} <a href="${escapeHtml(data.footer.href || "#")}" target="_blank" rel="noopener">${escapeHtml(data.footer.label || "")}</a>`;
       }
+      renderAds(data.ads);
     };
 
     fetch(`/api/content?ts=${Date.now()}`, { cache: "no-store" })
