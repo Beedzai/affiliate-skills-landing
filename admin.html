@@ -278,6 +278,16 @@
       categories: [{ id: "fashion", label: "Thời trang" }, { id: "bags", label: "Túi xách" }, { id: "accessories", label: "Phụ kiện" }, { id: "gifts", label: "Quà tặng" }],
       products: [],
       benefits: [],
+      ads: {
+        enabled: false,
+        publisherId: "",
+        note: "Chỉ bật sau khi website đã được Google AdSense phê duyệt. Không đặt quảng cáo gây nhầm lẫn với nút mua hoặc ép người dùng click.",
+        slots: [
+          { position: "top", label: "Sau hero", slotId: "", format: "auto", enabled: true },
+          { position: "middle", label: "Sau danh mục sản phẩm", slotId: "", format: "auto", enabled: true },
+          { position: "bottom", label: "Trước CTA cuối trang", slotId: "", format: "auto", enabled: true },
+        ],
+      },
       faqIntro: { title: "Cau hoi thuong gap", text: "" },
       faq: [],
       final: { title: "Can tu van chon san pham phu hop?", lead: "", primaryCta: { label: "Chat Zalo", href: "https://zalo.me/0900000000" }, secondaryCta: { label: "Gui email", href: "mailto:contact@thaochi-boutique.vn" } },
@@ -300,6 +310,7 @@
       ["hero", "Hero", "Thong diep dau trang, anh hero va CTA chinh."],
       ["categories", "Danh muc", "Tao tab mat hang va ID de gan cho san pham."],
       ["products", "San pham", "Them moi, sua gia, anh, mo ta va link mua tung san pham."],
+      ["ads", "Quảng cáo", "Cấu hình Google AdSense theo vị trí hiển thị hợp lệ."],
       ["benefits", "Loi ich", "Cac ly do mua hang hien o khoi dich vu."],
       ["faq", "FAQ", "Cau hoi thuong gap."],
       ["final", "Lien he & footer", "CTA cuoi trang va thong tin footer."],
@@ -462,6 +473,11 @@
         categories: Array.isArray(incoming.categories) ? incoming.categories : base.categories,
         products: Array.isArray(incoming.products) ? incoming.products : [],
         benefits: Array.isArray(incoming.benefits) ? incoming.benefits : [],
+        ads: {
+          ...base.ads,
+          ...(incoming.ads || {}),
+          slots: Array.isArray(incoming.ads?.slots) ? incoming.ads.slots : base.ads.slots,
+        },
         faqIntro: { ...base.faqIntro, ...(incoming.faqIntro || {}) },
         faq: Array.isArray(incoming.faq) ? incoming.faq : [],
       };
@@ -610,6 +626,55 @@
       });
     };
 
+    const renderAds = () => {
+      const ads = state.data.ads || {};
+      const slots = ads.slots || [];
+      content.innerHTML = panel("Google AdSense", "Nhập Publisher ID và các Ad Slot ID do Google AdSense cấp. Chỉ bật sau khi site đã được phê duyệt.", `
+        <div class="grid">
+          <div class="field">
+            <label>Trạng thái quảng cáo</label>
+            <select data-path="ads.enabled">
+              <option value="false">Tắt</option>
+              <option value="true">Bật</option>
+            </select>
+          </div>
+          ${field("Publisher ID", "ads.publisherId")}
+          ${field("Ghi chú chính sách", "ads.note", "textarea")}
+        </div>
+      `) + panel("Vị trí quảng cáo", "Các vị trí này được đặt tách khỏi nút mua để giảm rủi ro click nhầm và giữ trải nghiệm sạch.", `
+        <div class="list">
+          ${slots.map((slot, index) => `
+            <div class="item">
+              <div class="item-head"><span>${escapeHtml(slot.label || slot.position)} (${escapeHtml(slot.position)})</span></div>
+              <div class="grid">
+                ${field("Tên vị trí", `ads.slots.${index}.label`)}
+                <div class="field">
+                  <label>Bật vị trí</label>
+                  <select data-path="ads.slots.${index}.enabled">
+                    <option value="true">Bật</option>
+                    <option value="false">Tắt</option>
+                  </select>
+                </div>
+                ${field("Ad Slot ID", `ads.slots.${index}.slotId`)}
+                ${field("Định dạng", `ads.slots.${index}.format`)}
+                <div class="field full">
+                  <label>Vị trí kỹ thuật</label>
+                  <input value="${escapeHtml(slot.position)}" readonly>
+                </div>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      `);
+
+      const enabled = content.querySelector('select[data-path="ads.enabled"]');
+      if (enabled) enabled.value = String(Boolean(ads.enabled));
+      slots.forEach((slot, index) => {
+        const select = content.querySelector(`select[data-path="ads.slots.${index}.enabled"]`);
+        if (select) select.value = String(slot.enabled !== false);
+      });
+    };
+
     const renderBenefits = () => listEditor("Loi ich", "Cac card giai thich ly do khach nen mua hang.", "benefits", [["Tieu de", "title"], ["Mo ta", "text", "textarea"]]);
     const renderFaq = () => {
       content.innerHTML = panel("FAQ intro", "Tieu de va mo ta cho khoi FAQ.", `<div class="grid">${field("Tieu de", "faqIntro.title")}${field("Mo ta", "faqIntro.text", "textarea")}</div>`) + listEditor("FAQ", "Quan ly cau hoi va cau tra loi.", "faq", [["Cau hoi", "title"], ["Tra loi", "text", "textarea"]]);
@@ -636,7 +701,7 @@
       $("#sectionTitle").textContent = active[1];
       $("#sectionHint").textContent = active[2];
       $("#nav").innerHTML = sections.map(([id, label]) => `<button class="${id === state.active ? "active" : ""}" data-section="${id}">${escapeHtml(label)}</button>`).join("");
-      const map = { overview: renderOverview, analytics: renderAnalytics, seo: renderSeo, hero: renderHero, categories: renderCategories, products: renderProducts, benefits: renderBenefits, faq: renderFaq, final: renderFinal, json: renderJson };
+      const map = { overview: renderOverview, analytics: renderAnalytics, seo: renderSeo, hero: renderHero, categories: renderCategories, products: renderProducts, ads: renderAds, benefits: renderBenefits, faq: renderFaq, final: renderFinal, json: renderJson };
       map[state.active]();
       bindInputs();
       translateVietnameseUi(document.body);
@@ -654,7 +719,7 @@
         input.addEventListener("input", (event) => {
           const path = event.target.dataset.path;
           let value = event.target.value;
-          if (path.endsWith(".featured")) value = value === "true";
+          if (path.endsWith(".featured") || path.endsWith(".enabled")) value = value === "true";
           pathSet(path, value);
           if (state.active === "products" && path.includes(".image")) render();
         });
@@ -742,7 +807,7 @@
       if (!state.data || state.active === "json") return;
       content.querySelectorAll("[data-path]").forEach((input) => {
         let value = input.value;
-        if (input.dataset.path.endsWith(".featured")) value = value === "true";
+        if (input.dataset.path.endsWith(".featured") || input.dataset.path.endsWith(".enabled")) value = value === "true";
         pathSet(input.dataset.path, value);
       });
     };
