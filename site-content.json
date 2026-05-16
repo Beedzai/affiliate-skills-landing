@@ -126,6 +126,34 @@
       "text": "Từng ảnh sản phẩm có nút mua riêng, có thể gắn link Shopee, Zalo, Facebook, TikTok Shop hoặc form đặt hàng."
     }
   ],
+  "ads": {
+    "enabled": false,
+    "publisherId": "",
+    "note": "Chỉ bật sau khi website đã được Google AdSense phê duyệt. Không đặt quảng cáo gây nhầm lẫn với nút mua hoặc ép người dùng click.",
+    "slots": [
+      {
+        "position": "top",
+        "label": "Sau hero",
+        "slotId": "",
+        "format": "auto",
+        "enabled": true
+      },
+      {
+        "position": "middle",
+        "label": "Sau danh mục sản phẩm",
+        "slotId": "",
+        "format": "auto",
+        "enabled": true
+      },
+      {
+        "position": "bottom",
+        "label": "Trước CTA cuối trang",
+        "slotId": "",
+        "format": "auto",
+        "enabled": true
+      }
+    ]
+  },
   "faqIntro": {
     "title": "Câu hỏi thường gặp",
     "text": "Những thông tin khách hàng hay cần biết trước khi đặt mua sản phẩm."
